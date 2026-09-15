@@ -1,684 +1,1049 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================
+     TAVYA BLOOD NETWORK
+     REUSABLE LOGO COMPONENT
 
-<title>TAVYA Blood Network</title>
+     FILE NAME:
+     logo.html
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+     USE:
+     <div id="tavya-logo"></div>
+
+     Then:
+     <script>
+     fetch("logo.html")
+       .then(r => r.text())
+       .then(html => {
+           document.getElementById("tavya-logo").innerHTML = html;
+       });
+     </script>
+
+     IMPORTANT:
+     - Transparent background
+     - Colours are hard-coded inside SVG
+     - Safe for dark/light pages
+     - No external logo image required
+     - Main heart is PURE WHITE
+     - Left hand = BLUE
+     - Right hand = RED
+     - TAVYA = BLUE
+     - Blood Network = RED
+     ============================================================ -->
+
 
 <style>
-* {
-    box-sizing: border-box;
-}
 
-html,
-body {
-    margin: 0;
-    padding: 0;
+/* ============================================================
+   TAVYA LOGO CONTAINER
+   ============================================================ */
+
+#tavya-logo {
     width: 100%;
-    min-height: 100%;
-}
-
-body {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #ffffff;
-    overflow: hidden;
-}
 
-.logo-wrapper {
-    width: min(96vw, 760px);
-    cursor: pointer;
+    background: transparent !important;
+
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
 }
 
-.tavya-logo {
+
+/* ============================================================
+   SVG
+   ============================================================ */
+
+#tavya-logo .tavya-logo {
     display: block;
-    width: 100%;
-    height: auto;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    overflow: visible;
+
+    cursor: pointer;
+
+    /*
+       Prevent website-wide SVG rules from changing
+       the logo dimensions.
+    */
+    box-sizing: border-box;
 }
 
-/* =========================================================
-   COLORS
-   ========================================================= */
 
-.left-hand,
-.right-hand,
-.blood-drop,
-.letter-drop,
-.middle-drop {
-    stroke: none;
+/* ============================================================
+   IMPORTANT:
+   Prevent parent page styles from making SVG elements black.
+   Every important element also has a direct SVG fill.
+   ============================================================ */
+
+#tavya-logo .tavya-blue {
+    fill: #0877B9 !important;
 }
 
-.tavya-word {
-    fill: #123d72;
+#tavya-logo .tavya-red {
+    fill: #E21B23 !important;
 }
 
-.network-text {
-    fill: #df1722;
-    letter-spacing: 2px;
+#tavya-logo .tavya-white {
+    fill: #FFFFFF !important;
 }
 
-.subtitle {
-    fill: #444444;
-    letter-spacing: 1px;
+#tavya-logo .tavya-dark-blue {
+    fill: #07517F !important;
 }
 
-.tagline {
-    fill: #df1722;
+#tavya-logo .tavya-gray {
+    fill: #6B7280 !important;
 }
 
-.footer-text {
-    fill: #777777;
-    letter-spacing: 1.8px;
-}
 
-.hand-highlight {
-    fill: none;
-    stroke: rgba(255,255,255,0.30);
-    stroke-width: 5;
-    stroke-linecap: round;
-}
+/* ============================================================
+   ARC
+   ============================================================ */
 
-.outer-arc {
-    fill: none;
-    stroke: #df1722;
-    stroke-width: 9;
-    stroke-linecap: round;
-}
-
-.drop-highlight {
-    fill: none;
-    stroke: rgba(255,255,255,0.42);
+#tavya-logo .outer-arc {
+    fill: none !important;
+    stroke: #E21B23 !important;
     stroke-width: 8;
     stroke-linecap: round;
 }
 
-.heart {
-    fill: #ffffff !important;
-}
 
-.middle-line,
-.middle-connection {
-    fill: none;
-    stroke: #df1722;
+/* ============================================================
+   HAND HIGHLIGHTS
+   ============================================================ */
+
+#tavya-logo .hand-highlight {
+    fill: none !important;
+    stroke: rgba(255,255,255,0.38) !important;
+    stroke-width: 5;
     stroke-linecap: round;
 }
 
-.middle-line {
+
+/* ============================================================
+   DROP HIGHLIGHT
+   ============================================================ */
+
+#tavya-logo .drop-highlight {
+    fill: none !important;
+    stroke: rgba(255,255,255,0.40) !important;
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+
+/* ============================================================
+   TEXT
+   ============================================================ */
+
+#tavya-logo .network-text {
+    fill: #E21B23 !important;
+}
+
+#tavya-logo .subtitle {
+    fill: #6B7280 !important;
+}
+
+#tavya-logo .tagline {
+    fill: #E21B23 !important;
+}
+
+#tavya-logo .footer-text {
+    fill: #7B8490 !important;
+}
+
+
+/* ============================================================
+   DARK PAGE VERSION
+
+   Add:
+
+   <div id="tavya-logo" class="dark-background">
+
+   if the page background is dark.
+   ============================================================ */
+
+#tavya-logo.dark-background .tavya-dark-blue {
+    fill: #49A7DF !important;
+}
+
+#tavya-logo.dark-background .subtitle {
+    fill: rgba(255,255,255,0.82) !important;
+}
+
+#tavya-logo.dark-background .footer-text {
+    fill: rgba(255,255,255,0.48) !important;
+}
+
+
+/* ============================================================
+   MIDDLE DESIGN
+   ============================================================ */
+
+#tavya-logo .middle-line {
+    fill: none !important;
+    stroke: #E21B23 !important;
     stroke-width: 3;
+    stroke-linecap: round;
 }
 
-.middle-connection {
+#tavya-logo .middle-connection {
+    fill: none !important;
+    stroke: #E21B23 !important;
     stroke-width: 2;
-    opacity: 0.65;
+    stroke-linecap: round;
 }
 
-.middle-node {
-    fill: #df1722;
+#tavya-logo .middle-node {
+    fill: #E21B23 !important;
 }
 
-.middle-heart {
-    fill: #df1722;
+#tavya-logo .middle-drop {
+    fill: #E21B23 !important;
 }
 
-.middle-drop {
-    fill: #df1722;
+#tavya-logo .middle-heart {
+    fill: #E21B23 !important;
 }
 
-/* =========================================================
-   GRADIENTS
-   ========================================================= */
 
-#blueHandGradient stop:first-child {
-    stop-color: #1d6fba;
-}
+/* ============================================================
+   INITIAL ANIMATION
+   ============================================================ */
 
-#blueHandGradient stop:last-child {
-    stop-color: #0c3d78;
-}
-
-#redHandGradient stop:first-child {
-    stop-color: #f2343d;
-}
-
-#redHandGradient stop:last-child {
-    stop-color: #bd0712;
-}
-
-#bloodGradient stop:first-child {
-    stop-color: #f22932;
-}
-
-#bloodGradient stop:last-child {
-    stop-color: #b80712;
-}
-
-/* =========================================================
-   INITIAL STATES
-   ========================================================= */
-
-.outer-arc {
+#tavya-logo .outer-arc {
     opacity: 0;
+
     stroke-dasharray: 1800;
     stroke-dashoffset: 1800;
-    animation: arcDraw 1.3s ease 0.05s forwards;
-}
 
-.left-hand {
-    opacity: 0;
-    transform-origin: center;
     animation:
-        handAppearLeft 0.95s cubic-bezier(.2,.8,.2,1) 0.35s forwards;
+        tavyaArcDraw
+        1.25s
+        ease
+        0.05s
+        forwards;
 }
 
-.right-hand {
+
+#tavya-logo .left-hand {
     opacity: 0;
+
     transform-origin: center;
+
     animation:
-        handAppearRight 0.95s cubic-bezier(.2,.8,.2,1) 0.35s forwards;
+        tavyaLeftHand
+        0.9s
+        cubic-bezier(.2,.8,.2,1)
+        0.25s
+        forwards;
 }
 
-.hand-highlight {
+
+#tavya-logo .right-hand {
     opacity: 0;
+
+    transform-origin: center;
+
+    animation:
+        tavyaRightHand
+        0.9s
+        cubic-bezier(.2,.8,.2,1)
+        0.25s
+        forwards;
+}
+
+
+#tavya-logo .hand-highlight {
+    opacity: 0;
+
     stroke-dasharray: 300;
     stroke-dashoffset: 300;
+
     animation:
-        highlightDraw 0.8s ease 0.95s forwards;
+        tavyaHighlight
+        0.75s
+        ease
+        0.85s
+        forwards;
 }
 
-.blood-drop {
+
+#tavya-logo .blood-drop {
     opacity: 0;
+
     transform-box: fill-box;
     transform-origin: center;
+
     animation:
-        dropAppear 0.9s cubic-bezier(.2,.8,.2,1) 0.75s forwards,
-        dropFloat 3s ease-in-out 1.8s infinite;
+        tavyaDropAppear
+        0.85s
+        cubic-bezier(.2,.8,.2,1)
+        0.65s
+        forwards,
+
+        tavyaDropFloat
+        3.2s
+        ease-in-out
+        1.8s
+        infinite;
 }
 
-.drop-highlight {
+
+#tavya-logo .drop-highlight {
     opacity: 0;
+
     stroke-dasharray: 180;
     stroke-dashoffset: 180;
+
     animation:
-        highlightDrop 0.7s ease 1.25s forwards;
+        tavyaDropHighlight
+        0.7s
+        ease
+        1.1s
+        forwards;
 }
 
-.heart {
+
+#tavya-logo .heart {
     opacity: 0;
+
     transform-box: fill-box;
     transform-origin: center;
+
     animation:
-        heartAppear 0.7s ease 1.45s forwards,
-        mainHeartBeat 2.6s ease-in-out 2.5s infinite;
+        tavyaHeartAppear
+        0.7s
+        ease
+        1.25s
+        forwards,
+
+        tavyaMainHeartBeat
+        2.7s
+        ease-in-out
+        2.3s
+        infinite;
 }
 
-.tavya-word {
+
+#tavya-logo .tavya-word {
     opacity: 0;
+
     animation:
-        wordAppear 0.65s ease 1.75s forwards;
+        tavyaWordAppear
+        0.7s
+        ease
+        1.65s
+        forwards;
 }
 
-.letter-drop {
+
+#tavya-logo .letter-drop {
     opacity: 0;
+
     transform-box: fill-box;
     transform-origin: center;
+
     animation:
-        letterDropAppear 0.55s ease 2.05s forwards,
-        letterDropPulse 2.4s ease-in-out 2.8s infinite;
+        tavyaLetterDropAppear
+        0.55s
+        ease
+        2s
+        forwards,
+
+        tavyaLetterDropPulse
+        2.6s
+        ease-in-out
+        2.8s
+        infinite;
 }
 
-.network-text {
+
+#tavya-logo .network-text {
     opacity: 0;
+
     animation:
-        textAppear 0.65s ease 2.25s forwards;
+        tavyaTextAppear
+        0.6s
+        ease
+        2.25s
+        forwards;
 }
 
-.subtitle {
+
+#tavya-logo .subtitle {
     opacity: 0;
+
     animation:
-        textAppear 0.65s ease 2.45s forwards;
+        tavyaTextAppear
+        0.6s
+        ease
+        2.45s
+        forwards;
 }
 
-.tagline {
+
+#tavya-logo .tagline {
     opacity: 0;
+
     animation:
-        taglineAppear 0.8s ease 2.75s forwards;
+        tavyaTagline
+        0.75s
+        ease
+        2.7s
+        forwards;
 }
 
-.middle-design {
-    opacity: 1;
-}
 
-.middle-line,
-.middle-connection,
-.middle-node {
+#tavya-logo .middle-line {
     opacity: 0;
-}
 
-.middle-line {
     animation:
-        middleLineAppear 0.6s ease 3.15s forwards;
+        tavyaMiddleLine
+        0.6s
+        ease
+        3.1s
+        forwards;
 }
 
-.middle-connection {
-    animation:
-        middleConnectionAppear 0.6s ease 3.25s forwards;
-}
 
-.middle-node {
-    animation:
-        middleNodeAppear 0.5s ease 3.3s forwards;
-}
-
-.middle-drop {
+#tavya-logo .middle-connection {
     opacity: 0;
+
+    animation:
+        tavyaMiddleConnection
+        0.6s
+        ease
+        3.2s
+        forwards;
+}
+
+
+#tavya-logo .middle-node {
+    opacity: 0;
+
+    animation:
+        tavyaMiddleNode
+        0.5s
+        ease
+        3.25s
+        forwards;
+}
+
+
+#tavya-logo .middle-drop {
+    opacity: 0;
+
     transform-box: fill-box;
     transform-origin: center;
+
     animation:
-        middleDropAppear 0.6s ease 3.45s forwards,
-        middleDropPulse 2.2s ease-in-out 4.3s infinite;
+        tavyaMiddleDrop
+        0.6s
+        ease
+        3.35s
+        forwards,
+
+        tavyaMiddleDropPulse
+        2.2s
+        ease-in-out
+        4s
+        infinite;
 }
 
-.middle-heart {
+
+#tavya-logo .middle-heart {
     opacity: 0;
+
     transform-box: fill-box;
     transform-origin: center;
+
     animation:
-        middleHeartAppear 0.7s ease 3.55s forwards,
-        middleHeartBeat 2.2s ease-in-out 4.3s infinite;
+        tavyaMiddleHeart
+        0.65s
+        ease
+        3.45s
+        forwards,
+
+        tavyaMiddleHeartBeat
+        2.2s
+        ease-in-out
+        4.1s
+        infinite;
 }
 
-.footer-text {
+
+#tavya-logo .footer-text {
     opacity: 0;
+
     animation:
-        textAppear 0.6s ease 3.8s forwards;
+        tavyaTextAppear
+        0.6s
+        ease
+        3.7s
+        forwards;
 }
 
-/* =========================================================
+
+/* ============================================================
    ANIMATIONS
-   ========================================================= */
+   ============================================================ */
 
-@keyframes arcDraw {
+@keyframes tavyaArcDraw {
+
     0% {
         opacity: 0;
         stroke-dashoffset: 1800;
     }
+
     100% {
         opacity: 1;
         stroke-dashoffset: 0;
     }
+
 }
 
-@keyframes handAppearLeft {
+
+@keyframes tavyaLeftHand {
+
     0% {
         opacity: 0;
-        transform: translateX(-45px) translateY(25px) scale(0.96);
+        transform:
+            translateX(-35px)
+            translateY(20px)
+            scale(.97);
     }
+
     70% {
         opacity: 1;
     }
+
     100% {
         opacity: 1;
-        transform: translateX(0) translateY(0) scale(1);
+        transform:
+            translateX(0)
+            translateY(0)
+            scale(1);
     }
+
 }
 
-@keyframes handAppearRight {
+
+@keyframes tavyaRightHand {
+
     0% {
         opacity: 0;
-        transform: translateX(45px) translateY(25px) scale(0.96);
+        transform:
+            translateX(35px)
+            translateY(20px)
+            scale(.97);
     }
+
     70% {
         opacity: 1;
     }
+
     100% {
         opacity: 1;
-        transform: translateX(0) translateY(0) scale(1);
+        transform:
+            translateX(0)
+            translateY(0)
+            scale(1);
     }
+
 }
 
-@keyframes highlightDraw {
+
+@keyframes tavyaHighlight {
+
     0% {
         opacity: 0;
         stroke-dashoffset: 300;
     }
+
     100% {
         opacity: 1;
         stroke-dashoffset: 0;
     }
+
 }
 
-@keyframes dropAppear {
+
+@keyframes tavyaDropAppear {
+
     0% {
         opacity: 0;
-        transform: translateY(-25px) scale(0.8);
+        transform:
+            translateY(-25px)
+            scale(.78);
     }
+
     70% {
         opacity: 1;
-        transform: translateY(4px) scale(1.03);
+        transform:
+            translateY(3px)
+            scale(1.03);
     }
+
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
+
 }
 
-@keyframes dropFloat {
+
+@keyframes tavyaDropFloat {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-4px);
     }
+
 }
 
-@keyframes highlightDrop {
+
+@keyframes tavyaDropHighlight {
+
     0% {
         opacity: 0;
         stroke-dashoffset: 180;
     }
+
     100% {
         opacity: 1;
         stroke-dashoffset: 0;
     }
+
 }
 
-@keyframes heartAppear {
+
+@keyframes tavyaHeartAppear {
+
     0% {
         opacity: 0;
-        transform: scale(0.4);
+        transform: scale(.35);
     }
+
     65% {
         opacity: 1;
         transform: scale(1.12);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
     }
+
 }
 
-@keyframes mainHeartBeat {
+
+@keyframes tavyaMainHeartBeat {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     10% {
         transform: scale(1.07);
     }
+
     20% {
         transform: scale(1);
     }
+
     30% {
         transform: scale(1.05);
     }
+
     40% {
         transform: scale(1);
     }
+
 }
 
-@keyframes wordAppear {
+
+@keyframes tavyaWordAppear {
+
     0% {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(15px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
-@keyframes letterDropAppear {
+
+@keyframes tavyaLetterDropAppear {
+
     0% {
         opacity: 0;
-        transform: translateY(-10px) scale(0.65);
+        transform:
+            translateY(-8px)
+            scale(.65);
     }
+
     70% {
         opacity: 1;
-        transform: translateY(2px) scale(1.05);
+        transform:
+            translateY(2px)
+            scale(1.05);
     }
+
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
+
 }
 
-@keyframes letterDropPulse {
+
+@keyframes tavyaLetterDropPulse {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     50% {
-        transform: scale(1.07);
+        transform: scale(1.06);
     }
+
 }
 
-@keyframes textAppear {
+
+@keyframes tavyaTextAppear {
+
     0% {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(9px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
-@keyframes taglineAppear {
+
+@keyframes tavyaTagline {
+
     0% {
         opacity: 0;
-        transform: translateY(15px) scale(0.96);
+        transform:
+            translateY(12px)
+            scale(.97);
     }
+
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
+
 }
 
-@keyframes middleLineAppear {
+
+@keyframes tavyaMiddleLine {
+
     0% {
         opacity: 0;
         transform: scaleX(0);
     }
+
     100% {
         opacity: 1;
         transform: scaleX(1);
     }
+
 }
 
-@keyframes middleConnectionAppear {
+
+@keyframes tavyaMiddleConnection {
+
     0% {
         opacity: 0;
         stroke-dasharray: 60;
         stroke-dashoffset: 60;
     }
+
     100% {
-        opacity: 0.65;
+        opacity: .65;
         stroke-dasharray: 60;
         stroke-dashoffset: 0;
     }
+
 }
 
-@keyframes middleNodeAppear {
+
+@keyframes tavyaMiddleNode {
+
     0% {
         opacity: 0;
         transform: scale(0);
     }
+
     70% {
         opacity: 1;
-        transform: scale(1.3);
+        transform: scale(1.25);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
     }
+
 }
 
-@keyframes middleDropAppear {
+
+@keyframes tavyaMiddleDrop {
+
     0% {
         opacity: 0;
-        transform: translateY(-8px) scale(0.5);
+        transform: scale(.5);
     }
+
     70% {
         opacity: 1;
-        transform: translateY(2px) scale(1.08);
+        transform: scale(1.08);
     }
+
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: scale(1);
     }
+
 }
 
-@keyframes middleDropPulse {
+
+@keyframes tavyaMiddleDropPulse {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     50% {
+        transform: scale(1.10);
+    }
+
+}
+
+
+@keyframes tavyaMiddleHeart {
+
+    0% {
+        opacity: 0;
+        transform: scale(.3);
+    }
+
+    70% {
+        opacity: 1;
         transform: scale(1.12);
     }
-}
 
-@keyframes middleHeartAppear {
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
-    }
-    70% {
-        opacity: 1;
-        transform: scale(1.15);
-    }
     100% {
         opacity: 1;
         transform: scale(1);
     }
+
 }
 
-@keyframes middleHeartBeat {
+
+@keyframes tavyaMiddleHeartBeat {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     10% {
         transform: scale(1.18);
     }
+
     20% {
         transform: scale(1);
     }
+
     30% {
         transform: scale(1.12);
     }
+
     40% {
         transform: scale(1);
     }
+
 }
 
-/* =========================================================
-   SVG
-   ========================================================= */
 
-svg {
-    overflow: visible;
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
+/* ============================================================
+   SMALL SCREENS
+   ============================================================ */
 
 @media (max-width: 600px) {
 
-    .logo-wrapper {
-        width: 98vw;
+    #tavya-logo {
+        max-width: 430px;
     }
 
 }
+
 </style>
-</head>
 
-<body>
 
-<div class="logo-wrapper" title="Click to replay animation">
+<!-- ============================================================
+     SVG
+     ============================================================ -->
 
 <svg
     class="tavya-logo"
     viewBox="0 0 1254 1290"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label="TAVYA Blood Network logo"
     role="img"
+    aria-label="TAVYA Blood Network"
 >
+
 
 <defs>
 
-    <!-- BLUE HAND -->
+
+    <!-- ========================================================
+         BLUE HAND GRADIENT
+         ======================================================== -->
+
     <linearGradient
-        id="blueHandGradient"
+        id="tavyaLogoBlueGradient"
         x1="0"
         y1="0"
         x2="1"
         y2="1"
     >
-        <stop offset="0%" stop-color="#1d6fba"/>
-        <stop offset="100%" stop-color="#0c3d78"/>
+
+        <stop
+            offset="0%"
+            stop-color="#1D8BD1"
+        />
+
+        <stop
+            offset="100%"
+            stop-color="#07517F"
+        />
+
     </linearGradient>
 
-    <!-- RED HAND -->
+
+    <!-- ========================================================
+         RED HAND GRADIENT
+         ======================================================== -->
+
     <linearGradient
-        id="redHandGradient"
+        id="tavyaLogoRedGradient"
         x1="0"
         y1="0"
         x2="1"
         y2="1"
     >
-        <stop offset="0%" stop-color="#f2343d"/>
-        <stop offset="100%" stop-color="#bd0712"/>
+
+        <stop
+            offset="0%"
+            stop-color="#F3343D"
+        />
+
+        <stop
+            offset="100%"
+            stop-color="#C50713"
+        />
+
     </linearGradient>
 
-    <!-- BLOOD -->
+
+    <!-- ========================================================
+         BLOOD GRADIENT
+         ======================================================== -->
+
     <linearGradient
-        id="bloodGradient"
+        id="tavyaLogoBloodGradient"
         x1="0"
         y1="0"
         x2="0"
         y2="1"
     >
-        <stop offset="0%" stop-color="#f22932"/>
-        <stop offset="100%" stop-color="#b80712"/>
+
+        <stop
+            offset="0%"
+            stop-color="#F52D36"
+        />
+
+        <stop
+            offset="100%"
+            stop-color="#B70712"
+        />
+
     </linearGradient>
 
-    <!-- DROP SHADOW -->
+
+    <!-- ========================================================
+         DROP SHADOW
+         ======================================================== -->
+
     <filter
-        id="dropShadow"
+        id="tavyaLogoShadow"
         x="-30%"
         y="-30%"
         width="160%"
         height="170%"
     >
+
         <feDropShadow
             dx="0"
-            dy="8"
-            stdDeviation="10"
-            flood-color="#8c0010"
-            flood-opacity="0.22"
+            dy="7"
+            stdDeviation="8"
+            flood-color="#75000B"
+            flood-opacity=".20"
         />
+
     </filter>
+
 
 </defs>
 
 
-<!-- =====================================================
+<!-- ============================================================
      OUTER RED ARC
-     ===================================================== -->
+     ============================================================ -->
 
 <path
     class="outer-arc"
+    fill="none"
+    stroke="#E21B23"
     d="
         M250 455
         A380 380 0 0 1 1004 455
@@ -686,15 +1051,16 @@ svg {
 />
 
 
-<!-- =====================================================
-     LEFT HELPING HAND
-     ===================================================== -->
+<!-- ============================================================
+     LEFT BLUE HELPING HAND
+     ============================================================ -->
 
 <path
     class="left-hand"
-    fill="url(#blueHandGradient)"
+    fill="url(#tavyaLogoBlueGradient)"
     d="
         M306 344
+
         L303 348
         L309 398
         L324 464
@@ -704,10 +1070,12 @@ svg {
         L395 583
         L421 601
         L449 616
+
         L528 650
         L562 670
         L589 693
         L615 728
+
         L615 656
         L612 638
         L603 610
@@ -716,17 +1084,21 @@ svg {
         L560 553
         L541 539
         L516 526
+
         L460 506
         L431 486
         L398 451
+
         L390 447
         L379 447
         L374 452
         L374 462
+
         L386 488
         L410 521
         L448 558
         L446 559
+
         L435 554
         L414 540
         L400 527
@@ -734,27 +1106,31 @@ svg {
         L367 474
         L363 461
         L365 441
+
         L342 370
         L325 349
         L315 344
+
         Z
     "
 />
 
 
-<!-- =====================================================
-     RIGHT HELPING HAND
-     ===================================================== -->
+<!-- ============================================================
+     RIGHT RED HELPING HAND
+     ============================================================ -->
 
 <path
     class="right-hand"
-    fill="url(#redHandGradient)"
+    fill="url(#tavyaLogoRedGradient)"
     d="
         M947 346
+
         L940 345
         L928 350
         L913 367
         L906 382
+
         L887 444
         L890 460
         L884 479
@@ -762,6 +1138,7 @@ svg {
         L837 543
         L819 555
         L804 561
+
         L846 519
         L864 494
         L879 462
@@ -769,6 +1146,7 @@ svg {
         L873 449
         L863 449
         L853 454
+
         L820 489
         L794 507
         L736 528
@@ -779,6 +1157,7 @@ svg {
         L639 638
         L636 658
         L636 728
+
         L656 700
         L687 672
         L727 650
@@ -791,17 +1170,20 @@ svg {
         L945 389
         L949 360
         L949 348
+
         Z
     "
 />
 
 
-<!-- =====================================================
-     HAND HIGHLIGHTS
-     ===================================================== -->
+<!-- ============================================================
+     LEFT HAND HIGHLIGHT
+     ============================================================ -->
 
 <path
     class="hand-highlight"
+    fill="none"
+    stroke="rgba(255,255,255,.38)"
     d="
         M348 389
         C355 420 361 452 374 474
@@ -810,8 +1192,15 @@ svg {
     "
 />
 
+
+<!-- ============================================================
+     RIGHT HAND HIGHLIGHT
+     ============================================================ -->
+
 <path
     class="hand-highlight"
+    fill="none"
+    stroke="rgba(255,255,255,.38)"
     d="
         M906 389
         C899 420 893 452 880 474
@@ -821,242 +1210,341 @@ svg {
 />
 
 
-<!-- =====================================================
-     CENTRAL BLOOD DROP
-     ===================================================== -->
+<!-- ============================================================
+     MAIN RED BLOOD DROP
+     ============================================================ -->
 
 <path
     class="blood-drop"
-    fill="url(#bloodGradient)"
-    filter="url(#dropShadow)"
+    fill="url(#tavyaLogoBloodGradient)"
+    filter="url(#tavyaLogoShadow)"
     d="
         M627 132
-        C627 132 487 315 487 410
-        C487 492 543 546 627 546
-        C711 546 767 492 767 410
-        C767 315 627 132 627 132
+
+        C627 132
+        487 315
+        487 410
+
+        C487 492
+        543 546
+        627 546
+
+        C711 546
+        767 492
+        767 410
+
+        C767 315
+        627 132
+        627 132
+
         Z
     "
 />
 
 
-<!-- =====================================================
-     BLOOD DROP HIGHLIGHT
-     ===================================================== -->
+<!-- ============================================================
+     DROP HIGHLIGHT
+     ============================================================ -->
 
 <path
     class="drop-highlight"
+    fill="none"
+    stroke="rgba(255,255,255,.40)"
     d="
         M560 265
-        C536 303 520 334 516 362
+        C536 303
+        520 334
+        516 362
     "
 />
 
 
-<!-- =====================================================
-     WHITE HEART INSIDE MAIN DROP
-     ===================================================== -->
+<!-- ============================================================
+     MAIN WHITE HEART
+     ============================================================ -->
 
 <path
     class="heart"
-    fill="#ffffff"
+    fill="#FFFFFF"
     d="
         M627 454
-        C608 437 552 402 552 357
-        C552 326 579 312 601 329
-        C612 337 620 347 627 357
-        C634 347 642 337 653 329
-        C675 312 702 326 702 357
-        C702 402 646 437 627 454
+
+        C608 437
+        552 402
+        552 357
+
+        C552 326
+        579 312
+        601 329
+
+        C612 337
+        620 347
+        627 357
+
+        C634 347
+        642 337
+        653 329
+
+        C675 312
+        702 326
+        702 357
+
+        C702 402
+        646 437
+        627 454
+
         Z
     "
 />
 
 
-<!-- =====================================================
+<!-- ============================================================
      TAVYA WORDMARK
      
-     T = normal
-     A = OPEN INVERTED V
-         NO HORIZONTAL CROSSBAR
-     V = normal
-     Y = normal
-     A = OPEN INVERTED V
-         NO HORIZONTAL CROSSBAR
-     ===================================================== -->
+     IMPORTANT:
+     A's have NO horizontal crossbar.
+     They are OPEN inverted-V / ∧ shapes.
+     ============================================================ -->
 
 
-<!-- T -->
+<!-- ============================================================
+     T
+     ============================================================ -->
 
 <path
-    class="tavya-word"
+    class="tavya-word tavya-dark-blue"
+    fill="#07517F"
     d="
         M155 705
+
         H330
+
         V748
+
         H270
+
         V890
+
         H220
+
         V748
+
         H155
+
         Z
     "
 />
 
 
-<!-- FIRST A — OPEN ∧ -->
+<!-- ============================================================
+     FIRST A
+     OPEN ∧
+     NO CROSSBAR
+     ============================================================ -->
 
 <path
-    class="tavya-word"
+    class="tavya-word tavya-dark-blue"
+    fill="#07517F"
     d="
         M345 890
+
         L420 705
+
         L495 890
+
         H451
+
         L420 812
+
         L389 890
+
         Z
     "
 />
 
 
-<!-- V -->
+<!-- ============================================================
+     V
+     ============================================================ -->
 
 <path
-    class="tavya-word"
+    class="tavya-word tavya-dark-blue"
+    fill="#07517F"
     d="
         M505 705
+
         H558
+
         L627 838
+
         L696 705
+
         H749
+
         L650 890
+
         H604
+
         Z
     "
 />
 
 
-<!-- Y -->
+<!-- ============================================================
+     Y
+     ============================================================ -->
 
 <path
-    class="tavya-word"
+    class="tavya-word tavya-dark-blue"
+    fill="#07517F"
     d="
         M750 705
+
         H808
+
         L850 770
+
         L892 705
+
         H950
+
         L876 815
+
         V890
+
         H824
+
         V815
+
         Z
     "
 />
 
 
-<!-- SECOND A — OPEN ∧ -->
+<!-- ============================================================
+     SECOND A
+     OPEN ∧
+     NO CROSSBAR
+     ============================================================ -->
 
 <path
-    class="tavya-word"
+    class="tavya-word tavya-dark-blue"
+    fill="#07517F"
     d="
         M935 890
+
         L1005 705
+
         L1075 890
+
         H1032
+
         L1005 812
+
         L978 890
+
         Z
     "
 />
 
 
-<!-- =====================================================
-     BLOOD DROPLETS UNDER THE TWO OPEN A'S
+<!-- ============================================================
+     FIRST A BLOOD DROP
      
-     MOVED ANOTHER ~4 mm DOWN
+     DOWNWARD POSITION:
+     approximately 10 mm lower than the original position.
      
-     Previous top: 818
-     New top:      833
-     ===================================================== -->
-
-
-<!-- FIRST A DROP -->
+     The drop remains inside the open A.
+     ============================================================ -->
 
 <path
     class="letter-drop"
-    fill="url(#bloodGradient)"
+    fill="url(#tavyaLogoBloodGradient)"
     d="
         M420 833
+
         C420 833
         402 857
         402 871
+
         C402 884
         410 892
         420 892
+
         C430 892
         438 884
         438 871
+
         C438 857
         420 833
         420 833
+
         Z
     "
 />
 
 
-<!-- SECOND A DROP -->
+<!-- ============================================================
+     SECOND A BLOOD DROP
+     ============================================================ -->
 
 <path
     class="letter-drop"
-    fill="url(#bloodGradient)"
+    fill="url(#tavyaLogoBloodGradient)"
     d="
         M1005 833
+
         C1005 833
         987 857
         987 871
+
         C987 884
         995 892
         1005 892
+
         C1015 892
         1023 884
         1023 871
+
         C1023 857
         1005 833
         1005 833
+
         Z
     "
 />
 
 
-<!-- =====================================================
+<!-- ============================================================
      BLOOD NETWORK
-     ===================================================== -->
+     ============================================================ -->
 
 <text
     class="network-text"
+    fill="#E21B23"
     x="627"
     y="957"
     text-anchor="middle"
-    font-family="Montserrat, sans-serif"
+    font-family="Montserrat, Arial, sans-serif"
     font-size="47"
     font-weight="600"
+    letter-spacing="2"
 >
     BLOOD NETWORK
 </text>
 
 
-<!-- =====================================================
+<!-- ============================================================
      SUBTITLE
-     ===================================================== -->
+     ============================================================ -->
 
 <text
     class="subtitle"
+    fill="#6B7280"
     x="627"
     y="1008"
     text-anchor="middle"
-    font-family="Raleway, sans-serif"
+    font-family="Raleway, Arial, sans-serif"
     font-size="25"
     font-weight="500"
 >
@@ -1064,50 +1552,38 @@ svg {
 </text>
 
 
-<!-- =====================================================
+<!-- ============================================================
      TAGLINE
-     ===================================================== -->
+     ============================================================ -->
 
 <text
     class="tagline"
+    fill="#E21B23"
     x="627"
     y="1075"
     text-anchor="middle"
-    font-family="'Great Vibes', cursive"
+    font-family="Georgia, 'Times New Roman', serif"
     font-size="48"
+    font-style="italic"
 >
     Connecting Donors · Saving Lives
 </text>
 
 
-<!-- =====================================================
-     MIDDLE CONNECTING DESIGN
-     
-     Connecting Donors · Saving Lives
-     
-     Small network-style design below tagline.
-     ===================================================== -->
+<!-- ============================================================
+     MIDDLE CONNECTION DESIGN
+     ============================================================ -->
 
 <g class="middle-design">
 
-    <!-- LEFT LINE -->
+
+    <!-- LEFT OUTER LINE -->
 
     <line
         class="middle-line"
         x1="485"
         y1="1135"
         x2="550"
-        y2="1135"
-    />
-
-
-    <!-- RIGHT LINE -->
-
-    <line
-        class="middle-line"
-        x1="704"
-        y1="1135"
-        x2="769"
         y2="1135"
     />
 
@@ -1134,6 +1610,17 @@ svg {
     />
 
 
+    <!-- RIGHT OUTER LINE -->
+
+    <line
+        class="middle-line"
+        x1="704"
+        y1="1135"
+        x2="769"
+        y2="1135"
+    />
+
+
     <!-- LEFT NODE -->
 
     <circle
@@ -1154,157 +1641,169 @@ svg {
     />
 
 
-    <!-- SMALL CENTRAL BLOOD DROP -->
+    <!-- ========================================================
+         SMALL CENTRAL BLOOD DROP
+         ======================================================== -->
 
     <path
         class="middle-drop"
+        fill="#E21B23"
         d="
             M627 1098
-            C620 1108 616 1116 616 1123
-            C616 1131 621 1136 627 1136
-            C633 1136 638 1131 638 1123
-            C638 1116 634 1108 627 1098
+
+            C620 1108
+            616 1116
+            616 1123
+
+            C616 1131
+            621 1136
+            627 1136
+
+            C633 1136
+            638 1131
+            638 1123
+
+            C638 1116
+            634 1108
+            627 1098
+
             Z
         "
     />
 
 
-    <!-- SMALL HEART -->
+    <!-- ========================================================
+         SMALL RED HEART
+         ======================================================== -->
 
     <path
         class="middle-heart"
+        fill="#E21B23"
         d="
             M627 1170
-            C621 1164 607 1155 607 1146
-            C607 1138 616 1135 622 1142
+
+            C621 1164
+            607 1155
+            607 1146
+
+            C607 1138
+            616 1135
+            622 1142
+
             L627 1148
+
             L632 1142
-            C638 1135 647 1138 647 1146
-            C647 1155 633 1164 627 1170
+
+            C638 1135
+            647 1138
+            647 1146
+
+            C647 1155
+            633 1164
+            627 1170
+
             Z
         "
     />
+
 
 </g>
 
 
-<!-- =====================================================
+<!-- ============================================================
      FOOTER
-     ===================================================== -->
+     ============================================================ -->
 
 <text
     class="footer-text"
+    fill="#7B8490"
     x="627"
     y="1210"
     text-anchor="middle"
-    font-family="Montserrat, sans-serif"
+    font-family="Montserrat, Arial, sans-serif"
     font-size="17"
     font-weight="500"
+    letter-spacing="1.8"
 >
     A VOLUNTEER-RUN, NON-PROFIT INITIATIVE
 </text>
 
 
 </svg>
-</div>
 
 
 <script>
 
-/* =========================================================
-   DISABLE RIGHT CLICK
-   ========================================================= */
+/* ============================================================
+   PREVENT RIGHT CLICK ON LOGO
+   ============================================================ */
 
-document.addEventListener("contextmenu", function(event) {
-    event.preventDefault();
-});
+(function () {
 
+    const logo =
+        document.querySelector("#tavya-logo .tavya-logo");
 
-/* =========================================================
-   DISABLE COMMON COPY / SAVE SHORTCUTS
-   ========================================================= */
-
-document.addEventListener("keydown", function(event) {
-
-    if (
-        (event.ctrlKey || event.metaKey) &&
-        (
-            event.key.toLowerCase() === "c" ||
-            event.key.toLowerCase() === "u" ||
-            event.key.toLowerCase() === "s" ||
-            event.key.toLowerCase() === "a"
-        )
-    ) {
-        event.preventDefault();
+    if (!logo) {
+        return;
     }
 
-});
 
-
-/* =========================================================
-   REPLAY LOGO ANIMATION ON CLICK
-   ========================================================= */
-
-document
-.querySelector(".tavya-logo")
-.addEventListener("click", function() {
-
-    const animatedElements = document.querySelectorAll(
-
-        ".outer-arc, " +
-
-        ".left-hand, " +
-
-        ".right-hand, " +
-
-        ".hand-highlight, " +
-
-        ".blood-drop, " +
-
-        ".drop-highlight, " +
-
-        ".heart, " +
-
-        ".tavya-word, " +
-
-        ".letter-drop, " +
-
-        ".network-text, " +
-
-        ".subtitle, " +
-
-        ".tagline, " +
-
-        ".middle-design, " +
-
-        ".middle-line, " +
-
-        ".middle-connection, " +
-
-        ".middle-node, " +
-
-        ".middle-heart, " +
-
-        ".middle-drop, " +
-
-        ".footer-text"
-
+    logo.addEventListener(
+        "contextmenu",
+        function (event) {
+            event.preventDefault();
+        }
     );
 
 
-    animatedElements.forEach(function(element) {
+    /* ========================================================
+       CLICK LOGO → REPLAY ALL ANIMATIONS
+       ======================================================== */
 
-        element.style.animation = "none";
+    logo.addEventListener(
+        "click",
+        function () {
 
-        void element.offsetWidth;
+            const elements =
+                logo.querySelectorAll(
 
-        element.style.animation = "";
+                    ".outer-arc," +
+                    ".left-hand," +
+                    ".right-hand," +
+                    ".hand-highlight," +
+                    ".blood-drop," +
+                    ".drop-highlight," +
+                    ".heart," +
+                    ".tavya-word," +
+                    ".letter-drop," +
+                    ".network-text," +
+                    ".subtitle," +
+                    ".tagline," +
+                    ".middle-line," +
+                    ".middle-connection," +
+                    ".middle-node," +
+                    ".middle-drop," +
+                    ".middle-heart," +
+                    ".footer-text"
 
-    });
+                );
 
-});
+
+            elements.forEach(
+                function (element) {
+
+                    element.style.animation = "none";
+
+                    void element.offsetWidth;
+
+                    element.style.animation = "";
+
+                }
+            );
+
+        }
+    );
+
+})();
 
 </script>
-
-</body>
-</html>
