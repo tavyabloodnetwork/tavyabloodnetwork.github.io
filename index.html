@@ -12,7 +12,7 @@
           content="TAVYA Blood Network — Connecting consenting voluntary blood donors with people seeking blood and blood components.">
 
     <meta name="keywords"
-          content="TAVYA, blood donation, blood donors, blood request, voluntary blood donation">
+          content="TAVYA, Blood Network, Blood Donation, Blood Donor, Blood Request, Voluntary Blood Donation, Blood Centres">
 
     <meta name="author"
           content="TAVYA Blood Network">
@@ -24,46 +24,141 @@
         TAVYA Blood Network | Connecting Donors. Saving Lives.
     </title>
 
-    <!-- Main Stylesheet -->
+
+    <!-- =====================================================
+         MAIN STYLESHEET
+         ===================================================== -->
+
     <link rel="stylesheet"
           href="assets/css/style.css">
 
-    <!-- Logo iframe styling -->
+
+    <!-- =====================================================
+         TAVYA LOGO — INTEGRATED IMAGE STYLING
+         ===================================================== -->
+
     <style>
 
         /* =====================================================
-           TAVYA ORIGINAL LOGO
-           logo.html remains the original master logo file.
+           HEADER BRAND
            ===================================================== */
 
-        .logo-frame {
-            display: block;
-            width: 190px;
-            height: 88px;
-            border: none;
-            overflow: hidden;
-            background: transparent;
+        .site-brand {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            width: 92px;
+            height: 82px;
+
+            flex-shrink: 0;
+
+            text-decoration: none;
         }
 
-        .footer-logo-frame {
+
+        .site-logo {
             display: block;
-            width: 240px;
-            height: 150px;
-            border: none;
-            overflow: hidden;
+
+            width: 92px;
+            height: 82px;
+
+            object-fit: contain;
+
+            border: 0;
+
             background: transparent;
+
+            user-select: none;
+            -webkit-user-drag: none;
+
+            transition:
+                transform 0.25s ease;
         }
+
+
+        .site-brand:hover .site-logo {
+            transform: scale(1.03);
+        }
+
+
+        /* =====================================================
+           FOOTER BRAND
+           ===================================================== */
+
+        .footer-brand-logo {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: flex-start;
+
+            width: 190px;
+            height: 190px;
+
+            text-decoration: none;
+        }
+
+
+        .footer-logo {
+            display: block;
+
+            width: 190px;
+            height: 190px;
+
+            object-fit: contain;
+
+            border: 0;
+
+            background: transparent;
+
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+
+        /* =====================================================
+           MOBILE LOGO
+           ===================================================== */
 
         @media (max-width: 1000px) {
 
-            .logo-frame {
-                width: 150px;
-                height: 75px;
+            .site-brand {
+                width: 72px;
+                height: 68px;
             }
 
-            .footer-logo-frame {
-                width: 210px;
-                height: 135px;
+            .site-logo {
+                width: 72px;
+                height: 68px;
+            }
+
+            .footer-brand-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .footer-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+        }
+
+
+        /* =====================================================
+           EXTRA SMALL DEVICES
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .site-brand {
+                width: 62px;
+                height: 60px;
+            }
+
+            .site-logo {
+                width: 62px;
+                height: 60px;
             }
 
         }
@@ -86,27 +181,33 @@
 
         <nav class="navbar">
 
+
             <!-- =================================================
-                 ORIGINAL TAVYA LOGO
-                 Source: /logo.html
+                 TAVYA LOGO
+
+                 IMPORTANT:
+                 logo.png is loaded directly.
+                 No iframe.
+                 No logo.html.
+                 No Base64.
                  ================================================= -->
 
             <a href="index.html"
-               class="logo"
+               class="site-brand"
                aria-label="TAVYA Blood Network Home">
 
-                <iframe
-                    src="logo.html"
-                    class="logo-frame"
-                    title="TAVYA Blood Network Logo"
-                    scrolling="no"
-                    loading="eager">
-                </iframe>
+                <img
+                    src="logo.png"
+                    alt="TAVYA Blood Network"
+                    class="site-logo"
+                    draggable="false">
 
             </a>
 
 
-            <!-- Main Navigation -->
+            <!-- =================================================
+                 NAVIGATION
+                 ================================================= -->
 
             <ul class="nav-links"
                 id="main-navigation">
@@ -135,14 +236,24 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="#nearby">
+                        Blood Centres
+                    </a>
+                </li>
+
             </ul>
 
 
-            <!-- Navigation Actions -->
+            <!-- =================================================
+                 NAVIGATION ACTIONS
+                 ================================================= -->
 
             <div class="nav-actions">
 
-                <!-- Login -->
+
+                <!-- LOGIN -->
+
                 <a href="auth/login.html"
                    class="btn btn-outline">
 
@@ -151,7 +262,8 @@
                 </a>
 
 
-                <!-- Create Account -->
+                <!-- CREATE ACCOUNT -->
+
                 <a href="auth/signup.html"
                    class="btn btn-primary">
 
@@ -160,7 +272,7 @@
                 </a>
 
 
-                <!-- Mobile Menu -->
+                <!-- MOBILE MENU -->
 
                 <button
                     class="menu-toggle"
@@ -184,7 +296,7 @@
 
 
 <!-- =========================================================
-     MAIN CONTENT
+     MAIN
      ========================================================= -->
 
 <main>
@@ -202,12 +314,17 @@
         <div class="hero-grid">
 
 
-            <!-- Hero Text -->
+            <!-- =================================================
+                 HERO CONTENT
+                 ================================================= -->
 
             <div class="hero-content">
 
+
                 <div class="hero-badge">
+
                     🩸 Volunteer-Run Blood Network
+
                 </div>
 
 
@@ -236,7 +353,9 @@
 
                 <div class="hero-actions">
 
-                    <!-- Donate Blood -->
+
+                    <!-- DONATE -->
+
                     <a href="auth/signup.html"
                        class="btn btn-primary btn-large">
 
@@ -245,7 +364,8 @@
                     </a>
 
 
-                    <!-- Need Blood -->
+                    <!-- NEED BLOOD -->
+
                     <a href="auth/signup.html"
                        class="btn btn-outline btn-large">
 
@@ -255,21 +375,37 @@
 
                 </div>
 
+
+                <p class="hero-note">
+
+                    One TAVYA account can be used both
+                    to donate blood and to request blood.
+
+                </p>
+
             </div>
 
 
 
-            <!-- Hero Card -->
+            <!-- =================================================
+                 HERO CARD
+                 ================================================= -->
 
             <div class="hero-card">
 
+
                 <div class="hero-card-icon">
+
                     🩸
+
                 </div>
 
 
                 <h3>
-                    One Account. Two Ways to Help.
+
+                    One Account.
+                    Two Ways to Help.
+
                 </h3>
 
 
@@ -277,7 +413,8 @@
 
                     Your TAVYA account can be used both
                     to donate blood and to request blood
-                    when you or someone you care for needs it.
+                    when you or someone you care for
+                    needs it.
 
                 </p>
 
@@ -330,18 +467,27 @@
         <div class="services-grid">
 
 
-            <!-- Donate Blood -->
+            <!-- =================================================
+                 DONATE BLOOD
+                 ================================================= -->
 
             <article class="service-card"
                      id="donate">
 
+
                 <div class="service-icon">
+
                     🩸
+
                 </div>
 
+
                 <h3>
+
                     Donate Blood
+
                 </h3>
+
 
                 <p>
 
@@ -351,6 +497,7 @@
                     blood requests.
 
                 </p>
+
 
                 <a href="auth/signup.html"
                    class="service-link">
@@ -363,18 +510,27 @@
 
 
 
-            <!-- Need Blood -->
+            <!-- =================================================
+                 NEED BLOOD
+                 ================================================= -->
 
             <article class="service-card"
                      id="request">
 
+
                 <div class="service-icon">
+
                     🏥
+
                 </div>
 
+
                 <h3>
+
                     Need Blood
+
                 </h3>
+
 
                 <p>
 
@@ -383,6 +539,7 @@
                     consenting donors to respond.
 
                 </p>
+
 
                 <a href="auth/signup.html"
                    class="service-link">
@@ -395,17 +552,26 @@
 
 
 
-            <!-- Nearby Blood Centres -->
+            <!-- =================================================
+                 NEARBY CENTRES
+                 ================================================= -->
 
             <article class="service-card">
 
+
                 <div class="service-icon">
+
                     📍
+
                 </div>
 
+
                 <h3>
+
                     Nearby Blood Centres
+
                 </h3>
+
 
                 <p>
 
@@ -414,6 +580,7 @@
                     facilities.
 
                 </p>
+
 
                 <a href="#nearby"
                    class="service-link">
@@ -426,17 +593,26 @@
 
 
 
-            <!-- History -->
+            <!-- =================================================
+                 HISTORY
+                 ================================================= -->
 
             <article class="service-card">
 
+
                 <div class="service-icon">
+
                     📋
+
                 </div>
 
+
                 <h3>
+
                     My TAVYA History
+
                 </h3>
+
 
                 <p>
 
@@ -445,6 +621,7 @@
                     blood received through the network.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="service-link">
@@ -457,17 +634,26 @@
 
 
 
-            <!-- Certificates -->
+            <!-- =================================================
+                 CERTIFICATES
+                 ================================================= -->
 
             <article class="service-card">
 
+
                 <div class="service-icon">
+
                     🏆
+
                 </div>
 
+
                 <h3>
+
                     Digital Certificates
+
                 </h3>
+
 
                 <p>
 
@@ -476,6 +662,7 @@
                     made through TAVYA.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="service-link">
@@ -488,17 +675,26 @@
 
 
 
-            <!-- Support -->
+            <!-- =================================================
+                 SUPPORT
+                 ================================================= -->
 
             <article class="service-card">
 
+
                 <div class="service-icon">
+
                     🤝
+
                 </div>
 
+
                 <h3>
+
                     Support TAVYA
+
                 </h3>
+
 
                 <p>
 
@@ -507,6 +703,7 @@
                     to coordinate this network.
 
                 </p>
+
 
                 <a href="#support"
                    class="service-link">
@@ -526,7 +723,7 @@
 
 
 <!-- =========================================================
-     HOW IT WORKS
+     HOW TAVYA WORKS
      ========================================================= -->
 
 <section id="how-it-works"
@@ -538,8 +735,11 @@
         <div class="section-title">
 
             <h2>
+
                 How TAVYA Works
+
             </h2>
+
 
             <p>
 
@@ -556,17 +756,24 @@
         <div class="steps-grid">
 
 
-            <!-- Step 1 -->
+            <!-- STEP 1 -->
 
             <div class="step">
 
+
                 <div class="step-number">
+
                     1
+
                 </div>
 
+
                 <h3>
+
                     Create One Account
+
                 </h3>
+
 
                 <p>
 
@@ -580,17 +787,24 @@
 
 
 
-            <!-- Step 2 -->
+            <!-- STEP 2 -->
 
             <div class="step">
 
+
                 <div class="step-number">
+
                     2
+
                 </div>
 
+
                 <h3>
+
                     Donate or Request
+
                 </h3>
+
 
                 <p>
 
@@ -604,17 +818,24 @@
 
 
 
-            <!-- Step 3 -->
+            <!-- STEP 3 -->
 
             <div class="step">
 
+
                 <div class="step-number">
+
                     3
+
                 </div>
 
+
                 <h3>
-                    Match & Respond
+
+                    Match &amp; Respond
+
                 </h3>
+
 
                 <p>
 
@@ -628,17 +849,24 @@
 
 
 
-            <!-- Step 4 -->
+            <!-- STEP 4 -->
 
             <div class="step">
 
+
                 <div class="step-number">
+
                     4
+
                 </div>
 
+
                 <h3>
-                    Donate & Verify
+
+                    Donate &amp; Verify
+
                 </h3>
+
 
                 <p>
 
@@ -670,8 +898,11 @@
         <div class="section-title">
 
             <h2>
+
                 Building a Connected Blood Network
+
             </h2>
+
 
             <p>
 
@@ -688,56 +919,84 @@
         <div class="stats-grid">
 
 
+            <!-- VERIFIED DONATIONS -->
+
             <div class="stat-card">
 
                 <div class="stat-number">
+
                     0
+
                 </div>
 
+
                 <div class="stat-label">
+
                     Verified TAVYA Donations
+
                 </div>
 
             </div>
 
 
 
+            <!-- BLOOD VOLUME -->
+
             <div class="stat-card">
 
                 <div class="stat-number">
+
                     0 mL
+
                 </div>
 
+
                 <div class="stat-label">
+
                     Verified Blood Volume
+
                 </div>
 
             </div>
 
 
 
+            <!-- REQUESTS -->
+
             <div class="stat-card">
 
                 <div class="stat-number">
+
                     0
+
                 </div>
 
+
                 <div class="stat-label">
+
                     Blood Requests Assisted
+
                 </div>
 
             </div>
 
 
 
+            <!-- RECEIPTS -->
+
             <div class="stat-card">
 
                 <div class="stat-number">
+
                     0
+
                 </div>
 
+
                 <div class="stat-label">
+
                     Verified Blood Receipts
+
                 </div>
 
             </div>
@@ -751,7 +1010,7 @@
 
 
 <!-- =========================================================
-     NEARBY SECTION
+     NEARBY BLOOD CENTRES
      ========================================================= -->
 
 <section id="nearby"
@@ -759,11 +1018,15 @@
 
     <div class="container">
 
+
         <div class="section-title">
 
             <h2>
+
                 Find Nearby Blood Centres
+
             </h2>
+
 
             <p>
 
@@ -776,7 +1039,9 @@
         </div>
 
 
+
         <div class="card text-center">
+
 
             <div class="service-icon"
                  style="margin: 0 auto 20px;">
@@ -785,9 +1050,13 @@
 
             </div>
 
+
             <h3>
+
                 Nearby Blood Centre Discovery
+
             </h3>
+
 
             <p class="mb-2">
 
@@ -796,6 +1065,7 @@
                 blood components.
 
             </p>
+
 
             <a href="auth/login.html"
                class="btn btn-primary">
@@ -813,7 +1083,7 @@
 
 
 <!-- =========================================================
-     ABOUT
+     ABOUT TAVYA
      ========================================================= -->
 
 <section id="about"
@@ -825,11 +1095,17 @@
         <div class="section-title">
 
             <h2>
+
                 About TAVYA
+
             </h2>
 
+
             <p>
-                Transfusion Access & Voluntary Assistance
+
+                Transfusion Access &amp;
+                Voluntary Assistance
+
             </p>
 
         </div>
@@ -840,8 +1116,11 @@
 
 
             <h3 class="mb-1">
+
                 Our Purpose
+
             </h3>
+
 
             <p>
 
@@ -862,8 +1141,11 @@
 
 
             <h3 class="mb-1">
-                Consent & Privacy
+
+                Consent &amp; Privacy
+
             </h3>
+
 
             <p>
 
@@ -883,8 +1165,11 @@
 
 
             <h3 class="mb-1">
+
                 Medical Responsibility
+
             </h3>
+
 
             <p>
 
@@ -918,8 +1203,11 @@
         <div class="section-title">
 
             <h2>
+
                 Your TAVYA Account
+
             </h2>
+
 
             <p>
 
@@ -936,17 +1224,26 @@
         <div class="services-grid">
 
 
-            <!-- LOGIN -->
+            <!-- =================================================
+                 LOGIN
+                 ================================================= -->
 
             <div class="service-card">
 
+
                 <div class="service-icon">
+
                     🔐
+
                 </div>
 
+
                 <h3>
+
                     Login
+
                 </h3>
+
 
                 <p>
 
@@ -954,6 +1251,7 @@
                     donor profile, requests and history.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="btn btn-outline">
@@ -966,17 +1264,26 @@
 
 
 
-            <!-- CREATE ACCOUNT -->
+            <!-- =================================================
+                 CREATE ACCOUNT
+                 ================================================= -->
 
             <div class="service-card">
 
+
                 <div class="service-icon">
+
                     👤
+
                 </div>
 
+
                 <h3>
+
                     Create Account
+
                 </h3>
+
 
                 <p>
 
@@ -984,6 +1291,7 @@
                     your permanent TAVYA ID.
 
                 </p>
+
 
                 <a href="auth/signup.html"
                    class="btn btn-primary">
@@ -996,17 +1304,26 @@
 
 
 
-            <!-- TAVYA ID -->
+            <!-- =================================================
+                 TAVYA ID
+                 ================================================= -->
 
             <div class="service-card">
 
+
                 <div class="service-icon">
+
                     🆔
+
                 </div>
 
+
                 <h3>
+
                     TAVYA ID
+
                 </h3>
+
 
                 <p>
 
@@ -1015,6 +1332,7 @@
                     across the platform.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="btn btn-dark">
@@ -1034,7 +1352,7 @@
 
 
 <!-- =========================================================
-     SUPPORT
+     SUPPORT TAVYA
      ========================================================= -->
 
 <section id="support"
@@ -1044,9 +1362,13 @@
 
         <div class="cta-box">
 
+
             <h2>
+
                 Help Build TAVYA
+
             </h2>
+
 
             <p>
 
@@ -1058,13 +1380,150 @@
 
             </p>
 
-            <button class="btn btn-large"
-                    type="button"
-                    onclick="showComingSoon('TAVYA Support')">
+
+            <button
+                class="btn btn-large"
+                type="button"
+                onclick="showComingSoon('TAVYA Support')">
 
                 Support TAVYA
 
             </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INFORMATION SECTION
+     ========================================================= -->
+
+<section id="information"
+         class="section section-soft">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+
+                TAVYA Information
+
+            </h2>
+
+
+            <p>
+
+                Important information about the current
+                status and operation of the initiative.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <!-- PRIVACY -->
+
+            <div class="service-card"
+                 id="privacy">
+
+
+                <div class="service-icon">
+
+                    🔒
+
+                </div>
+
+
+                <h3>
+
+                    Privacy
+
+                </h3>
+
+
+                <p>
+
+                    TAVYA is designed around consent,
+                    controlled information sharing and
+                    protection of personal information.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- TERMS -->
+
+            <div class="service-card"
+                 id="terms">
+
+
+                <div class="service-icon">
+
+                    📄
+
+                </div>
+
+
+                <h3>
+
+                    Terms
+
+                </h3>
+
+
+                <p>
+
+                    Platform terms and detailed participation
+                    policies will be published as the TAVYA
+                    platform develops.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="service-card"
+                 id="contact">
+
+
+                <div class="service-icon">
+
+                    ✉️
+
+                </div>
+
+
+                <h3>
+
+                    Contact
+
+                </h3>
+
+
+                <p>
+
+                    Official TAVYA contact and support
+                    channels will be provided as the
+                    platform infrastructure is finalized.
+
+                </p>
+
+            </div>
 
         </div>
 
@@ -1085,26 +1544,26 @@
 
     <div class="container">
 
+
         <div class="footer-grid">
 
 
             <!-- =================================================
-                 ORIGINAL TAVYA LOGO
+                 FOOTER BRAND
                  ================================================= -->
 
             <div class="footer-brand">
 
+
                 <a href="index.html"
-                   class="logo"
+                   class="footer-brand-logo"
                    aria-label="TAVYA Blood Network Home">
 
-                    <iframe
-                        src="logo.html"
-                        class="footer-logo-frame"
-                        title="TAVYA Blood Network Logo"
-                        scrolling="no"
-                        loading="lazy">
-                    </iframe>
+                    <img
+                        src="logo.png"
+                        alt="TAVYA Blood Network"
+                        class="footer-logo"
+                        draggable="false">
 
                 </a>
 
@@ -1120,13 +1579,19 @@
 
 
 
-            <!-- Platform -->
+            <!-- =================================================
+                 PLATFORM
+                 ================================================= -->
 
             <div class="footer-column">
 
+
                 <h4>
+
                     Platform
+
                 </h4>
+
 
                 <ul>
 
@@ -1136,17 +1601,20 @@
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#request">
                             Need Blood
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#nearby">
                             Nearby Blood Centres
                         </a>
                     </li>
+
 
                     <li>
                         <a href="auth/login.html">
@@ -1160,13 +1628,19 @@
 
 
 
-            <!-- TAVYA -->
+            <!-- =================================================
+                 TAVYA
+                 ================================================= -->
 
             <div class="footer-column">
 
+
                 <h4>
+
                     TAVYA
+
                 </h4>
+
 
                 <ul>
 
@@ -1176,14 +1650,16 @@
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#support">
                             Support TAVYA
                         </a>
                     </li>
 
+
                     <li>
-                        <a href="auth/login.html">
+                        <a href="#account">
                             Digital TAVYA ID
                         </a>
                     </li>
@@ -1194,13 +1670,19 @@
 
 
 
-            <!-- Information -->
+            <!-- =================================================
+                 INFORMATION
+                 ================================================= -->
 
             <div class="footer-column">
 
+
                 <h4>
+
                     Information
+
                 </h4>
+
 
                 <ul>
 
@@ -1210,11 +1692,13 @@
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#terms">
                             Terms
                         </a>
                     </li>
+
 
                     <li>
                         <a href="#contact">
@@ -1230,15 +1714,25 @@
 
 
 
+        <!-- =================================================
+             FOOTER BOTTOM
+             ================================================= -->
+
         <div class="footer-bottom">
 
-            <span>
-                © 2026 TAVYA Blood Network.
-                All rights reserved.
-            </span>
 
             <span>
+
+                © 2026 TAVYA Blood Network.
+                All rights reserved.
+
+            </span>
+
+
+            <span>
+
                 Volunteer-Run, Non-Profit Initiative
+
             </span>
 
         </div>
@@ -1256,46 +1750,64 @@
 <script>
 
 
-/* -------------------------------------------------------
-   Mobile Navigation
-   ------------------------------------------------------- */
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
+
         const menuToggle =
             document.querySelector(".menu-toggle");
+
 
         const navLinks =
             document.querySelector(".nav-links");
 
 
-        if (menuToggle && navLinks) {
+        if (!menuToggle || !navLinks) {
+            return;
+        }
 
-            menuToggle.addEventListener(
-                "click",
-                function () {
 
-                    const isOpen =
-                        navLinks.classList.toggle(
-                            "mobile-open"
-                        );
+        menuToggle.addEventListener(
+            "click",
+            function () {
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        isOpen
+
+                const isOpen =
+                    navLinks.classList.toggle(
+                        "mobile-open"
                     );
 
-                }
-            );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    isOpen ? "true" : "false"
+                );
 
 
-            /* Close menu after clicking a link */
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation menu"
+                        : "Open navigation menu"
+                );
 
-            navLinks
-                .querySelectorAll("a")
-                .forEach(function (link) {
+            }
+        );
+
+
+        /* ---------------------------------------------
+           Close menu after selecting a navigation link
+           --------------------------------------------- */
+
+        navLinks
+            .querySelectorAll("a")
+            .forEach(
+                function (link) {
 
                     link.addEventListener(
                         "click",
@@ -1310,21 +1822,25 @@ document.addEventListener(
                                 "false"
                             );
 
+                            menuToggle.setAttribute(
+                                "aria-label",
+                                "Open navigation menu"
+                            );
+
                         }
                     );
 
-                });
-
-        }
+                }
+            );
 
     }
 );
 
 
 
-/* -------------------------------------------------------
-   Temporary Coming Soon Function
-   ------------------------------------------------------- */
+/* =========================================================
+   TEMPORARY COMING SOON
+   ========================================================= */
 
 function showComingSoon(feature) {
 
@@ -1334,6 +1850,59 @@ function showComingSoon(feature) {
     );
 
 }
+
+
+
+/* =========================================================
+   SMOOTH INTERNAL NAVIGATION
+   ========================================================= */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                function (event) {
+
+
+                    const targetId =
+                        this.getAttribute("href");
+
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+            );
+
+        }
+    );
 
 
 </script>
