@@ -28,6 +28,48 @@
     <link rel="stylesheet"
           href="assets/css/style.css">
 
+    <!-- Logo iframe styling -->
+    <style>
+
+        /* =====================================================
+           TAVYA ORIGINAL LOGO
+           logo.html remains the original master logo file.
+           ===================================================== */
+
+        .logo-frame {
+            display: block;
+            width: 190px;
+            height: 88px;
+            border: none;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .footer-logo-frame {
+            display: block;
+            width: 240px;
+            height: 150px;
+            border: none;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        @media (max-width: 1000px) {
+
+            .logo-frame {
+                width: 150px;
+                height: 75px;
+            }
+
+            .footer-logo-frame {
+                width: 210px;
+                height: 135px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -44,27 +86,22 @@
 
         <nav class="navbar">
 
-            <!-- Logo -->
+            <!-- =================================================
+                 ORIGINAL TAVYA LOGO
+                 Source: /logo.html
+                 ================================================= -->
 
             <a href="index.html"
                class="logo"
                aria-label="TAVYA Blood Network Home">
 
-                <div class="logo-mark">
-                    🩸
-                </div>
-
-                <div class="logo-text">
-
-                    <span class="logo-name">
-                        TAVYA
-                    </span>
-
-                    <span class="logo-subtitle">
-                        BLOOD NETWORK
-                    </span>
-
-                </div>
+                <iframe
+                    src="logo.html"
+                    class="logo-frame"
+                    title="TAVYA Blood Network Logo"
+                    scrolling="no"
+                    loading="eager">
+                </iframe>
 
             </a>
 
@@ -105,17 +142,25 @@
 
             <div class="nav-actions">
 
-                <!-- ACTUAL LOGIN PAGE -->
+                <!-- Login -->
                 <a href="auth/login.html"
                    class="btn btn-outline">
+
                     Login
+
                 </a>
 
-                <!-- ACTUAL SIGNUP PAGE -->
+
+                <!-- Create Account -->
                 <a href="auth/signup.html"
                    class="btn btn-primary">
+
                     Create Account
+
                 </a>
+
+
+                <!-- Mobile Menu -->
 
                 <button
                     class="menu-toggle"
@@ -191,7 +236,7 @@
 
                 <div class="hero-actions">
 
-                    <!-- Donate Blood → Create Account -->
+                    <!-- Donate Blood -->
                     <a href="auth/signup.html"
                        class="btn btn-primary btn-large">
 
@@ -200,7 +245,7 @@
                     </a>
 
 
-                    <!-- Need Blood → Create Account -->
+                    <!-- Need Blood -->
                     <a href="auth/signup.html"
                        class="btn btn-outline btn-large">
 
@@ -237,7 +282,6 @@
                 </p>
 
 
-                <!-- Create Account → Signup -->
                 <a href="auth/signup.html"
                    class="btn btn-primary">
 
@@ -308,7 +352,6 @@
 
                 </p>
 
-                <!-- Become Donor → Signup -->
                 <a href="auth/signup.html"
                    class="service-link">
 
@@ -341,7 +384,6 @@
 
                 </p>
 
-                <!-- Request Blood → Signup -->
                 <a href="auth/signup.html"
                    class="service-link">
 
@@ -404,7 +446,6 @@
 
                 </p>
 
-                <!-- History → Login -->
                 <a href="auth/login.html"
                    class="service-link">
 
@@ -436,7 +477,6 @@
 
                 </p>
 
-                <!-- Certificates → Login -->
                 <a href="auth/login.html"
                    class="service-link">
 
@@ -757,7 +797,6 @@
 
             </p>
 
-            <!-- Login first for personalised nearby services -->
             <a href="auth/login.html"
                class="btn btn-primary">
 
@@ -916,7 +955,6 @@
 
                 </p>
 
-                <!-- ACTUAL LOGIN PAGE -->
                 <a href="auth/login.html"
                    class="btn btn-outline">
 
@@ -947,7 +985,6 @@
 
                 </p>
 
-                <!-- ACTUAL SIGNUP PAGE -->
                 <a href="auth/signup.html"
                    class="btn btn-primary">
 
@@ -979,7 +1016,6 @@
 
                 </p>
 
-                <!-- TAVYA ID information will be available after login -->
                 <a href="auth/login.html"
                    class="btn btn-dark">
 
@@ -1022,7 +1058,6 @@
 
             </p>
 
-            <!-- Support is not implemented yet -->
             <button class="btn btn-large"
                     type="button"
                     onclick="showComingSoon('TAVYA Support')">
@@ -1053,28 +1088,23 @@
         <div class="footer-grid">
 
 
-            <!-- Brand -->
+            <!-- =================================================
+                 ORIGINAL TAVYA LOGO
+                 ================================================= -->
 
             <div class="footer-brand">
 
                 <a href="index.html"
-                   class="logo">
+                   class="logo"
+                   aria-label="TAVYA Blood Network Home">
 
-                    <div class="logo-mark">
-                        🩸
-                    </div>
-
-                    <div class="logo-text">
-
-                        <span class="logo-name">
-                            TAVYA
-                        </span>
-
-                        <span class="logo-subtitle">
-                            BLOOD NETWORK
-                        </span>
-
-                    </div>
+                    <iframe
+                        src="logo.html"
+                        class="footer-logo-frame"
+                        title="TAVYA Blood Network Logo"
+                        scrolling="no"
+                        loading="lazy">
+                    </iframe>
 
                 </a>
 
@@ -1294,7 +1324,6 @@ document.addEventListener(
 
 /* -------------------------------------------------------
    Temporary Coming Soon Function
-   Used only for features that are not implemented yet.
    ------------------------------------------------------- */
 
 function showComingSoon(feature) {
