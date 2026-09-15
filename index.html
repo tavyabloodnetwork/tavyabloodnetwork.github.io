@@ -34,22 +34,22 @@
 
 
     <!-- =====================================================
-         TAVYA LOGO — INTEGRATED IMAGE STYLING
+         INLINE TAVYA LOGO STYLES
          ===================================================== -->
 
     <style>
 
         /* =====================================================
-           HEADER BRAND
+           HEADER LOGO
            ===================================================== */
 
-        .site-brand {
+        .tavya-header-logo {
+            width: 92px;
+            height: 76px;
+
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-
-            width: 92px;
-            height: 82px;
+            justify-content: center;
 
             flex-shrink: 0;
 
@@ -57,108 +57,591 @@
         }
 
 
-        .site-logo {
+        .tavya-header-logo svg {
+            width: 100%;
+            height: 100%;
+
             display: block;
 
-            width: 92px;
-            height: 82px;
-
-            object-fit: contain;
-
-            border: 0;
-
-            background: transparent;
-
-            user-select: none;
-            -webkit-user-drag: none;
-
-            transition:
-                transform 0.25s ease;
-        }
-
-
-        .site-brand:hover .site-logo {
-            transform: scale(1.03);
+            overflow: visible;
         }
 
 
         /* =====================================================
-           FOOTER BRAND
+           FOOTER LOGO
            ===================================================== */
 
-        .footer-brand-logo {
-            display: inline-flex;
+        .tavya-footer-logo {
+            width: 210px;
+            height: 210px;
 
+            display: flex;
             align-items: center;
-            justify-content: flex-start;
-
-            width: 190px;
-            height: 190px;
+            justify-content: center;
 
             text-decoration: none;
         }
 
 
-        .footer-logo {
+        .tavya-footer-logo svg {
+            width: 100%;
+            height: 100%;
+
             display: block;
 
-            width: 190px;
-            height: 190px;
-
-            object-fit: contain;
-
-            border: 0;
-
-            background: transparent;
-
-            user-select: none;
-            -webkit-user-drag: none;
+            overflow: visible;
         }
 
 
         /* =====================================================
-           MOBILE LOGO
+           SVG LOGO ANIMATION
+           ===================================================== */
+
+        .tavya-logo-ring {
+
+            fill: none;
+
+            stroke: #d71920;
+
+            stroke-width: 5;
+
+            stroke-linecap: round;
+
+            stroke-dasharray: 1500;
+
+            stroke-dashoffset: 1500;
+
+            animation:
+                tavyaDrawRing
+                1.8s
+                ease-out
+                forwards;
+
+        }
+
+
+        @keyframes tavyaDrawRing {
+
+            to {
+                stroke-dashoffset: 0;
+            }
+
+        }
+
+
+        .tavya-logo-top-text {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 34px;
+
+            font-weight: 600;
+
+            letter-spacing: 8px;
+
+            fill: #0b3554;
+
+            opacity: 0;
+
+            animation:
+                tavyaFadeIn
+                .8s
+                ease
+                forwards
+                .7s;
+
+        }
+
+
+        .tavya-logo-symbol {
+
+            opacity: 0;
+
+            transform-box: fill-box;
+
+            transform-origin: center;
+
+            animation:
+                tavyaSymbolIn
+                1s
+                cubic-bezier(.2,.8,.2,1)
+                forwards
+                .8s;
+
+        }
+
+
+        @keyframes tavyaSymbolIn {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(.72);
+
+            }
+
+            70% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(-2px)
+                    scale(1.025);
+
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        .tavya-logo-heart {
+
+            fill: #ffffff;
+
+            transform-box: fill-box;
+
+            transform-origin: center;
+
+            animation:
+                tavyaHeartbeat
+                2.4s
+                ease-in-out
+                infinite
+                2.5s;
+
+        }
+
+
+        @keyframes tavyaHeartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            8% {
+                transform: scale(1.07);
+            }
+
+            16% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.035);
+            }
+
+            34% {
+                transform: scale(1);
+            }
+
+        }
+
+
+        .tavya-logo-shine {
+
+            opacity: .65;
+
+            animation:
+                tavyaShine
+                2.8s
+                ease-in-out
+                infinite
+                2.5s;
+
+        }
+
+
+        @keyframes tavyaShine {
+
+            0% {
+                opacity: .35;
+            }
+
+            50% {
+                opacity: .8;
+            }
+
+            100% {
+                opacity: .35;
+            }
+
+        }
+
+
+        .tavya-logo-wordmark {
+
+            font-family:
+                Arial Black,
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 166px;
+
+            font-weight: 900;
+
+            letter-spacing: -5px;
+
+            fill: #0b3554;
+
+            opacity: 0;
+
+            animation:
+                tavyaWordmark
+                .9s
+                cubic-bezier(.2,.8,.2,1)
+                forwards
+                1.9s;
+
+        }
+
+
+        @keyframes tavyaWordmark {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(18px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .tavya-small-drop {
+
+            opacity: 0;
+
+            transform-box: fill-box;
+
+            transform-origin: center;
+
+            animation:
+                tavyaSmallDrop
+                .55s
+                ease
+                forwards
+                2.25s;
+
+        }
+
+
+        @keyframes tavyaSmallDrop {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.25);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        .tavya-logo-network {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 49px;
+
+            font-weight: 500;
+
+            letter-spacing: 15px;
+
+            fill: #b9181d;
+
+            opacity: 0;
+
+            animation:
+                tavyaFadeIn
+                .8s
+                ease
+                forwards
+                2.45s;
+
+        }
+
+
+        .tavya-logo-descriptor {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 29px;
+
+            letter-spacing: 1.5px;
+
+            fill: #0b3554;
+
+            opacity: 0;
+
+            animation:
+                tavyaFadeIn
+                .8s
+                ease
+                forwards
+                2.8s;
+
+        }
+
+
+        .tavya-logo-line {
+
+            fill: none;
+
+            stroke: #0b3554;
+
+            stroke-width: 3;
+
+            stroke-linecap: round;
+
+            stroke-dasharray: 145;
+
+            stroke-dashoffset: 145;
+
+            animation:
+                tavyaLine
+                .8s
+                ease
+                forwards
+                2.85s;
+
+        }
+
+
+        @keyframes tavyaLine {
+
+            to {
+                stroke-dashoffset: 0;
+            }
+
+        }
+
+
+        .tavya-logo-tagline {
+
+            font-family:
+                "Brush Script MT",
+                "Segoe Script",
+                cursive;
+
+            font-size: 57px;
+
+            font-style: italic;
+
+            fill: #c9161d;
+
+            opacity: 0;
+
+            animation:
+                tavyaTagline
+                1s
+                ease
+                forwards
+                3.1s;
+
+        }
+
+
+        @keyframes tavyaTagline {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(14px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .tavya-logo-underline {
+
+            fill: none;
+
+            stroke: #c9161d;
+
+            stroke-width: 7;
+
+            stroke-linecap: round;
+
+            stroke-dasharray: 360;
+
+            stroke-dashoffset: 360;
+
+            animation:
+                tavyaUnderline
+                1s
+                ease
+                forwards
+                3.65s;
+
+        }
+
+
+        @keyframes tavyaUnderline {
+
+            to {
+                stroke-dashoffset: 0;
+            }
+
+        }
+
+
+        .tavya-logo-nonprofit {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 24px;
+
+            letter-spacing: 8px;
+
+            fill: #0b3554;
+
+            opacity: 0;
+
+            animation:
+                tavyaFadeIn
+                .8s
+                ease
+                forwards
+                4s;
+
+        }
+
+
+        @keyframes tavyaFadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+           ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .tavya-logo-ring,
+            .tavya-logo-top-text,
+            .tavya-logo-symbol,
+            .tavya-logo-heart,
+            .tavya-logo-shine,
+            .tavya-logo-wordmark,
+            .tavya-small-drop,
+            .tavya-logo-network,
+            .tavya-logo-descriptor,
+            .tavya-logo-line,
+            .tavya-logo-tagline,
+            .tavya-logo-underline,
+            .tavya-logo-nonprofit {
+
+                animation: none !important;
+
+                opacity: 1 !important;
+
+                stroke-dashoffset: 0 !important;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
            ===================================================== */
 
         @media (max-width: 1000px) {
 
-            .site-brand {
+            .tavya-header-logo {
+
                 width: 72px;
-                height: 68px;
+                height: 62px;
+
             }
 
-            .site-logo {
-                width: 72px;
-                height: 68px;
-            }
 
-            .footer-brand-logo {
-                width: 150px;
-                height: 150px;
-            }
+            .tavya-footer-logo {
 
-            .footer-logo {
-                width: 150px;
-                height: 150px;
+                width: 170px;
+                height: 170px;
+
             }
 
         }
 
 
-        /* =====================================================
-           EXTRA SMALL DEVICES
-           ===================================================== */
-
         @media (max-width: 600px) {
 
-            .site-brand {
-                width: 62px;
-                height: 60px;
-            }
+            .tavya-header-logo {
 
-            .site-logo {
                 width: 62px;
-                height: 60px;
+                height: 56px;
+
             }
 
         }
@@ -183,24 +666,614 @@
 
 
             <!-- =================================================
-                 TAVYA LOGO
+                 TAVYA INLINE SVG LOGO
 
-                 IMPORTANT:
-                 logo.png is loaded directly.
-                 No iframe.
-                 No logo.html.
-                 No Base64.
+                 NO IMAGE
+                 NO PNG
+                 NO BASE64
+                 NO IFRAME
                  ================================================= -->
 
             <a href="index.html"
-               class="site-brand"
+               class="tavya-header-logo"
                aria-label="TAVYA Blood Network Home">
 
-                <img
-                    src="logo.png"
-                    alt="TAVYA Blood Network"
-                    class="site-logo"
-                    draggable="false">
+
+                <svg
+                    viewBox="0 0 1200 1200"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="TAVYA Blood Network">
+
+
+                    <defs>
+
+                        <linearGradient
+                            id="headerBlue"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="1">
+
+                            <stop
+                                offset="0%"
+                                stop-color="#17638f"/>
+
+                            <stop
+                                offset="100%"
+                                stop-color="#06304f"/>
+
+                        </linearGradient>
+
+
+                        <linearGradient
+                            id="headerRed"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="1">
+
+                            <stop
+                                offset="0%"
+                                stop-color="#ef282f"/>
+
+                            <stop
+                                offset="100%"
+                                stop-color="#a60910"/>
+
+                        </linearGradient>
+
+
+                        <linearGradient
+                            id="headerDrop"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="1">
+
+                            <stop
+                                offset="0%"
+                                stop-color="#ff343a"/>
+
+                            <stop
+                                offset="50%"
+                                stop-color="#e81118"/>
+
+                            <stop
+                                offset="100%"
+                                stop-color="#a3050b"/>
+
+                        </linearGradient>
+
+                    </defs>
+
+
+                    <!-- TOP ARC -->
+
+                    <path
+                        class="tavya-logo-ring"
+                        d="
+                            M 195 680
+                            A 405 405 0 0 1 1005 680
+                        ">
+
+
+                    </path>
+
+
+                    <!-- TOP TEXT -->
+
+                    <path
+                        id="headerTextArc"
+                        d="
+                            M 205 680
+                            A 395 395 0 0 1 995 680
+                        "
+                        fill="none">
+
+
+                    </path>
+
+
+                    <text class="tavya-logo-top-text">
+
+                        <textPath
+                            href="#headerTextArc"
+                            startOffset="50%"
+                            text-anchor="middle">
+
+                            DONATE
+                            <tspan fill="#d71920">
+                                •
+                            </tspan>
+                            SUPPORT
+                            <tspan fill="#d71920">
+                                •
+                            </tspan>
+                            SAVE LIVES
+
+                        </textPath>
+
+                    </text>
+
+
+                    <!-- CENTRAL SYMBOL -->
+
+                    <g class="tavya-logo-symbol">
+
+
+                        <!-- LEFT HAND -->
+
+                        <path
+                            fill="url(#headerBlue)"
+                            d="
+                                M 295 365
+
+                                C 283 325
+                                  278 288
+                                  283 260
+
+                                C 286 243
+                                  299 235
+                                  313 242
+
+                                C 333 252
+                                  343 286
+                                  351 324
+
+                                L 360 287
+
+                                C 365 268
+                                  380 261
+                                  394 271
+
+                                C 410 283
+                                  414 313
+                                  417 348
+
+                                L 425 316
+
+                                C 430 297
+                                  445 291
+                                  458 301
+
+                                C 474 314
+                                  476 343
+                                  478 378
+
+                                C 500 403
+                                  530 420
+                                  557 434
+
+                                C 583 448
+                                  600 466
+                                  606 490
+
+                                L 606 680
+
+                                C 584 658
+                                  555 638
+                                  523 620
+
+                                C 484 599
+                                  440 584
+                                  400 565
+
+                                C 359 545
+                                  328 516
+                                  307 482
+
+                                C 289 452
+                                  281 416
+                                  295 365
+
+                                Z
+                            ">
+
+
+                        </path>
+
+
+                        <!-- RIGHT HAND -->
+
+                        <path
+                            fill="url(#headerRed)"
+                            d="
+                                M 905 365
+
+                                C 917 325
+                                  922 288
+                                  917 260
+
+                                C 914 243
+                                  901 235
+                                  887 242
+
+                                C 867 252
+                                  857 286
+                                  849 324
+
+                                L 840 287
+
+                                C 835 268
+                                  820 261
+                                  806 271
+
+                                C 790 283
+                                  786 313
+                                  783 348
+
+                                L 775 316
+
+                                C 770 297
+                                  755 291
+                                  742 301
+
+                                C 726 314
+                                  724 343
+                                  722 378
+
+                                C 700 403
+                                  670 420
+                                  643 434
+
+                                C 617 448
+                                  600 466
+                                  594 490
+
+                                L 594 680
+
+                                C 616 658
+                                  645 638
+                                  677 620
+
+                                C 716 599
+                                  760 584
+                                  800 565
+
+                                C 841 545
+                                  872 516
+                                  893 482
+
+                                C 911 452
+                                  919 416
+                                  905 365
+
+                                Z
+                            ">
+
+
+                        </path>
+
+
+                        <!-- HAND HIGHLIGHTS -->
+
+                        <path
+                            d="
+                                M 348 278
+                                C 356 325
+                                  361 376
+                                  382 414
+                                C 405 455
+                                  440 471
+                                  477 489
+                            "
+                            fill="none"
+                            stroke="#ffffff"
+                            stroke-width="8"
+                            stroke-linecap="round"
+                            opacity=".88">
+
+
+                        </path>
+
+
+                        <path
+                            d="
+                                M 852 278
+                                C 844 325
+                                  839 376
+                                  818 414
+                                C 795 455
+                                  760 471
+                                  723 489
+                            "
+                            fill="none"
+                            stroke="#ffffff"
+                            stroke-width="8"
+                            stroke-linecap="round"
+                            opacity=".88">
+
+
+                        </path>
+
+
+                        <!-- MAIN BLOOD DROP -->
+
+                        <path
+                            fill="url(#headerDrop)"
+                            stroke="#a90910"
+                            stroke-width="2"
+                            d="
+                                M 600 145
+
+                                C 581 192
+                                  535 247
+                                  505 300
+
+                                C 478 347
+                                  462 382
+                                  464 420
+
+                                C 467 476
+                                  497 517
+                                  540 538
+
+                                C 559 547
+                                  580 551
+                                  600 551
+
+                                C 620 551
+                                  641 547
+                                  660 538
+
+                                C 703 517
+                                  733 476
+                                  736 420
+
+                                C 738 382
+                                  722 347
+                                  695 300
+
+                                C 665 247
+                                  619 192
+                                  600 145
+
+                                Z
+                            ">
+
+
+                        </path>
+
+
+                        <!-- DROP SHINE -->
+
+                        <path
+                            class="tavya-logo-shine"
+                            fill="#ffffff"
+                            d="
+                                M 593 170
+
+                                C 575 220
+                                  535 273
+                                  513 318
+
+                                C 495 356
+                                  487 391
+                                  490 420
+
+                                C 493 446
+                                  501 465
+                                  514 480
+
+                                C 510 432
+                                  523 368
+                                  553 313
+
+                                C 572 279
+                                  590 238
+                                  605 190
+
+                                Z
+                            ">
+
+
+                        </path>
+
+
+                        <!-- HEART -->
+
+                        <path
+                            class="tavya-logo-heart"
+                            d="
+                                M 600 455
+
+                                C 580 433
+                                  539 406
+                                  539 373
+
+                                C 539 347
+                                  557 331
+                                  580 331
+
+                                C 590 331
+                                  599 336
+                                  606 345
+
+                                C 613 336
+                                  622 331
+                                  632 331
+
+                                C 655 331
+                                  673 347
+                                  673 373
+
+                                C 673 406
+                                  632 433
+                                  600 455
+
+                                Z
+                            ">
+
+
+                        </path>
+
+                    </g>
+
+
+                    <!-- TAVYA -->
+
+                    <text
+                        class="tavya-logo-wordmark"
+                        x="600"
+                        y="825"
+                        text-anchor="middle">
+
+                        TAVYA
+
+                    </text>
+
+
+                    <!-- BLOOD DROPS IN A -->
+
+                    <path
+                        class="tavya-small-drop"
+                        fill="url(#headerDrop)"
+                        d="
+                            M 411 765
+
+                            C 400 781
+                              393 793
+                              393 804
+
+                            C 393 817
+                              401 825
+                              413 825
+
+                            C 425 825
+                              433 817
+                              433 804
+
+                            C 433 793
+                              426 781
+                              411 765
+
+                            Z
+                        ">
+
+
+                    </path>
+
+
+                    <path
+                        class="tavya-small-drop"
+                        fill="url(#headerDrop)"
+                        d="
+                            M 966 765
+
+                            C 955 781
+                              948 793
+                              948 804
+
+                            C 948 817
+                              956 825
+                              968 825
+
+                            C 980 825
+                              988 817
+                              988 804
+
+                            C 988 793
+                              981 781
+                              966 765
+
+                            Z
+                        ">
+
+
+                    </path>
+
+
+                    <!-- BLOOD NETWORK -->
+
+                    <text
+                        class="tavya-logo-network"
+                        x="600"
+                        y="895"
+                        text-anchor="middle">
+
+                        BLOOD NETWORK
+
+                    </text>
+
+
+                    <!-- DESCRIPTOR LINES -->
+
+                    <line
+                        class="tavya-logo-line"
+                        x1="135"
+                        y1="941"
+                        x2="285"
+                        y2="941">
+
+
+                    </line>
+
+
+                    <line
+                        class="tavya-logo-line"
+                        x1="915"
+                        y1="941"
+                        x2="1065"
+                        y2="941">
+
+
+                    </line>
+
+
+                    <!-- DESCRIPTOR -->
+
+                    <text
+                        class="tavya-logo-descriptor"
+                        x="600"
+                        y="951"
+                        text-anchor="middle">
+
+                        Transfusion Access &amp;
+                        Voluntary Assistance
+
+                    </text>
+
+
+                    <!-- TAGLINE -->
+
+                    <text
+                        class="tavya-logo-tagline"
+                        x="600"
+                        y="1030"
+                        text-anchor="middle">
+
+                        Connecting Donors. Saving Lives.
+
+                    </text>
+
+
+                    <!-- TAGLINE UNDERLINE -->
+
+                    <path
+                        class="tavya-logo-underline"
+                        d="
+                            M 440 1060
+                            Q 600 1038 760 1060
+                        ">
+
+
+                    </path>
+
+
+                    <!-- NON-PROFIT -->
+
+                    <text
+                        class="tavya-logo-nonprofit"
+                        x="600"
+                        y="1125"
+                        text-anchor="middle">
+
+                        A VOLUNTEER-RUN, NON-PROFIT INITIATIVE
+
+                    </text>
+
+                </svg>
 
             </a>
 
@@ -246,13 +1319,10 @@
 
 
             <!-- =================================================
-                 NAVIGATION ACTIONS
+                 ACTION BUTTONS
                  ================================================= -->
 
             <div class="nav-actions">
-
-
-                <!-- LOGIN -->
 
                 <a href="auth/login.html"
                    class="btn btn-outline">
@@ -262,8 +1332,6 @@
                 </a>
 
 
-                <!-- CREATE ACCOUNT -->
-
                 <a href="auth/signup.html"
                    class="btn btn-primary">
 
@@ -271,8 +1339,6 @@
 
                 </a>
 
-
-                <!-- MOBILE MENU -->
 
                 <button
                     class="menu-toggle"
@@ -296,14 +1362,14 @@
 
 
 <!-- =========================================================
-     MAIN
+     MAIN CONTENT
      ========================================================= -->
 
 <main>
 
 
 <!-- =========================================================
-     HERO SECTION
+     HERO
      ========================================================= -->
 
 <section id="home"
@@ -313,10 +1379,6 @@
 
         <div class="hero-grid">
 
-
-            <!-- =================================================
-                 HERO CONTENT
-                 ================================================= -->
 
             <div class="hero-content">
 
@@ -354,8 +1416,6 @@
                 <div class="hero-actions">
 
 
-                    <!-- DONATE -->
-
                     <a href="auth/signup.html"
                        class="btn btn-primary btn-large">
 
@@ -363,8 +1423,6 @@
 
                     </a>
 
-
-                    <!-- NEED BLOOD -->
 
                     <a href="auth/signup.html"
                        class="btn btn-outline btn-large">
@@ -386,10 +1444,6 @@
             </div>
 
 
-
-            <!-- =================================================
-                 HERO CARD
-                 ================================================= -->
 
             <div class="hero-card">
 
@@ -467,27 +1521,16 @@
         <div class="services-grid">
 
 
-            <!-- =================================================
-                 DONATE BLOOD
-                 ================================================= -->
-
             <article class="service-card"
                      id="donate">
 
-
                 <div class="service-icon">
-
                     🩸
-
                 </div>
 
-
                 <h3>
-
                     Donate Blood
-
                 </h3>
-
 
                 <p>
 
@@ -497,7 +1540,6 @@
                     blood requests.
 
                 </p>
-
 
                 <a href="auth/signup.html"
                    class="service-link">
@@ -510,27 +1552,16 @@
 
 
 
-            <!-- =================================================
-                 NEED BLOOD
-                 ================================================= -->
-
             <article class="service-card"
                      id="request">
 
-
                 <div class="service-icon">
-
                     🏥
-
                 </div>
 
-
                 <h3>
-
                     Need Blood
-
                 </h3>
-
 
                 <p>
 
@@ -539,7 +1570,6 @@
                     consenting donors to respond.
 
                 </p>
-
 
                 <a href="auth/signup.html"
                    class="service-link">
@@ -552,26 +1582,15 @@
 
 
 
-            <!-- =================================================
-                 NEARBY CENTRES
-                 ================================================= -->
-
             <article class="service-card">
 
-
                 <div class="service-icon">
-
                     📍
-
                 </div>
 
-
                 <h3>
-
                     Nearby Blood Centres
-
                 </h3>
-
 
                 <p>
 
@@ -580,7 +1599,6 @@
                     facilities.
 
                 </p>
-
 
                 <a href="#nearby"
                    class="service-link">
@@ -593,26 +1611,15 @@
 
 
 
-            <!-- =================================================
-                 HISTORY
-                 ================================================= -->
-
             <article class="service-card">
 
-
                 <div class="service-icon">
-
                     📋
-
                 </div>
 
-
                 <h3>
-
                     My TAVYA History
-
                 </h3>
-
 
                 <p>
 
@@ -621,7 +1628,6 @@
                     blood received through the network.
 
                 </p>
-
 
                 <a href="auth/login.html"
                    class="service-link">
@@ -634,26 +1640,15 @@
 
 
 
-            <!-- =================================================
-                 CERTIFICATES
-                 ================================================= -->
-
             <article class="service-card">
 
-
                 <div class="service-icon">
-
                     🏆
-
                 </div>
 
-
                 <h3>
-
                     Digital Certificates
-
                 </h3>
-
 
                 <p>
 
@@ -662,7 +1657,6 @@
                     made through TAVYA.
 
                 </p>
-
 
                 <a href="auth/login.html"
                    class="service-link">
@@ -675,26 +1669,15 @@
 
 
 
-            <!-- =================================================
-                 SUPPORT
-                 ================================================= -->
-
             <article class="service-card">
 
-
                 <div class="service-icon">
-
                     🤝
-
                 </div>
 
-
                 <h3>
-
                     Support TAVYA
-
                 </h3>
-
 
                 <p>
 
@@ -703,7 +1686,6 @@
                     to coordinate this network.
 
                 </p>
-
 
                 <a href="#support"
                    class="service-link">
@@ -723,7 +1705,7 @@
 
 
 <!-- =========================================================
-     HOW TAVYA WORKS
+     HOW IT WORKS
      ========================================================= -->
 
 <section id="how-it-works"
@@ -735,11 +1717,8 @@
         <div class="section-title">
 
             <h2>
-
                 How TAVYA Works
-
             </h2>
-
 
             <p>
 
@@ -756,24 +1735,15 @@
         <div class="steps-grid">
 
 
-            <!-- STEP 1 -->
-
             <div class="step">
 
-
                 <div class="step-number">
-
                     1
-
                 </div>
 
-
                 <h3>
-
                     Create One Account
-
                 </h3>
-
 
                 <p>
 
@@ -787,24 +1757,15 @@
 
 
 
-            <!-- STEP 2 -->
-
             <div class="step">
 
-
                 <div class="step-number">
-
                     2
-
                 </div>
 
-
                 <h3>
-
                     Donate or Request
-
                 </h3>
-
 
                 <p>
 
@@ -818,24 +1779,15 @@
 
 
 
-            <!-- STEP 3 -->
-
             <div class="step">
 
-
                 <div class="step-number">
-
                     3
-
                 </div>
 
-
                 <h3>
-
                     Match &amp; Respond
-
                 </h3>
-
 
                 <p>
 
@@ -849,24 +1801,15 @@
 
 
 
-            <!-- STEP 4 -->
-
             <div class="step">
 
-
                 <div class="step-number">
-
                     4
-
                 </div>
 
-
                 <h3>
-
                     Donate &amp; Verify
-
                 </h3>
-
 
                 <p>
 
@@ -898,11 +1841,8 @@
         <div class="section-title">
 
             <h2>
-
                 Building a Connected Blood Network
-
             </h2>
-
 
             <p>
 
@@ -919,84 +1859,53 @@
         <div class="stats-grid">
 
 
-            <!-- VERIFIED DONATIONS -->
-
             <div class="stat-card">
 
                 <div class="stat-number">
-
                     0
-
                 </div>
 
-
                 <div class="stat-label">
-
                     Verified TAVYA Donations
-
                 </div>
 
             </div>
 
 
-
-            <!-- BLOOD VOLUME -->
-
             <div class="stat-card">
 
                 <div class="stat-number">
-
                     0 mL
-
                 </div>
 
-
                 <div class="stat-label">
-
                     Verified Blood Volume
-
                 </div>
 
             </div>
 
 
-
-            <!-- REQUESTS -->
-
             <div class="stat-card">
 
                 <div class="stat-number">
-
                     0
-
                 </div>
 
-
                 <div class="stat-label">
-
                     Blood Requests Assisted
-
                 </div>
 
             </div>
 
 
-
-            <!-- RECEIPTS -->
-
             <div class="stat-card">
 
                 <div class="stat-number">
-
                     0
-
                 </div>
 
-
                 <div class="stat-label">
-
                     Verified Blood Receipts
-
                 </div>
 
             </div>
@@ -1022,11 +1931,8 @@
         <div class="section-title">
 
             <h2>
-
                 Find Nearby Blood Centres
-
             </h2>
-
 
             <p>
 
@@ -1044,7 +1950,7 @@
 
 
             <div class="service-icon"
-                 style="margin: 0 auto 20px;">
+                 style="margin:0 auto 20px;">
 
                 📍
 
@@ -1052,9 +1958,7 @@
 
 
             <h3>
-
                 Nearby Blood Centre Discovery
-
             </h3>
 
 
@@ -1083,7 +1987,7 @@
 
 
 <!-- =========================================================
-     ABOUT TAVYA
+     ABOUT
      ========================================================= -->
 
 <section id="about"
@@ -1095,17 +1999,12 @@
         <div class="section-title">
 
             <h2>
-
                 About TAVYA
-
             </h2>
 
-
             <p>
-
                 Transfusion Access &amp;
                 Voluntary Assistance
-
             </p>
 
         </div>
@@ -1116,9 +2015,7 @@
 
 
             <h3 class="mb-1">
-
                 Our Purpose
-
             </h3>
 
 
@@ -1141,9 +2038,7 @@
 
 
             <h3 class="mb-1">
-
                 Consent &amp; Privacy
-
             </h3>
 
 
@@ -1165,9 +2060,7 @@
 
 
             <h3 class="mb-1">
-
                 Medical Responsibility
-
             </h3>
 
 
@@ -1191,7 +2084,7 @@
 
 
 <!-- =========================================================
-     ACCOUNT SECTION
+     ACCOUNT
      ========================================================= -->
 
 <section id="account"
@@ -1203,9 +2096,7 @@
         <div class="section-title">
 
             <h2>
-
                 Your TAVYA Account
-
             </h2>
 
 
@@ -1224,26 +2115,15 @@
         <div class="services-grid">
 
 
-            <!-- =================================================
-                 LOGIN
-                 ================================================= -->
-
             <div class="service-card">
 
-
                 <div class="service-icon">
-
                     🔐
-
                 </div>
 
-
                 <h3>
-
                     Login
-
                 </h3>
-
 
                 <p>
 
@@ -1251,7 +2131,6 @@
                     donor profile, requests and history.
 
                 </p>
-
 
                 <a href="auth/login.html"
                    class="btn btn-outline">
@@ -1264,26 +2143,15 @@
 
 
 
-            <!-- =================================================
-                 CREATE ACCOUNT
-                 ================================================= -->
-
             <div class="service-card">
 
-
                 <div class="service-icon">
-
                     👤
-
                 </div>
 
-
                 <h3>
-
                     Create Account
-
                 </h3>
-
 
                 <p>
 
@@ -1291,7 +2159,6 @@
                     your permanent TAVYA ID.
 
                 </p>
-
 
                 <a href="auth/signup.html"
                    class="btn btn-primary">
@@ -1304,26 +2171,15 @@
 
 
 
-            <!-- =================================================
-                 TAVYA ID
-                 ================================================= -->
-
             <div class="service-card">
 
-
                 <div class="service-icon">
-
                     🆔
-
                 </div>
 
-
                 <h3>
-
                     TAVYA ID
-
                 </h3>
-
 
                 <p>
 
@@ -1332,7 +2188,6 @@
                     across the platform.
 
                 </p>
-
 
                 <a href="auth/login.html"
                    class="btn btn-dark">
@@ -1352,7 +2207,7 @@
 
 
 <!-- =========================================================
-     SUPPORT TAVYA
+     SUPPORT
      ========================================================= -->
 
 <section id="support"
@@ -1364,9 +2219,7 @@
 
 
             <h2>
-
                 Help Build TAVYA
-
             </h2>
 
 
@@ -1399,7 +2252,7 @@
 
 
 <!-- =========================================================
-     INFORMATION SECTION
+     INFORMATION
      ========================================================= -->
 
 <section id="information"
@@ -1411,9 +2264,7 @@
         <div class="section-title">
 
             <h2>
-
                 TAVYA Information
-
             </h2>
 
 
@@ -1431,25 +2282,16 @@
         <div class="services-grid">
 
 
-            <!-- PRIVACY -->
-
             <div class="service-card"
                  id="privacy">
 
-
                 <div class="service-icon">
-
                     🔒
-
                 </div>
 
-
                 <h3>
-
                     Privacy
-
                 </h3>
-
 
                 <p>
 
@@ -1463,25 +2305,16 @@
 
 
 
-            <!-- TERMS -->
-
             <div class="service-card"
                  id="terms">
 
-
                 <div class="service-icon">
-
                     📄
-
                 </div>
 
-
                 <h3>
-
                     Terms
-
                 </h3>
-
 
                 <p>
 
@@ -1495,25 +2328,16 @@
 
 
 
-            <!-- CONTACT -->
-
             <div class="service-card"
                  id="contact">
 
-
                 <div class="service-icon">
-
                     ✉️
-
                 </div>
 
-
                 <h3>
-
                     Contact
-
                 </h3>
-
 
                 <p>
 
@@ -1549,21 +2373,516 @@
 
 
             <!-- =================================================
-                 FOOTER BRAND
+                 FOOTER INLINE SVG LOGO
                  ================================================= -->
 
             <div class="footer-brand">
 
 
                 <a href="index.html"
-                   class="footer-brand-logo"
+                   class="tavya-footer-logo"
                    aria-label="TAVYA Blood Network Home">
 
-                    <img
-                        src="logo.png"
-                        alt="TAVYA Blood Network"
-                        class="footer-logo"
-                        draggable="false">
+
+                    <svg
+                        viewBox="0 0 1200 1200"
+                        xmlns="http://www.w3.org/2000/svg"
+                        role="img"
+                        aria-label="TAVYA Blood Network">
+
+
+                        <defs>
+
+
+                            <linearGradient
+                                id="footerBlue"
+                                x1="0"
+                                y1="0"
+                                x2="1"
+                                y2="1">
+
+                                <stop
+                                    offset="0%"
+                                    stop-color="#17638f"/>
+
+                                <stop
+                                    offset="100%"
+                                    stop-color="#06304f"/>
+
+                            </linearGradient>
+
+
+                            <linearGradient
+                                id="footerRed"
+                                x1="0"
+                                y1="0"
+                                x2="1"
+                                y2="1">
+
+                                <stop
+                                    offset="0%"
+                                    stop-color="#ef282f"/>
+
+                                <stop
+                                    offset="100%"
+                                    stop-color="#a60910"/>
+
+                            </linearGradient>
+
+
+                            <linearGradient
+                                id="footerDrop"
+                                x1="0"
+                                y1="0"
+                                x2="1"
+                                y2="1">
+
+                                <stop
+                                    offset="0%"
+                                    stop-color="#ff343a"/>
+
+                                <stop
+                                    offset="50%"
+                                    stop-color="#e81118"/>
+
+                                <stop
+                                    offset="100%"
+                                    stop-color="#a3050b"/>
+
+                            </linearGradient>
+
+
+                            <path
+                                id="footerArcText"
+                                d="
+                                    M 205 680
+                                    A 395 395 0 0 1 995 680
+                                "
+                                fill="none">
+
+                            </path>
+
+                        </defs>
+
+
+                        <!-- ARC -->
+
+                        <path
+                            class="tavya-logo-ring"
+                            d="
+                                M 195 680
+                                A 405 405 0 0 1 1005 680
+                            ">
+
+
+                        </path>
+
+
+                        <!-- TOP TEXT -->
+
+                        <text class="tavya-logo-top-text">
+
+                            <textPath
+                                href="#footerArcText"
+                                startOffset="50%"
+                                text-anchor="middle">
+
+                                DONATE
+                                <tspan fill="#d71920">
+                                    •
+                                </tspan>
+                                SUPPORT
+                                <tspan fill="#d71920">
+                                    •
+                                </tspan>
+                                SAVE LIVES
+
+                            </textPath>
+
+                        </text>
+
+
+                        <!-- SYMBOL -->
+
+                        <g class="tavya-logo-symbol">
+
+
+                            <!-- LEFT HAND -->
+
+                            <path
+                                fill="url(#footerBlue)"
+                                d="
+                                    M 295 365
+                                    C 283 325
+                                      278 288
+                                      283 260
+                                    C 286 243
+                                      299 235
+                                      313 242
+                                    C 333 252
+                                      343 286
+                                      351 324
+                                    L 360 287
+                                    C 365 268
+                                      380 261
+                                      394 271
+                                    C 410 283
+                                      414 313
+                                      417 348
+                                    L 425 316
+                                    C 430 297
+                                      445 291
+                                      458 301
+                                    C 474 314
+                                      476 343
+                                      478 378
+                                    C 500 403
+                                      530 420
+                                      557 434
+                                    C 583 448
+                                      600 466
+                                      606 490
+                                    L 606 680
+                                    C 584 658
+                                      555 638
+                                      523 620
+                                    C 484 599
+                                      440 584
+                                      400 565
+                                    C 359 545
+                                      328 516
+                                      307 482
+                                    C 289 452
+                                      281 416
+                                      295 365
+                                    Z
+                                ">
+
+
+                            </path>
+
+
+                            <!-- RIGHT HAND -->
+
+                            <path
+                                fill="url(#footerRed)"
+                                d="
+                                    M 905 365
+                                    C 917 325
+                                      922 288
+                                      917 260
+                                    C 914 243
+                                      901 235
+                                      887 242
+                                    C 867 252
+                                      857 286
+                                      849 324
+                                    L 840 287
+                                    C 835 268
+                                      820 261
+                                      806 271
+                                    C 790 283
+                                      786 313
+                                      783 348
+                                    L 775 316
+                                    C 770 297
+                                      755 291
+                                      742 301
+                                    C 726 314
+                                      724 343
+                                      722 378
+                                    C 700 403
+                                      670 420
+                                      643 434
+                                    C 617 448
+                                      600 466
+                                      594 490
+                                    L 594 680
+                                    C 616 658
+                                      645 638
+                                      677 620
+                                    C 716 599
+                                      760 584
+                                      800 565
+                                    C 841 545
+                                      872 516
+                                      893 482
+                                    C 911 452
+                                      919 416
+                                      905 365
+                                    Z
+                                ">
+
+
+                            </path>
+
+
+                            <!-- HIGHLIGHTS -->
+
+                            <path
+                                d="
+                                    M 348 278
+                                    C 356 325
+                                      361 376
+                                      382 414
+                                    C 405 455
+                                      440 471
+                                      477 489
+                                "
+                                fill="none"
+                                stroke="#ffffff"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                                opacity=".88">
+
+
+                            </path>
+
+
+                            <path
+                                d="
+                                    M 852 278
+                                    C 844 325
+                                      839 376
+                                      818 414
+                                    C 795 455
+                                      760 471
+                                      723 489
+                                "
+                                fill="none"
+                                stroke="#ffffff"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                                opacity=".88">
+
+
+                            </path>
+
+
+                            <!-- BLOOD DROP -->
+
+                            <path
+                                fill="url(#footerDrop)"
+                                d="
+                                    M 600 145
+                                    C 581 192
+                                      535 247
+                                      505 300
+                                    C 478 347
+                                      462 382
+                                      464 420
+                                    C 467 476
+                                      497 517
+                                      540 538
+                                    C 559 547
+                                      580 551
+                                      600 551
+                                    C 620 551
+                                      641 547
+                                      660 538
+                                    C 703 517
+                                      733 476
+                                      736 420
+                                    C 738 382
+                                      722 347
+                                      695 300
+                                    C 665 247
+                                      619 192
+                                      600 145
+                                    Z
+                                ">
+
+
+                            </path>
+
+
+                            <!-- HEART -->
+
+                            <path
+                                class="tavya-logo-heart"
+                                d="
+                                    M 600 455
+                                    C 580 433
+                                      539 406
+                                      539 373
+                                    C 539 347
+                                      557 331
+                                      580 331
+                                    C 590 331
+                                      599 336
+                                      606 345
+                                    C 613 336
+                                      622 331
+                                      632 331
+                                    C 655 331
+                                      673 347
+                                      673 373
+                                    C 673 406
+                                      632 433
+                                      600 455
+                                    Z
+                                ">
+
+
+                            </path>
+
+                        </g>
+
+
+                        <!-- TAVYA -->
+
+                        <text
+                            class="tavya-logo-wordmark"
+                            x="600"
+                            y="825"
+                            text-anchor="middle">
+
+                            TAVYA
+
+                        </text>
+
+
+                        <!-- A DROPS -->
+
+                        <path
+                            class="tavya-small-drop"
+                            fill="url(#footerDrop)"
+                            d="
+                                M 411 765
+                                C 400 781
+                                  393 793
+                                  393 804
+                                C 393 817
+                                  401 825
+                                  413 825
+                                C 425 825
+                                  433 817
+                                  433 804
+                                C 433 793
+                                  426 781
+                                  411 765
+                                Z
+                            ">
+
+
+                        </path>
+
+
+                        <path
+                            class="tavya-small-drop"
+                            fill="url(#footerDrop)"
+                            d="
+                                M 966 765
+                                C 955 781
+                                  948 793
+                                  948 804
+                                C 948 817
+                                  956 825
+                                  968 825
+                                C 980 825
+                                  988 817
+                                  988 804
+                                C 988 793
+                                  981 781
+                                  966 765
+                                Z
+                            ">
+
+
+                        </path>
+
+
+                        <!-- NETWORK -->
+
+                        <text
+                            class="tavya-logo-network"
+                            x="600"
+                            y="895"
+                            text-anchor="middle">
+
+                            BLOOD NETWORK
+
+                        </text>
+
+
+                        <!-- LINES -->
+
+                        <line
+                            class="tavya-logo-line"
+                            x1="135"
+                            y1="941"
+                            x2="285"
+                            y2="941">
+
+
+                        </line>
+
+
+                        <line
+                            class="tavya-logo-line"
+                            x1="915"
+                            y1="941"
+                            x2="1065"
+                            y2="941">
+
+
+                        </line>
+
+
+                        <!-- DESCRIPTOR -->
+
+                        <text
+                            class="tavya-logo-descriptor"
+                            x="600"
+                            y="951"
+                            text-anchor="middle">
+
+                            Transfusion Access &amp;
+                            Voluntary Assistance
+
+                        </text>
+
+
+                        <!-- TAGLINE -->
+
+                        <text
+                            class="tavya-logo-tagline"
+                            x="600"
+                            y="1030"
+                            text-anchor="middle">
+
+                            Connecting Donors. Saving Lives.
+
+                        </text>
+
+
+                        <!-- UNDERLINE -->
+
+                        <path
+                            class="tavya-logo-underline"
+                            d="
+                                M 440 1060
+                                Q 600 1038 760 1060
+                            ">
+
+
+                        </path>
+
+
+                        <!-- NON-PROFIT -->
+
+                        <text
+                            class="tavya-logo-nonprofit"
+                            x="600"
+                            y="1125"
+                            text-anchor="middle">
+
+                            A VOLUNTEER-RUN, NON-PROFIT INITIATIVE
+
+                        </text>
+
+
+                    </svg>
 
                 </a>
 
@@ -1585,13 +2904,9 @@
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Platform
-
                 </h4>
-
 
                 <ul>
 
@@ -1601,20 +2916,17 @@
                         </a>
                     </li>
 
-
                     <li>
                         <a href="#request">
                             Need Blood
                         </a>
                     </li>
 
-
                     <li>
                         <a href="#nearby">
                             Nearby Blood Centres
                         </a>
                     </li>
-
 
                     <li>
                         <a href="auth/login.html">
@@ -1634,13 +2946,9 @@
 
             <div class="footer-column">
 
-
                 <h4>
-
                     TAVYA
-
                 </h4>
-
 
                 <ul>
 
@@ -1650,13 +2958,11 @@
                         </a>
                     </li>
 
-
                     <li>
                         <a href="#support">
                             Support TAVYA
                         </a>
                     </li>
-
 
                     <li>
                         <a href="#account">
@@ -1676,13 +2982,9 @@
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Information
-
                 </h4>
-
 
                 <ul>
 
@@ -1692,13 +2994,11 @@
                         </a>
                     </li>
 
-
                     <li>
                         <a href="#terms">
                             Terms
                         </a>
                     </li>
-
 
                     <li>
                         <a href="#contact">
@@ -1719,7 +3019,6 @@
              ================================================= -->
 
         <div class="footer-bottom">
-
 
             <span>
 
@@ -1758,10 +3057,8 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-
         const menuToggle =
             document.querySelector(".menu-toggle");
-
 
         const navLinks =
             document.querySelector(".nav-links");
@@ -1775,7 +3072,6 @@ document.addEventListener(
         menuToggle.addEventListener(
             "click",
             function () {
-
 
                 const isOpen =
                     navLinks.classList.toggle(
@@ -1799,10 +3095,6 @@ document.addEventListener(
             }
         );
 
-
-        /* ---------------------------------------------
-           Close menu after selecting a navigation link
-           --------------------------------------------- */
 
         navLinks
             .querySelectorAll("a")
@@ -1839,7 +3131,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   TEMPORARY COMING SOON
+   TEMPORARY SUPPORT MESSAGE
    ========================================================= */
 
 function showComingSoon(feature) {
@@ -1865,7 +3157,6 @@ document
             link.addEventListener(
                 "click",
                 function (event) {
-
 
                     const targetId =
                         this.getAttribute("href");
