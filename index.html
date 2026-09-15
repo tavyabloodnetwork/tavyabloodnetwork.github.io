@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -26,6 +27,7 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet"
           href="assets/css/style.css">
+
 </head>
 
 
@@ -103,12 +105,14 @@
 
             <div class="nav-actions">
 
-                <a href="#account"
+                <!-- ACTUAL LOGIN PAGE -->
+                <a href="auth/login.html"
                    class="btn btn-outline">
                     Login
                 </a>
 
-                <a href="#account"
+                <!-- ACTUAL SIGNUP PAGE -->
+                <a href="auth/signup.html"
                    class="btn btn-primary">
                     Create Account
                 </a>
@@ -187,7 +191,8 @@
 
                 <div class="hero-actions">
 
-                    <a href="#donate"
+                    <!-- Donate Blood → Create Account -->
+                    <a href="auth/signup.html"
                        class="btn btn-primary btn-large">
 
                         🩸 Donate Blood
@@ -195,7 +200,8 @@
                     </a>
 
 
-                    <a href="#request"
+                    <!-- Need Blood → Create Account -->
+                    <a href="auth/signup.html"
                        class="btn btn-outline btn-large">
 
                         🏥 Need Blood
@@ -231,7 +237,8 @@
                 </p>
 
 
-                <a href="#account"
+                <!-- Create Account → Signup -->
+                <a href="auth/signup.html"
                    class="btn btn-primary">
 
                     Create Your TAVYA Account
@@ -301,7 +308,8 @@
 
                 </p>
 
-                <a href="#account"
+                <!-- Become Donor → Signup -->
+                <a href="auth/signup.html"
                    class="service-link">
 
                     Become a Donor →
@@ -333,7 +341,8 @@
 
                 </p>
 
-                <a href="#account"
+                <!-- Request Blood → Signup -->
+                <a href="auth/signup.html"
                    class="service-link">
 
                     Request Blood →
@@ -395,7 +404,8 @@
 
                 </p>
 
-                <a href="#account"
+                <!-- History → Login -->
+                <a href="auth/login.html"
                    class="service-link">
 
                     View My History →
@@ -426,7 +436,8 @@
 
                 </p>
 
-                <a href="#account"
+                <!-- Certificates → Login -->
+                <a href="auth/login.html"
                    class="service-link">
 
                     My Certificates →
@@ -746,7 +757,8 @@
 
             </p>
 
-            <a href="#account"
+            <!-- Login first for personalised nearby services -->
+            <a href="auth/login.html"
                class="btn btn-primary">
 
                 Explore Nearby Centres
@@ -885,6 +897,8 @@
         <div class="services-grid">
 
 
+            <!-- LOGIN -->
+
             <div class="service-card">
 
                 <div class="service-icon">
@@ -902,17 +916,19 @@
 
                 </p>
 
-                <button class="btn btn-outline"
-                        type="button"
-                        onclick="showComingSoon('Login')">
+                <!-- ACTUAL LOGIN PAGE -->
+                <a href="auth/login.html"
+                   class="btn btn-outline">
 
                     Login
 
-                </button>
+                </a>
 
             </div>
 
 
+
+            <!-- CREATE ACCOUNT -->
 
             <div class="service-card">
 
@@ -931,17 +947,19 @@
 
                 </p>
 
-                <button class="btn btn-primary"
-                        type="button"
-                        onclick="showComingSoon('Account Registration')">
+                <!-- ACTUAL SIGNUP PAGE -->
+                <a href="auth/signup.html"
+                   class="btn btn-primary">
 
                     Create Account
 
-                </button>
+                </a>
 
             </div>
 
 
+
+            <!-- TAVYA ID -->
 
             <div class="service-card">
 
@@ -961,13 +979,13 @@
 
                 </p>
 
-                <button class="btn btn-dark"
-                        type="button"
-                        onclick="showComingSoon('TAVYA ID')">
+                <!-- TAVYA ID information will be available after login -->
+                <a href="auth/login.html"
+                   class="btn btn-dark">
 
-                    Learn More
+                    Login to View TAVYA ID
 
-                </button>
+                </a>
 
             </div>
 
@@ -1004,6 +1022,7 @@
 
             </p>
 
+            <!-- Support is not implemented yet -->
             <button class="btn btn-large"
                     type="button"
                     onclick="showComingSoon('TAVYA Support')">
@@ -1100,7 +1119,7 @@
                     </li>
 
                     <li>
-                        <a href="#account">
+                        <a href="auth/login.html">
                             My TAVYA
                         </a>
                     </li>
@@ -1134,7 +1153,7 @@
                     </li>
 
                     <li>
-                        <a href="#account">
+                        <a href="auth/login.html">
                             Digital TAVYA ID
                         </a>
                     </li>
@@ -1206,83 +1225,87 @@
 
 <script>
 
-    /* -------------------------------------------------------
-       Mobile Navigation
-       ------------------------------------------------------- */
 
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
+/* -------------------------------------------------------
+   Mobile Navigation
+   ------------------------------------------------------- */
 
-            const menuToggle =
-                document.querySelector(".menu-toggle");
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-            const navLinks =
-                document.querySelector(".nav-links");
+        const menuToggle =
+            document.querySelector(".menu-toggle");
+
+        const navLinks =
+            document.querySelector(".nav-links");
 
 
-            if (menuToggle && navLinks) {
+        if (menuToggle && navLinks) {
 
-                menuToggle.addEventListener(
-                    "click",
-                    function () {
+            menuToggle.addEventListener(
+                "click",
+                function () {
 
-                        const isOpen =
-                            navLinks.classList.toggle(
+                    const isOpen =
+                        navLinks.classList.toggle(
+                            "mobile-open"
+                        );
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        isOpen
+                    );
+
+                }
+            );
+
+
+            /* Close menu after clicking a link */
+
+            navLinks
+                .querySelectorAll("a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            navLinks.classList.remove(
                                 "mobile-open"
                             );
 
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            isOpen
-                        );
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
 
-                    }
-                );
+                        }
+                    );
 
-
-                /* Close menu after clicking a link */
-
-                navLinks
-                    .querySelectorAll("a")
-                    .forEach(function (link) {
-
-                        link.addEventListener(
-                            "click",
-                            function () {
-
-                                navLinks.classList.remove(
-                                    "mobile-open"
-                                );
-
-                                menuToggle.setAttribute(
-                                    "aria-expanded",
-                                    "false"
-                                );
-
-                            }
-                        );
-
-                    });
-
-            }
+                });
 
         }
-    );
-
-
-    /* -------------------------------------------------------
-       Temporary Coming Soon Function
-       ------------------------------------------------------- */
-
-    function showComingSoon(feature) {
-
-        alert(
-            feature +
-            " will be available in the next development stage of TAVYA."
-        );
 
     }
+);
+
+
+
+/* -------------------------------------------------------
+   Temporary Coming Soon Function
+   Used only for features that are not implemented yet.
+   ------------------------------------------------------- */
+
+function showComingSoon(feature) {
+
+    alert(
+        feature +
+        " will be available in the next development stage of TAVYA."
+    );
+
+}
+
 
 </script>
 
