@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Create a TAVYA Blood Network account. One account to donate blood, request blood and manage your TAVYA records.">
+
+    <meta name="theme-color"
+          content="#b91c1c">
+
+    <title>
+        Create Account | TAVYA Blood Network
+    </title>
+
+    <!-- Main TAVYA stylesheet -->
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+    <style>
+
+        /* =====================================================
+           SIGNUP PAGE
+           ===================================================== */
+
+        .signup-page {
+            padding: 60px 20px 80px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7f7 0%,
+                    #ffffff 55%,
+                    #f8fafc 100%
+                );
+        }
+
+
+        .signup-wrapper {
+            width: 100%;
+            max-width: 850px;
+
+            margin: 0 auto;
+        }
+
+
+        .signup-card {
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-md);
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           BRAND HEADER
+           ===================================================== */
+
+        .signup-header {
+            padding: 38px 40px 30px;
+
+            text-align: center;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .signup-logo-mark {
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            margin: 0 auto 14px;
+
+            border-radius: 50%;
+
+            background: var(--primary);
+            color: #ffffff;
+
+            font-size: 1.5rem;
+        }
+
+
+        .signup-brand-name {
+            display: block;
+
+            color: var(--primary);
+
+            font-size: 1.8rem;
+            font-weight: 800;
+
+            letter-spacing: 0.05em;
+        }
+
+
+        .signup-brand-subtitle {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--text-light);
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .signup-header h1 {
+            margin-top: 25px;
+            margin-bottom: 9px;
+
+            font-size: 2rem;
+        }
+
+
+        .signup-header p {
+            font-size: 0.95rem;
+        }
+
+
+        /* =====================================================
+           FORM CONTENT
+           ===================================================== */
+
+        .signup-content {
+            padding: 40px;
+        }
+
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .form-section-title {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 22px;
+
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .section-number {
+            width: 32px;
+            height: 32px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+
+        .form-section-title h2 {
+            font-size: 1.2rem;
+        }
+
+
+        .form-section-description {
+            margin-top: -10px;
+            margin-bottom: 22px;
+
+            font-size: 0.88rem;
+        }
+
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+
+        .required {
+            color: var(--primary);
+        }
+
+
+        .field-help {
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--text-light);
+
+            font-size: 0.76rem;
+        }
+
+
+        /* =====================================================
+           PASSWORD
+           ===================================================== */
+
+        .password-wrapper {
+            position: relative;
+        }
+
+
+        .password-wrapper .form-control {
+            padding-right: 52px;
+        }
+
+
+        .password-toggle {
+            position: absolute;
+
+            top: 50%;
+            right: 8px;
+
+            transform: translateY(-50%);
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--text-light);
+
+            cursor: pointer;
+
+            border-radius: 6px;
+        }
+
+
+        .password-toggle:hover {
+            background: var(--background-soft);
+
+            color: var(--primary);
+        }
+
+
+        /* =====================================================
+           DONOR OPTION
+           ===================================================== */
+
+        .donor-choice {
+            padding: 24px;
+
+            background: #fffafa;
+
+            border: 1px solid #fecaca;
+
+            border-radius: var(--radius-md);
+        }
+
+
+        .choice-question {
+            margin-bottom: 18px;
+        }
+
+
+        .choice-question h3 {
+            margin-bottom: 7px;
+        }
+
+
+        .choice-question p {
+            font-size: 0.88rem;
+        }
+
+
+        .choice-options {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .choice-option {
+            position: relative;
+        }
+
+
+        .choice-option input {
+            position: absolute;
+
+            opacity: 0;
+        }
+
+
+        .choice-label {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            padding: 15px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-sm);
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .choice-label:hover {
+            border-color: #fca5a5;
+        }
+
+
+        .choice-radio {
+            width: 19px;
+            height: 19px;
+
+            flex-shrink: 0;
+
+            margin-top: 2px;
+
+            border: 2px solid #9ca3af;
+
+            border-radius: 50%;
+        }
+
+
+        .choice-option input:checked
+        + .choice-label {
+
+            border-color: var(--primary);
+
+            background: var(--primary-light);
+        }
+
+
+        .choice-option input:checked
+        + .choice-label
+        .choice-radio {
+
+            border-color: var(--primary);
+
+            box-shadow:
+                inset 0 0 0 4px #ffffff;
+
+            background: var(--primary);
+        }
+
+
+        .choice-label strong {
+            display: block;
+
+            margin-bottom: 3px;
+
+            color: var(--secondary);
+
+            font-size: 0.9rem;
+        }
+
+
+        .choice-label span {
+            color: var(--text-light);
+
+            font-size: 0.78rem;
+        }
+
+
+        /* =====================================================
+           DONOR DETAILS
+           ===================================================== */
+
+        #donor-section {
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background: var(--background-soft);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-md);
+        }
+
+
+        #donor-section.visible {
+            display: block;
+        }
+
+
+        .component-options {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .component-option {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 11px 13px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-sm);
+
+            font-size: 0.85rem;
+
+            cursor: pointer;
+        }
+
+
+        .component-option input {
+            accent-color: var(--primary);
+
+            width: 16px;
+            height: 16px;
+        }
+
+
+        /* =====================================================
+           CONSENT
+           ===================================================== */
+
+        .consent-box {
+            margin-top: 25px;
+
+            padding: 22px;
+
+            background: #fff7ed;
+
+            border: 1px solid #fed7aa;
+
+            border-radius: var(--radius-md);
+        }
+
+
+        .consent-title {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .consent-title-icon {
+            flex-shrink: 0;
+
+            font-size: 1.1rem;
+        }
+
+
+        .consent-box h3 {
+            font-size: 1rem;
+        }
+
+
+        .consent-box p {
+            margin-bottom: 16px;
+
+            font-size: 0.83rem;
+
+            line-height: 1.6;
+        }
+
+
+        .consent-check {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            padding: 14px;
+
+            background: #ffffff;
+
+            border: 1px solid #fed7aa;
+
+            border-radius: var(--radius-sm);
+
+            cursor: pointer;
+        }
+
+
+        .consent-check input {
+            width: 18px;
+            height: 18px;
+
+            flex-shrink: 0;
+
+            margin-top: 2px;
+
+            accent-color: var(--primary);
+
+            cursor: pointer;
+        }
+
+
+        .consent-check span {
+            color: var(--text);
+
+            font-size: 0.82rem;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           PRIVACY NOTICE
+           ===================================================== */
+
+        .privacy-box {
+            display: flex;
+
+            gap: 13px;
+
+            padding: 18px;
+
+            background: #f0fdf4;
+
+            border: 1px solid #bbf7d0;
+
+            border-radius: var(--radius-md);
+        }
+
+
+        .privacy-icon {
+            flex-shrink: 0;
+
+            font-size: 1.2rem;
+        }
+
+
+        .privacy-box h3 {
+            margin-bottom: 5px;
+
+            font-size: 0.95rem;
+        }
+
+
+        .privacy-box p {
+            font-size: 0.8rem;
+
+            line-height: 1.55;
+        }
+
+
+        /* =====================================================
+           TERMS
+           ===================================================== */
+
+        .terms-check {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-sm);
+
+            cursor: pointer;
+        }
+
+
+        .terms-check input {
+            width: 18px;
+            height: 18px;
+
+            flex-shrink: 0;
+
+            margin-top: 2px;
+
+            accent-color: var(--primary);
+
+            cursor: pointer;
+        }
+
+
+        .terms-check span {
+            color: var(--text-light);
+
+            font-size: 0.82rem;
+
+            line-height: 1.5;
+        }
+
+
+        .terms-check a {
+            color: var(--primary);
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           SUBMIT
+           ===================================================== */
+
+        .signup-submit {
+            width: 100%;
+
+            min-height: 54px;
+
+            margin-top: 25px;
+
+            font-size: 1rem;
+        }
+
+
+        .login-existing {
+            margin-top: 25px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+
+        .login-existing p {
+            margin-bottom: 10px;
+
+            font-size: 0.88rem;
+        }
+
+
+        /* =====================================================
+           MESSAGE
+           ===================================================== */
+
+        .signup-message {
+            display: none;
+
+            padding: 13px 16px;
+
+            margin-bottom: 20px;
+
+            border-radius: var(--radius-sm);
+
+            font-size: 0.86rem;
+        }
+
+
+        .signup-message.show {
+            display: block;
+        }
+
+
+        .signup-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+
+        .signup-message.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+
+        /* =====================================================
+           BACK HOME
+           ===================================================== */
+
+        .back-home {
+            display: block;
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            color: var(--text-light);
+
+            font-size: 0.85rem;
+        }
+
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .signup-page {
+                padding: 35px 12px 55px;
+            }
+
+
+            .signup-header {
+                padding: 30px 22px 25px;
+            }
+
+
+            .signup-content {
+                padding: 28px 20px;
+            }
+
+
+            .form-grid,
+            .choice-options,
+            .component-options {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-group-full {
+                grid-column: auto;
+            }
+
+
+            .signup-header h1 {
+                font-size: 1.7rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+    <div class="container">
+
+        <nav class="navbar">
+
+            <a href="../index.html"
+               class="logo"
+               aria-label="TAVYA Blood Network Home">
+
+                <div class="logo-mark">
+                    🩸
+                </div>
+
+                <div class="logo-text">
+
+                    <span class="logo-name">
+                        TAVYA
+                    </span>
+
+                    <span class="logo-subtitle">
+                        BLOOD NETWORK
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <div class="nav-actions">
+
+                <a href="login.html"
+                   class="btn btn-outline">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     SIGNUP PAGE
+     ========================================================= -->
+
+<main>
+
+<section class="signup-page">
+
+    <div class="signup-wrapper">
+
+        <div class="signup-card">
+
+
+            <!-- =================================================
+                 HEADER
+                 ================================================= -->
+
+            <div class="signup-header">
+
+                <div class="signup-logo-mark">
+                    🩸
+                </div>
+
+                <span class="signup-brand-name">
+                    TAVYA
+                </span>
+
+                <span class="signup-brand-subtitle">
+                    BLOOD NETWORK
+                </span>
+
+
+                <h1>
+                    Create Your TAVYA Account
+                </h1>
+
+                <p>
+                    One account for donating blood,
+                    requesting blood and managing your TAVYA records.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CONTENT
+                 ================================================= -->
+
+            <div class="signup-content">
+
+
+                <!-- Message -->
+
+                <div id="signup-message"
+                     class="signup-message"
+                     role="alert">
+                </div>
+
+
+
+                <!-- =================================================
+                     SECTION 1 — ACCOUNT
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="section-number">
+                            1
+                        </div>
+
+                        <h2>
+                            Account Information
+                        </h2>
+
+                    </div>
+
+
+                    <p class="form-section-description">
+
+                        Create one TAVYA account. Your account can
+                        later be used both for donating blood and
+                        requesting blood.
+
+                    </p>
+
+
+                    <div class="form-grid">
+
+
+                        <!-- Full Name -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="full-name"
+                                class="form-label">
+
+                                Full Name
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="full-name"
+                                name="full_name"
+                                class="form-control"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required>
+
+                        </div>
+
+
+
+                        <!-- Email -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="email"
+                                class="form-label">
+
+                                Email Address
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required>
+
+                            <span class="field-help">
+                                A verification link will be sent to this address.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Mobile -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="mobile"
+                                class="form-label">
+
+                                Mobile Number
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                class="form-control"
+                                placeholder="Enter your mobile number"
+                                autocomplete="tel"
+                                inputmode="tel"
+                                required>
+
+                        </div>
+
+
+
+                        <!-- Date of Birth -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="date-of-birth"
+                                class="form-label">
+
+                                Date of Birth
+
+                            </label>
+
+                            <input
+                                type="date"
+                                id="date-of-birth"
+                                name="date_of_birth"
+                                class="form-control"
+                                autocomplete="bday">
+
+                        </div>
+
+
+
+                        <!-- Gender -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="gender"
+                                class="form-label">
+
+                                Gender
+
+                            </label>
+
+                            <select
+                                id="gender"
+                                name="gender"
+                                class="form-control">
+
+                                <option value="">
+                                    Select
+                                </option>
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                                <option value="Prefer_not_to_say">
+                                    Prefer not to say
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- Preferred Language -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="language"
+                                class="form-label">
+
+                                Preferred Language
+
+                            </label>
+
+                            <select
+                                id="language"
+                                name="preferred_language"
+                                class="form-control">
+
+                                <option value="English">
+                                    English
+                                </option>
+
+                                <option value="Hindi">
+                                    हिन्दी
+                                </option>
+
+                                <option value="Telugu">
+                                    తెలుగు
+                                </option>
+
+                                <option value="Bengali">
+                                    বাংলা
+                                </option>
+
+                                <option value="Tamil">
+                                    தமிழ்
+                                </option>
+
+                                <option value="Marathi">
+                                    मराठी
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- Password -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="password"
+                                class="form-label">
+
+                                Password
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <div class="password-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-control"
+                                    placeholder="Create a password"
+                                    autocomplete="new-password"
+                                    required>
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="password-toggle"
+                                    aria-label="Show password">
+
+                                    👁
+
+                                </button>
+
+                            </div>
+
+                            <span class="field-help">
+                                Use a strong password. Your password will not be stored in the TAVYA database.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Confirm Password -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="confirm-password"
+                                class="form-label">
+
+                                Confirm Password
+                                <span class="required">*</span>
+
+                            </label>
+
+                            <div class="password-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="confirm-password"
+                                    name="confirm_password"
+                                    class="form-control"
+                                    placeholder="Re-enter your password"
+                                    autocomplete="new-password"
+                                    required>
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="confirm-password-toggle"
+                                    aria-label="Show password">
+
+                                    👁
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     SECTION 2 — LOCATION
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="section-number">
+                            2
+                        </div>
+
+                        <h2>
+                            Location
+                        </h2>
+
+                    </div>
+
+
+                    <p class="form-section-description">
+
+                        Location information can help TAVYA
+                        provide relevant services such as nearby
+                        blood-centre discovery and donor matching.
+
+                    </p>
+
+
+                    <div class="form-grid">
+
+
+                        <!-- City -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="city"
+                                class="form-label">
+
+                                City
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                class="form-control"
+                                placeholder="Enter city"
+                                autocomplete="address-level2">
+
+                        </div>
+
+
+
+                        <!-- District -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="district"
+                                class="form-label">
+
+                                District
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="district"
+                                name="district"
+                                class="form-control"
+                                placeholder="Enter district">
+
+                        </div>
+
+
+
+                        <!-- State -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="state"
+                                class="form-label">
+
+                                State
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                name="state"
+                                class="form-control"
+                                placeholder="Enter state"
+                                autocomplete="address-level1">
+
+                        </div>
+
+
+
+                        <!-- Country -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="country"
+                                class="form-label">
+
+                                Country
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="country"
+                                name="country"
+                                class="form-control"
+                                value="India"
+                                autocomplete="country-name">
+
+                        </div>
+
+
+
+                        <!-- Pincode -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="pincode"
+                                class="form-label">
+
+                                Pincode
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pincode"
+                                name="pincode"
+                                class="form-control"
+                                placeholder="Enter pincode"
+                                inputmode="numeric"
+                                autocomplete="postal-code">
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     SECTION 3 — DONOR
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="section-number">
+                            3
+                        </div>
+
+                        <h2>
+                            Voluntary Donor Registration
+                        </h2>
+
+                    </div>
+
+
+                    <div class="donor-choice">
+
+                        <div class="choice-question">
+
+                            <h3>
+                                Would you like to register as a voluntary blood donor?
+                            </h3>
+
+                            <p>
+                                This is optional. You can create your TAVYA
+                                account without becoming a donor now.
+                                You can activate your donor profile later.
+                            </p>
+
+                        </div>
+
+
+                        <div class="choice-options">
+
+
+                            <!-- YES -->
+
+                            <div class="choice-option">
+
+                                <input
+                                    type="radio"
+                                    id="donor-yes"
+                                    name="donor_registration"
+                                    value="yes">
+
+                                <label
+                                    for="donor-yes"
+                                    class="choice-label">
+
+                                    <span class="choice-radio"></span>
+
+                                    <span>
+
+                                        <strong>
+                                            Yes, I would like to become a donor
+                                        </strong>
+
+                                        <span>
+                                            I am willing to participate voluntarily.
+                                        </span>
+
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+
+
+                            <!-- NOT NOW -->
+
+                            <div class="choice-option">
+
+                                <input
+                                    type="radio"
+                                    id="donor-no"
+                                    name="donor_registration"
+                                    value="no"
+                                    checked>
+
+                                <label
+                                    for="donor-no"
+                                    class="choice-label">
+
+                                    <span class="choice-radio"></span>
+
+                                    <span>
+
+                                        <strong>
+                                            Not now
+                                        </strong>
+
+                                        <span>
+                                            I can activate donor registration later.
+                                        </span>
+
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             DONOR DETAILS
+                             ================================================= -->
+
+                        <div id="donor-section">
+
+
+                            <div class="form-grid">
+
+
+                                <!-- Blood Group -->
+
+                                <div class="form-group">
+
+                                    <label
+                                        for="blood-group"
+                                        class="form-label">
+
+                                        Blood Group
+                                        <span class="required">*</span>
+
+                                    </label>
+
+                                    <select
+                                        id="blood-group"
+                                        name="blood_group"
+                                        class="form-control">
+
+                                        <option value="">
+                                            Select blood group
+                                        </option>
+
+                                        <option value="A+">
+                                            A+
+                                        </option>
+
+                                        <option value="A-">
+                                            A-
+                                        </option>
+
+                                        <option value="B+">
+                                            B+
+                                        </option>
+
+                                        <option value="B-">
+                                            B-
+                                        </option>
+
+                                        <option value="AB+">
+                                            AB+
+                                        </option>
+
+                                        <option value="AB-">
+                                            AB-
+                                        </option>
+
+                                        <option value="O+">
+                                            O+
+                                        </option>
+
+                                        <option value="O-">
+                                            O-
+                                        </option>
+
+                                        <option value="Unknown">
+                                            I don't know
+                                        </option>
+
+                                    </select>
+
+                                    <span class="field-help">
+                                        Blood-centre testing determines the medically verified blood group.
+                                    </span>
+
+                                </div>
+
+
+
+                                <!-- Preferred Radius -->
+
+                                <div class="form-group">
+
+                                    <label
+                                        for="radius"
+                                        class="form-label">
+
+                                        Preferred Matching Radius
+
+                                    </label>
+
+                                    <select
+                                        id="radius"
+                                        name="preferred_radius"
+                                        class="form-control">
+
+                                        <option value="1">
+                                            1 km
+                                        </option>
+
+                                        <option value="2">
+                                            2 km
+                                        </option>
+
+                                        <option value="5"
+                                                selected>
+                                            5 km
+                                        </option>
+
+                                        <option value="10">
+                                            10 km
+                                        </option>
+
+                                        <option value="15">
+                                            15 km
+                                        </option>
+
+                                        <option value="20">
+                                            20 km
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+
+                                <!-- Components -->
+
+                                <div class="form-group form-group-full">
+
+                                    <label class="form-label">
+
+                                        Components You Are Willing to Donate
+
+                                    </label>
+
+
+                                    <div class="component-options">
+
+
+                                        <label class="component-option">
+
+                                            <input
+                                                type="checkbox"
+                                                name="components"
+                                                value="Whole Blood">
+
+                                            <span>
+                                                Whole Blood
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="component-option">
+
+                                            <input
+                                                type="checkbox"
+                                                name="components"
+                                                value="Red Blood Cells">
+
+                                            <span>
+                                                Red Blood Cells
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="component-option">
+
+                                            <input
+                                                type="checkbox"
+                                                name="components"
+                                                value="Platelets">
+
+                                            <span>
+                                                Platelets
+                                            </span>
+
+                                        </label>
+
+
+                                        <label class="component-option">
+
+                                            <input
+                                                type="checkbox"
+                                                name="components"
+                                                value="Plasma">
+
+                                            <span>
+                                                Plasma
+                                            </span>
+
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- =================================================
+                                 CONSENT
+                                 ================================================= -->
+
+                            <div class="consent-box">
+
+                                <div class="consent-title">
+
+                                    <div class="consent-title-icon">
+                                        🔐
+                                    </div>
+
+                                    <h3>
+                                        Donor Contact Consent
+                                    </h3>
+
+                                </div>
+
+
+                                <p>
+
+                                    Registering as a donor does not automatically
+                                    share your contact information with people
+                                    requesting blood.
+
+                                    If a compatible blood or blood-component
+                                    request is identified, TAVYA may notify
+                                    consenting donors.
+
+                                    Your contact information will only be
+                                    disclosed according to your explicit
+                                    consent and TAVYA's applicable privacy
+                                    rules.
+
+                                </p>
+
+
+                                <label class="consent-check">
+
+                                    <input
+                                        type="checkbox"
+                                        id="contact-consent"
+                                        name="contact_consent">
+
+                                    <span>
+
+                                        I voluntarily consent to TAVYA contacting
+                                        me regarding compatible blood or
+                                        blood-component requests.
+
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     PRIVACY
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="privacy-box">
+
+                        <div class="privacy-icon">
+                            🔒
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Your Information & Privacy
+                            </h3>
+
+                            <p>
+
+                                Your personal information is stored in
+                                protected TAVYA backend systems and is not
+                                publicly displayed.
+
+                                Donor contact information is not made
+                                publicly searchable.
+
+                                TAVYA uses your information only for
+                                platform functions such as account
+                                management, blood-request coordination,
+                                notifications, records and related
+                                services according to your consent
+                                and applicable privacy rules.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Terms -->
+
+                    <label class="terms-check">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            name="terms"
+                            required>
+
+                        <span>
+
+                            I agree to the TAVYA
+                            <a href="../index.html#terms">
+                                Terms
+                            </a>
+                            and understand the
+                            <a href="../index.html#privacy">
+                                Privacy
+                            </a>
+                            information provided above.
+                            <span class="required">*</span>
+
+                        </span>
+
+                    </label>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="button"
+                        id="create-account"
+                        class="btn btn-primary signup-submit">
+
+                        Create TAVYA Account
+
+                    </button>
+
+
+                    <!-- Existing account -->
+
+                    <div class="login-existing">
+
+                        <p>
+                            Already have a TAVYA account?
+                        </p>
+
+                        <a href="login.html"
+                           class="btn btn-outline">
+
+                            Login to TAVYA
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- Back Home -->
+
+        <a href="../index.html"
+           class="back-home">
+
+            ← Back to TAVYA Blood Network
+
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 TAVYA Blood Network.
+                All rights reserved.
+            </span>
+
+            <span>
+                Volunteer-Run, Non-Profit Initiative
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   DONOR REGISTRATION TOGGLE
+   ========================================================= */
+
+const donorYes =
+    document.getElementById("donor-yes");
+
+const donorNo =
+    document.getElementById("donor-no");
+
+const donorSection =
+    document.getElementById("donor-section");
+
+
+function updateDonorSection() {
+
+    if (donorYes.checked) {
+
+        donorSection.classList.add(
+            "visible"
+        );
+
+    } else {
+
+        donorSection.classList.remove(
+            "visible"
+        );
+
+    }
+
+}
+
+
+donorYes.addEventListener(
+    "change",
+    updateDonorSection
+);
+
+
+donorNo.addEventListener(
+    "change",
+    updateDonorSection
+);
+
+
+
+/* =========================================================
+   PASSWORD VISIBILITY
+   ========================================================= */
+
+function setupPasswordToggle(
+    inputId,
+    buttonId
+) {
+
+    const input =
+        document.getElementById(
+            inputId
+        );
+
+    const button =
+        document.getElementById(
+            buttonId
+        );
+
+
+    button.addEventListener(
+        "click",
+        function () {
+
+            const isPassword =
+                input.type === "password";
+
+
+            input.type =
+                isPassword
+                    ? "text"
+                    : "password";
+
+
+            button.textContent =
+                isPassword
+                    ? "🙈"
+                    : "👁";
+
+
+            button.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
+
+        }
+    );
+
+}
+
+
+setupPasswordToggle(
+    "password",
+    "password-toggle"
+);
+
+
+setupPasswordToggle(
+    "confirm-password",
+    "confirm-password-toggle"
+);
+
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+function showSignupMessage(
+    message,
+    type = "info"
+) {
+
+    const box =
+        document.getElementById(
+            "signup-message"
+        );
+
+
+    box.textContent =
+        message;
+
+
+    box.className =
+        "signup-message show " + type;
+
+
+    box.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+
+/* =========================================================
+   BASIC VALIDATION
+   ========================================================= */
+
+function validateSignup() {
+
+    const fullName =
+        document
+            .getElementById("full-name")
+            .value
+            .trim();
+
+
+    const email =
+        document
+            .getElementById("email")
+            .value
+            .trim();
+
+
+    const mobile =
+        document
+            .getElementById("mobile")
+            .value
+            .trim();
+
+
+    const password =
+        document
+            .getElementById("password")
+            .value;
+
+
+    const confirmPassword =
+        document
+            .getElementById("confirm-password")
+            .value;
+
+
+    const terms =
+        document
+            .getElementById("terms")
+            .checked;
+
+
+    if (!fullName) {
+
+        showSignupMessage(
+            "Please enter your full name.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    if (!email || !email.includes("@")) {
+
+        showSignupMessage(
+            "Please enter a valid email address.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    if (!mobile) {
+
+        showSignupMessage(
+            "Please enter your mobile number.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    if (password.length < 8) {
+
+        showSignupMessage(
+            "Please use a password containing at least 8 characters.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    if (password !== confirmPassword) {
+
+        showSignupMessage(
+            "The passwords do not match.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    /* Donor-specific validation */
+
+    if (donorYes.checked) {
+
+        const bloodGroup =
+            document
+                .getElementById("blood-group")
+                .value;
+
+
+        if (!bloodGroup) {
+
+            showSignupMessage(
+                "Please select your blood group or choose 'I don't know'.",
+                "error"
+            );
+
+            return false;
+
+        }
+
+
+        const contactConsent =
+            document
+                .getElementById("contact-consent")
+                .checked;
+
+
+        if (!contactConsent) {
+
+            showSignupMessage(
+                "Please provide your explicit consent to be contacted if you want to register as a donor.",
+                "error"
+            );
+
+            return false;
+
+        }
+
+    }
+
+
+    if (!terms) {
+
+        showSignupMessage(
+            "Please accept the TAVYA Terms and Privacy information.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+
+/* =========================================================
+   CREATE ACCOUNT
+   ========================================================= */
+
+document
+    .getElementById("create-account")
+    .addEventListener(
+        "click",
+        function () {
+
+            if (!validateSignup()) {
+                return;
+            }
+
+
+            /*
+             * IMPORTANT:
+             *
+             * This button is intentionally NOT connected
+             * to the TAVYA API yet.
+             *
+             * We must first implement secure authentication.
+             *
+             * Passwords must NEVER be written into the
+             * Google Sheets database.
+             */
+
+
+            showSignupMessage(
+
+                "Your information has been validated locally. Secure account creation will be activated after TAVYA authentication is configured.",
+
+                "info"
+
+            );
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>
