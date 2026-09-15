@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Login to your TAVYA Blood Network account.">
+
+    <meta name="theme-color"
+          content="#b91c1c">
+
+    <title>
+        Login | TAVYA Blood Network
+    </title>
+
+    <!-- Main TAVYA Stylesheet -->
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
+
+    <style>
+
+        /* =====================================================
+           TAVYA LOGIN PAGE
+           Page-specific styles
+           ===================================================== */
+
+        .auth-page {
+            min-height: calc(100vh - 76px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7f7 0%,
+                    #ffffff 55%,
+                    #f8fafc 100%
+                );
+        }
+
+
+        .auth-wrapper {
+            width: 100%;
+            max-width: 460px;
+        }
+
+
+        .auth-card {
+            padding: 40px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-md);
+        }
+
+
+        .auth-brand {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .auth-brand .logo-mark {
+            margin: 0 auto 15px;
+        }
+
+
+        .auth-brand .logo-name {
+            display: block;
+
+            font-size: 1.8rem;
+            font-weight: 800;
+
+            color: var(--primary);
+
+            letter-spacing: 0.05em;
+        }
+
+
+        .auth-brand .logo-subtitle {
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--text-light);
+
+            font-size: 0.72rem;
+            font-weight: 600;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .auth-heading {
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .auth-heading h1 {
+            font-size: 2rem;
+
+            margin-bottom: 10px;
+        }
+
+
+        .auth-heading p {
+            font-size: 0.95rem;
+        }
+
+
+        .password-wrapper {
+            position: relative;
+        }
+
+
+        .password-wrapper .form-control {
+            padding-right: 52px;
+        }
+
+
+        .password-toggle {
+            position: absolute;
+
+            top: 50%;
+            right: 10px;
+
+            transform: translateY(-50%);
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--text-light);
+
+            cursor: pointer;
+
+            border-radius: 6px;
+        }
+
+
+        .password-toggle:hover {
+            background: var(--background-soft);
+            color: var(--primary);
+        }
+
+
+        .form-row {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .remember-me {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--text-light);
+
+            font-size: 0.85rem;
+        }
+
+
+        .remember-me input {
+            width: 16px;
+            height: 16px;
+
+            accent-color: var(--primary);
+
+            cursor: pointer;
+        }
+
+
+        .forgot-link {
+            color: var(--primary);
+
+            font-size: 0.85rem;
+
+            font-weight: 600;
+        }
+
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+
+        .login-button {
+            width: 100%;
+        }
+
+
+        .divider {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin: 25px 0;
+
+            color: var(--text-light);
+
+            font-size: 0.8rem;
+        }
+
+
+        .divider::before,
+        .divider::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: var(--border);
+        }
+
+
+        .google-button {
+            width: 100%;
+
+            min-height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-sm);
+
+            background: #ffffff;
+
+            color: var(--text);
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+
+        .google-button:hover {
+            background: var(--background-soft);
+
+            border-color: #d1d5db;
+        }
+
+
+        .google-icon {
+            font-weight: 800;
+
+            font-size: 1.1rem;
+        }
+
+
+        .create-account {
+            margin-top: 28px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+
+        .create-account p {
+            margin-bottom: 12px;
+
+            font-size: 0.9rem;
+        }
+
+
+        .security-notice {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            border-radius: var(--radius-sm);
+
+            background: #f8fafc;
+
+            border: 1px solid var(--border);
+        }
+
+
+        .security-icon {
+            flex-shrink: 0;
+
+            font-size: 1.1rem;
+        }
+
+
+        .security-notice p {
+            font-size: 0.78rem;
+
+            line-height: 1.5;
+        }
+
+
+        .back-home {
+            display: block;
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            color: var(--text-light);
+
+            font-size: 0.85rem;
+
+            font-weight: 500;
+        }
+
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+
+
+        .auth-message {
+            display: none;
+
+            padding: 12px 15px;
+
+            margin-bottom: 20px;
+
+            border-radius: var(--radius-sm);
+
+            font-size: 0.88rem;
+        }
+
+
+        .auth-message.show {
+            display: block;
+        }
+
+
+        .auth-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+
+        .auth-message.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .auth-page {
+                padding: 35px 15px;
+            }
+
+            .auth-card {
+                padding: 30px 22px;
+            }
+
+            .auth-heading h1 {
+                font-size: 1.75rem;
+            }
+
+            .form-row {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+    <div class="container">
+
+        <nav class="navbar">
+
+            <!-- TAVYA Logo -->
+
+            <a href="../index.html"
+               class="logo"
+               aria-label="TAVYA Blood Network Home">
+
+                <div class="logo-mark">
+                    🩸
+                </div>
+
+                <div class="logo-text">
+
+                    <span class="logo-name">
+                        TAVYA
+                    </span>
+
+                    <span class="logo-subtitle">
+                        BLOOD NETWORK
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Back to Home -->
+
+            <div class="nav-actions">
+
+                <a href="../index.html"
+                   class="btn btn-outline">
+
+                    Home
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     LOGIN
+     ========================================================= -->
+
+<main>
+
+<section class="auth-page">
+
+    <div class="auth-wrapper">
+
+        <div class="auth-card">
+
+
+            <!-- =================================================
+                 BRAND
+                 ================================================= -->
+
+            <div class="auth-brand">
+
+                <div class="logo-mark">
+                    🩸
+                </div>
+
+                <span class="logo-name">
+                    TAVYA
+                </span>
+
+                <span class="logo-subtitle">
+                    BLOOD NETWORK
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 HEADING
+                 ================================================= -->
+
+            <div class="auth-heading">
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Sign in to your TAVYA account
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MESSAGE
+                 ================================================= -->
+
+            <div id="auth-message"
+                 class="auth-message"
+                 role="alert">
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGIN FORM
+                 ================================================= -->
+
+            <form id="login-form"
+                  novalidate>
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label
+                        for="email"
+                        class="form-label">
+
+                        Email Address
+
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required>
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label
+                        for="password"
+                        class="form-label">
+
+                        Password
+
+                    </label>
+
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="password-toggle"
+                            aria-label="Show password">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Remember / Forgot -->
+
+                <div class="form-row">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="remember-me"
+                            name="remember-me">
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+
+                    <a href="forgot-password.html"
+                       class="forgot-link">
+
+                        Forgot password?
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- Login -->
+
+                <button
+                    type="submit"
+                    class="btn btn-primary login-button">
+
+                    Login to TAVYA
+
+                </button>
+
+            </form>
+
+
+
+            <!-- =================================================
+                 GOOGLE LOGIN
+                 ================================================= -->
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <button
+                type="button"
+                class="google-button"
+                id="google-login">
+
+                <span class="google-icon">
+                    G
+                </span>
+
+                Continue with Google
+
+            </button>
+
+
+
+            <!-- =================================================
+                 CREATE ACCOUNT
+                 ================================================= -->
+
+            <div class="create-account">
+
+                <p>
+                    Don't have a TAVYA account?
+                </p>
+
+                <a href="signup.html"
+                   class="btn btn-outline">
+
+                    Create TAVYA Account
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SECURITY NOTICE
+                 ================================================= -->
+
+            <div class="security-notice">
+
+                <div class="security-icon">
+                    🔒
+                </div>
+
+                <p>
+
+                    <strong>
+                        Your privacy matters.
+                    </strong>
+
+                    Your personal information is not
+                    publicly displayed. Registering as a
+                    donor does not automatically share
+                    your contact information with people
+                    seeking blood.
+
+                    When a compatible request is received,
+                    consenting donors may be notified.
+                    Contact information will only be
+                    disclosed according to the donor's
+                    applicable consent and TAVYA's privacy
+                    rules.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Back Home -->
+
+        <a href="../index.html"
+           class="back-home">
+
+            ← Back to TAVYA Blood Network
+
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 TAVYA Blood Network.
+                All rights reserved.
+            </span>
+
+            <span>
+                Volunteer-Run, Non-Profit Initiative
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   PASSWORD VISIBILITY
+   ========================================================= */
+
+const passwordInput =
+    document.getElementById("password");
+
+const passwordToggle =
+    document.getElementById("password-toggle");
+
+
+passwordToggle.addEventListener(
+    "click",
+    function () {
+
+        const isPassword =
+            passwordInput.type === "password";
+
+
+        passwordInput.type =
+            isPassword
+                ? "text"
+                : "password";
+
+
+        passwordToggle.textContent =
+            isPassword
+                ? "🙈"
+                : "👁";
+
+
+        passwordToggle.setAttribute(
+            "aria-label",
+            isPassword
+                ? "Hide password"
+                : "Show password"
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   MESSAGE FUNCTION
+   ========================================================= */
+
+function showMessage(
+    message,
+    type = "info"
+) {
+
+    const messageBox =
+        document.getElementById(
+            "auth-message"
+        );
+
+
+    messageBox.textContent =
+        message;
+
+
+    messageBox.className =
+        "auth-message show " + type;
+
+}
+
+
+
+/* =========================================================
+   LOGIN FORM
+   ========================================================= */
+
+const loginForm =
+    document.getElementById(
+        "login-form"
+    );
+
+
+loginForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        if (!email) {
+
+            showMessage(
+                "Please enter your email address.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!email.includes("@")) {
+
+            showMessage(
+                "Please enter a valid email address.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!password) {
+
+            showMessage(
+                "Please enter your password.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * IMPORTANT:
+         *
+         * Authentication is intentionally NOT
+         * connected yet.
+         *
+         * We will connect this form to a proper
+         * authentication provider before accepting
+         * real TAVYA credentials.
+         */
+
+        showMessage(
+            "Secure login will be activated in the next stage of TAVYA.",
+            "info"
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   GOOGLE LOGIN
+   ========================================================= */
+
+document
+    .getElementById("google-login")
+    .addEventListener(
+        "click",
+        function () {
+
+            showMessage(
+                "Google sign-in will be activated in the authentication setup.",
+                "info"
+            );
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>
