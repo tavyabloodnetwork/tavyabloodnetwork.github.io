@@ -34,7 +34,7 @@
 
 
     <!-- =========================================================
-         TAVYA LOGO OVERRIDES
+         TAVYA LOGO + HEADER/FOOTER ADJUSTMENTS
          ========================================================= -->
 
     <style>
@@ -69,8 +69,8 @@
 
 
         /*
-         * Do not let the normal website logo CSS interfere
-         * with the logo component.
+         * Protect the real logo from the website's
+         * generic logo CSS.
          */
 
         .tavya-logo-container .logo,
@@ -88,14 +88,14 @@
 
         .site-header {
 
-            min-height: 108px;
+            min-height: 90px;
 
         }
 
 
         .site-header .navbar {
 
-            min-height: 108px;
+            min-height: 90px;
 
             display: flex;
 
@@ -105,17 +105,17 @@
 
 
         /*
-         * Header logo area.
+         * Header logo container.
          *
-         * The container is reasonably large so the header
-         * has breathing space, but the actual logo is smaller.
+         * The available area is wider than the actual
+         * logo so the logo does not push the navigation.
          */
 
         .header-logo-container {
 
-            width: 125px;
+            width: 105px;
 
-            height: 96px;
+            height: 68px;
 
             display: flex;
 
@@ -129,18 +129,20 @@
 
 
         /*
-         * Actual logo rendered inside the header.
+         * Actual animated logo.
+         *
+         * Deliberately SHORT in vertical direction.
          */
 
         .header-logo-container > * {
 
-            width: 82px !important;
+            width: 88px !important;
 
-            height: 82px !important;
+            height: 58px !important;
 
-            max-width: 82px !important;
+            max-width: 88px !important;
 
-            max-height: 82px !important;
+            max-height: 58px !important;
 
             min-width: 0 !important;
 
@@ -159,17 +161,17 @@
 
         .site-footer {
 
-            padding-top: 65px;
+            padding-top: 50px;
 
-            padding-bottom: 35px;
+            padding-bottom: 30px;
 
-            min-height: 390px;
+            min-height: 350px;
 
         }
 
 
         /*
-         * Footer brand section.
+         * Footer brand column.
          */
 
         .footer-brand {
@@ -182,20 +184,20 @@
 
             justify-content: flex-start;
 
-            min-height: 285px;
+            min-height: 250px;
 
         }
 
 
         /*
-         * Footer logo area.
+         * Footer logo container.
          */
 
         .footer-logo-container {
 
-            width: 220px;
+            width: 205px;
 
-            height: 220px;
+            height: 145px;
 
             display: flex;
 
@@ -209,19 +211,19 @@
 
 
         /*
-         * Actual logo in footer is smaller than
-         * the available brand area.
+         * Complete animated logo,
+         * but with reduced vertical footprint.
          */
 
         .footer-logo-container > * {
 
             width: 175px !important;
 
-            height: 175px !important;
+            height: 130px !important;
 
             max-width: 175px !important;
 
-            max-height: 175px !important;
+            max-height: 130px !important;
 
             min-width: 0 !important;
 
@@ -236,136 +238,58 @@
 
         .footer-brand > p {
 
-            margin-top: 10px;
+            margin-top: 8px;
 
         }
 
 
         /* =====================================================
-           MOBILE
+           MOBILE HEADER
            ===================================================== */
 
         @media (max-width: 1000px) {
 
             .site-header {
 
-                min-height: 98px;
+                min-height: 82px;
 
             }
 
 
             .site-header .navbar {
 
-                min-height: 98px;
+                min-height: 82px;
 
             }
 
 
             .header-logo-container {
 
-                width: 105px;
+                width: 92px;
 
-                height: 88px;
-
-            }
-
-
-            .header-logo-container > * {
-
-                width: 74px !important;
-
-                height: 74px !important;
-
-                max-width: 74px !important;
-
-                max-height: 74px !important;
-
-            }
-
-
-            .site-footer {
-
-                min-height: 420px;
-
-                padding-top: 55px;
-
-            }
-
-
-            .footer-logo-container {
-
-                width: 205px;
-
-                height: 205px;
-
-            }
-
-
-            .footer-logo-container > * {
-
-                width: 160px !important;
-
-                height: 160px !important;
-
-                max-width: 160px !important;
-
-                max-height: 160px !important;
-
-            }
-
-
-            .footer-brand {
-
-                min-height: 265px;
-
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .site-header {
-
-                min-height: 90px;
-
-            }
-
-
-            .site-header .navbar {
-
-                min-height: 90px;
-
-            }
-
-
-            .header-logo-container {
-
-                width: 88px;
-
-                height: 80px;
+                height: 62px;
 
             }
 
 
             .header-logo-container > * {
 
-                width: 62px !important;
+                width: 76px !important;
 
-                height: 62px !important;
+                height: 52px !important;
 
-                max-width: 62px !important;
+                max-width: 76px !important;
 
-                max-height: 62px !important;
+                max-height: 52px !important;
 
             }
 
 
             .site-footer {
 
-                min-height: 450px;
+                min-height: 390px;
 
-                padding-top: 50px;
+                padding-top: 45px;
 
             }
 
@@ -374,7 +298,89 @@
 
                 width: 190px;
 
-                height: 190px;
+                height: 135px;
+
+            }
+
+
+            .footer-logo-container > * {
+
+                width: 160px !important;
+
+                height: 118px !important;
+
+                max-width: 160px !important;
+
+                max-height: 118px !important;
+
+            }
+
+
+            .footer-brand {
+
+                min-height: 235px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .site-header {
+
+                min-height: 76px;
+
+            }
+
+
+            .site-header .navbar {
+
+                min-height: 76px;
+
+            }
+
+
+            .header-logo-container {
+
+                width: 80px;
+
+                height: 56px;
+
+            }
+
+
+            .header-logo-container > * {
+
+                width: 66px !important;
+
+                height: 46px !important;
+
+                max-width: 66px !important;
+
+                max-height: 46px !important;
+
+            }
+
+
+            .site-footer {
+
+                min-height: 410px;
+
+                padding-top: 42px;
+
+            }
+
+
+            .footer-logo-container {
+
+                width: 175px;
+
+                height: 120px;
 
             }
 
@@ -383,18 +389,18 @@
 
                 width: 145px !important;
 
-                height: 145px !important;
+                height: 105px !important;
 
                 max-width: 145px !important;
 
-                max-height: 145px !important;
+                max-height: 105px !important;
 
             }
 
 
             .footer-brand {
 
-                min-height: 245px;
+                min-height: 215px;
 
             }
 
@@ -420,7 +426,7 @@
 
 
             <!-- =================================================
-                 TAVYA ANIMATED LOGO
+                 ANIMATED TAVYA LOGO
                  ================================================= -->
 
             <a href="index.html"
@@ -435,7 +441,7 @@
 
 
             <!-- =================================================
-                 MAIN NAVIGATION
+                 NAVIGATION
                  ================================================= -->
 
             <ul class="nav-links"
@@ -469,7 +475,7 @@
 
 
             <!-- =================================================
-                 NAVIGATION ACTIONS
+                 ACTION BUTTONS
                  ================================================= -->
 
             <div class="nav-actions">
@@ -645,6 +651,7 @@
                 What TAVYA Helps You Do
             </h2>
 
+
             <p>
 
                 A single platform for voluntary blood
@@ -659,13 +666,17 @@
         <div class="services-grid">
 
 
-            <!-- DONATE -->
+            <!-- =================================================
+                 DONATE BLOOD
+                 ================================================= -->
 
             <article class="service-card"
                      id="donate">
 
                 <div class="service-icon">
+
                     🩸
+
                 </div>
 
 
@@ -694,13 +705,17 @@
             </article>
 
 
-            <!-- REQUEST -->
+            <!-- =================================================
+                 NEED BLOOD
+                 ================================================= -->
 
             <article class="service-card"
                      id="request">
 
                 <div class="service-icon">
+
                     🏥
+
                 </div>
 
 
@@ -728,12 +743,16 @@
             </article>
 
 
-            <!-- NEARBY -->
+            <!-- =================================================
+                 NEARBY CENTRES
+                 ================================================= -->
 
             <article class="service-card">
 
                 <div class="service-icon">
+
                     📍
+
                 </div>
 
 
@@ -761,12 +780,16 @@
             </article>
 
 
-            <!-- HISTORY -->
+            <!-- =================================================
+                 HISTORY
+                 ================================================= -->
 
             <article class="service-card">
 
                 <div class="service-icon">
+
                     📋
+
                 </div>
 
 
@@ -794,12 +817,16 @@
             </article>
 
 
-            <!-- CERTIFICATES -->
+            <!-- =================================================
+                 CERTIFICATES
+                 ================================================= -->
 
             <article class="service-card">
 
                 <div class="service-icon">
+
                     🏆
+
                 </div>
 
 
@@ -827,12 +854,16 @@
             </article>
 
 
-            <!-- SUPPORT -->
+            <!-- =================================================
+                 SUPPORT
+                 ================================================= -->
 
             <article class="service-card">
 
                 <div class="service-icon">
+
                     🤝
+
                 </div>
 
 
@@ -1280,8 +1311,6 @@
         <div class="services-grid">
 
 
-            <!-- LOGIN -->
-
             <div class="service-card">
 
                 <div class="service-icon">
@@ -1312,8 +1341,6 @@
             </div>
 
 
-            <!-- CREATE ACCOUNT -->
-
             <div class="service-card">
 
                 <div class="service-icon">
@@ -1343,8 +1370,6 @@
 
             </div>
 
-
-            <!-- TAVYA ID -->
 
             <div class="service-card">
 
@@ -1444,15 +1469,18 @@
 
 
             <!-- =================================================
-                 FOOTER BRAND
+                 FOOTER BRAND + ANIMATED LOGO
                  ================================================= -->
 
             <div class="footer-brand">
 
 
                 <!--
-                    Animated logo from root-level logo.html.
-                    NOT logo.png.
+                    IMPORTANT:
+                    This is NOT logo.png.
+
+                    The complete animated logo is loaded
+                    from the root-level logo.html.
                 -->
 
                 <div id="footer-tavya-logo"
@@ -1621,7 +1649,7 @@
 
 
 <!-- =========================================================
-     TAVYA LOGO LOADER
+     LOAD ROOT logo.html
      ========================================================= -->
 
 <script>
@@ -1633,22 +1661,20 @@
 
     /*
      * =========================================================
-     * LOAD LOGO.HTML
+     * LOAD TAVYA LOGO
      * =========================================================
      *
-     * logo.html is located at:
+     * logo.html is located at the ROOT:
      *
-     * /
-     * ├── index.html
-     * ├── logo.html
-     * ├── auth/
-     * └── assets/
+     * /logo.html
      *
+     * It is inserted directly into the page.
      *
-     * The logo is loaded as HTML/SVG rather than as an image.
+     * It is NOT loaded as:
      *
-     * A Shadow DOM is used to isolate the logo from the
-     * website's global CSS.
+     * <img src="logo.png">
+     *
+     * and NOT loaded using an iframe.
      */
 
 
@@ -1669,9 +1695,13 @@
         try {
 
 
+            /*
+             * Fetch root-level logo.html.
+             */
+
             const response =
                 await fetch(
-                    "logo.html",
+                    "./logo.html",
                     {
                         cache: "no-cache"
                     }
@@ -1681,7 +1711,7 @@
             if (!response.ok) {
 
                 throw new Error(
-                    "Unable to load logo.html"
+                    "Could not load logo.html"
                 );
 
             }
@@ -1692,9 +1722,7 @@
 
 
             /*
-             * -------------------------------------------------
-             * CREATE SHADOW DOM
-             * -------------------------------------------------
+             * Create isolated Shadow DOM.
              */
 
             const shadow =
@@ -1704,9 +1732,7 @@
 
 
             /*
-             * -------------------------------------------------
-             * PARSE LOGO HTML
-             * -------------------------------------------------
+             * Parse logo.html.
              */
 
             const parser =
@@ -1721,18 +1747,18 @@
 
 
             /*
-             * -------------------------------------------------
-             * INTERNAL LOGO STYLES
-             * -------------------------------------------------
+             * =================================================
+             * SHADOW DOM BASE STYLES
+             * =================================================
              */
 
-            const logoStyles =
+            const baseStyle =
                 document.createElement(
                     "style"
                 );
 
 
-            logoStyles.textContent = `
+            baseStyle.textContent = `
 
                 :host {
 
@@ -1746,6 +1772,10 @@
 
                     height: 100% !important;
 
+                    margin: 0 !important;
+
+                    padding: 0 !important;
+
                     overflow: hidden !important;
 
                     background: transparent !important;
@@ -1753,7 +1783,6 @@
                 }
 
 
-                html,
                 body {
 
                     width: 100% !important;
@@ -1764,20 +1793,15 @@
 
                     padding: 0 !important;
 
-                    background: transparent !important;
-
-                    overflow: hidden !important;
-
-                }
-
-
-                body {
-
                     display: flex !important;
 
                     align-items: center !important;
 
                     justify-content: center !important;
+
+                    overflow: hidden !important;
+
+                    background: transparent !important;
 
                 }
 
@@ -1798,20 +1822,22 @@
 
                     padding: 0 !important;
 
+                    object-fit: contain !important;
+
                 }
 
             `;
 
 
             shadow.appendChild(
-                logoStyles
+                baseStyle
             );
 
 
             /*
-             * -------------------------------------------------
-             * COPY <STYLE> ELEMENTS
-             * -------------------------------------------------
+             * =================================================
+             * COPY STYLES FROM logo.html
+             * =================================================
              */
 
             logoDocument
@@ -1826,9 +1852,9 @@
 
 
             /*
-             * -------------------------------------------------
+             * =================================================
              * COPY BODY CONTENT
-             * -------------------------------------------------
+             * =================================================
              */
 
             if (logoDocument.body) {
@@ -1840,8 +1866,7 @@
 
 
                     /*
-                     * Do not copy script elements here.
-                     * They are handled separately below.
+                     * Scripts are handled separately.
                      */
 
                     if (
@@ -1864,9 +1889,9 @@
 
 
             /*
-             * -------------------------------------------------
-             * COPY EXTERNAL STYLESHEETS
-             * -------------------------------------------------
+             * =================================================
+             * EXTERNAL STYLESHEETS
+             * =================================================
              */
 
             logoDocument
@@ -1901,9 +1926,9 @@
 
 
             /*
-             * -------------------------------------------------
-             * FIND SVG
-             * -------------------------------------------------
+             * =================================================
+             * CONFIGURE SVG
+             * =================================================
              */
 
             const svg =
@@ -1930,7 +1955,7 @@
 
 
                 /*
-                 * Make the SVG responsive.
+                 * Responsive sizing.
                  */
 
                 svg.style.width =
@@ -1961,12 +1986,12 @@
                     "0";
 
 
-                svg.style.overflow =
-                    "visible";
+                svg.style.objectFit =
+                    "contain";
 
 
                 /*
-                 * Preserve the SVG aspect ratio.
+                 * Preserve the original proportions.
                  */
 
                 svg.setAttribute(
@@ -1978,12 +2003,12 @@
 
 
             /*
-             * -------------------------------------------------
-             * RECREATE LOGO SCRIPTS
-             * -------------------------------------------------
+             * =================================================
+             * RECREATE JAVASCRIPT FROM logo.html
+             * =================================================
              *
-             * This allows JavaScript-based animation
-             * inside logo.html to run.
+             * This allows the animation in your logo.html
+             * to run.
              */
 
             logoDocument
@@ -2026,33 +2051,6 @@
                 });
 
 
-            /*
-             * -------------------------------------------------
-             * RESTART SVG ANIMATIONS
-             * -------------------------------------------------
-             */
-
-            const animatedElements =
-                shadow.querySelectorAll(
-                    ".animate, [data-animate]"
-                );
-
-
-            animatedElements.forEach(
-                function (element) {
-
-                    element.style.animation =
-                        "none";
-
-                    void element.offsetWidth;
-
-                    element.style.animation =
-                        "";
-
-                }
-            );
-
-
         }
 
 
@@ -2060,15 +2058,13 @@
 
 
             console.error(
-                "TAVYA logo loading error:",
+                "TAVYA logo error:",
                 error
             );
 
 
             /*
-             * Important:
-             *
-             * Do not display a white rectangle.
+             * Never display a white placeholder.
              */
 
             host.innerHTML = "";
@@ -2080,7 +2076,7 @@
 
     /*
      * =========================================================
-     * LOAD BOTH LOGOS
+     * START BOTH LOGOS
      * =========================================================
      */
 
@@ -2142,7 +2138,7 @@ document.addEventListener(
 
 
         /*
-         * Open / close menu.
+         * Toggle mobile menu.
          */
 
         menuToggle.addEventListener(
@@ -2174,7 +2170,7 @@ document.addEventListener(
 
 
         /*
-         * Close menu after selecting a link.
+         * Close menu when link is clicked.
          */
 
         navLinks
@@ -2209,7 +2205,9 @@ document.addEventListener(
             });
 
 
-});
+    }
+
+);
 
 </script>
 
