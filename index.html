@@ -45,31 +45,281 @@
          * the page so that it visually becomes part of the site.
          */
 
+        <style>
+        
+        /* =========================================================
+           TAVYA LOGO CONTAINER
+           ========================================================= */
+        
         .tavya-logo-container {
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
+        
             flex-shrink: 0;
-
-            width: 180px;
-
-            height: 76px;
-
-            overflow: visible;
-
+        
+            overflow: hidden;
+        
             background: transparent;
-
+        
             border: none;
-
+        
             padding: 0;
-
             margin: 0;
-
         }
+        
+        
+        /* =========================================================
+           HEADER
+           ========================================================= */
+        
+        .site-header {
+            min-height: 100px;
+        }
+        
+        
+        /* Header logo is deliberately smaller */
+        
+        .header-logo-container {
+        
+            width: 115px;
+            height: 88px;
+        
+            display: flex;
+        
+            align-items: center;
+            justify-content: center;
+        
+            overflow: hidden;
+        
+        }
+        
+        
+        /* Keep the actual SVG smaller inside the header */
+        
+        .header-logo-container > * {
+        
+            width: 92px !important;
+            height: 92px !important;
+        
+            max-width: 92px;
+            max-height: 92px;
+        
+            display: block;
+        
+            object-fit: contain;
+        
+        }
+        
+        
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+        
+        .site-footer {
+        
+            padding-top: 60px;
+            padding-bottom: 30px;
+        
+            min-height: 360px;
+        
+        }
+        
+        
+        /* Footer logo area */
+        
+        .footer-logo-container {
+        
+            width: 230px;
+            height: 230px;
+        
+            display: flex;
+        
+            align-items: center;
+            justify-content: center;
+        
+            overflow: hidden;
+        
+        }
+        
+        
+        /* Smaller logo inside larger footer area */
+        
+        .footer-logo-container > * {
+        
+            width: 190px !important;
+            height: 190px !important;
+        
+            max-width: 190px;
+            max-height: 190px;
+        
+            display: block;
+        
+            object-fit: contain;
+        
+        }
+        
+        
+        /* Footer brand spacing */
+        
+        .footer-brand {
+        
+            display: flex;
+        
+            flex-direction: column;
+        
+            align-items: flex-start;
+        
+            justify-content: flex-start;
+        
+            min-height: 280px;
+        
+        }
+        
+        
+        .footer-brand > p {
+        
+            margin-top: 18px;
+        
+        }
+        
+        
+        /* =========================================================
+           LOGO ISOLATION
+           ========================================================= */
+        
+        .tavya-logo-container .logo,
+        .tavya-logo-container .logo-mark,
+        .tavya-logo-container .logo-text {
+        
+            all: unset;
+        
+        }
+        
+        
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+        
+        @media (max-width: 1000px) {
+        
+            .site-header {
+                min-height: 90px;
+            }
+        
+        
+            .header-logo-container {
+        
+                width: 100px;
+                height: 80px;
+        
+            }
+        
+        
+            .header-logo-container > * {
+        
+                width: 78px !important;
+                height: 78px !important;
+        
+                max-width: 78px;
+                max-height: 78px;
+        
+            }
+        
+        
+            .site-footer {
+        
+                min-height: 420px;
+        
+                padding-top: 50px;
+        
+            }
+        
+        
+            .footer-logo-container {
+        
+                width: 210px;
+                height: 210px;
+        
+            }
+        
+        
+            .footer-logo-container > * {
+        
+                width: 175px !important;
+                height: 175px !important;
+        
+                max-width: 175px;
+                max-height: 175px;
+        
+            }
+        
+        
+            .footer-brand {
+        
+                min-height: 250px;
+        
+            }
+        
+        }
+        
+        
+        @media (max-width: 600px) {
+        
+            .site-header {
+        
+                min-height: 82px;
+        
+            }
+        
+        
+            .header-logo-container {
+        
+                width: 85px;
+                height: 72px;
+        
+            }
+        
+        
+            .header-logo-container > * {
+        
+                width: 65px !important;
+                height: 65px !important;
+        
+                max-width: 65px;
+                max-height: 65px;
+        
+            }
+        
+        
+            .site-footer {
+        
+                min-height: 450px;
+        
+            }
+        
+        
+            .footer-logo-container {
+        
+                width: 190px;
+                height: 190px;
+        
+            }
+        
+        
+            .footer-logo-container > * {
+        
+                width: 155px !important;
+                height: 155px !important;
+        
+                max-width: 155px;
+                max-height: 155px;
+        
+            }
+        
+        }
+        
+        </style>
 
 
         .tavya-logo-container > * {
