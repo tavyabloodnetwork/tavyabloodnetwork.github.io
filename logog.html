@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TAVYA Blood Network</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.logo-wrapper {
+    width: min(96vw, 760px);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.tavya-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* =========================================================
+   COLORS
+   ========================================================= */
+
+.left-hand,
+.right-hand,
+.blood-drop,
+.letter-drop,
+.middle-drop {
+    stroke: none;
+}
+
+.tavya-word {
+    fill: #123d72;
+}
+
+.network-text {
+    fill: #df1722;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    fill: #444444;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    fill: #df1722;
+}
+
+.footer-text {
+    fill: #777777;
+    letter-spacing: 1.8px;
+}
+
+.hand-highlight {
+    fill: none;
+    stroke: rgba(255,255,255,0.30);
+    stroke-width: 5;
+    stroke-linecap: round;
+}
+
+.outer-arc {
+    fill: none;
+    stroke: #df1722;
+    stroke-width: 9;
+    stroke-linecap: round;
+}
+
+.drop-highlight {
+    fill: none;
+    stroke: rgba(255,255,255,0.42);
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+.heart {
+    fill: #ffffff !important;
+}
+
+.middle-line,
+.middle-connection {
+    fill: none;
+    stroke: #df1722;
+    stroke-linecap: round;
+}
+
+.middle-line {
+    stroke-width: 3;
+}
+
+.middle-connection {
+    stroke-width: 2;
+    opacity: 0.65;
+}
+
+.middle-node {
+    fill: #df1722;
+}
+
+.middle-heart {
+    fill: #df1722;
+}
+
+.middle-drop {
+    fill: #df1722;
+}
+
+/* =========================================================
+   GRADIENTS
+   ========================================================= */
+
+#blueHandGradient stop:first-child {
+    stop-color: #1d6fba;
+}
+
+#blueHandGradient stop:last-child {
+    stop-color: #0c3d78;
+}
+
+#redHandGradient stop:first-child {
+    stop-color: #f2343d;
+}
+
+#redHandGradient stop:last-child {
+    stop-color: #bd0712;
+}
+
+#bloodGradient stop:first-child {
+    stop-color: #f22932;
+}
+
+#bloodGradient stop:last-child {
+    stop-color: #b80712;
+}
+
+/* =========================================================
+   INITIAL STATES
+   ========================================================= */
+
+.outer-arc {
+    opacity: 0;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    animation: arcDraw 1.3s ease 0.05s forwards;
+}
+
+.left-hand {
+    opacity: 0;
+    transform-origin: center;
+    animation:
+        handAppearLeft 0.95s cubic-bezier(.2,.8,.2,1) 0.35s forwards;
+}
+
+.right-hand {
+    opacity: 0;
+    transform-origin: center;
+    animation:
+        handAppearRight 0.95s cubic-bezier(.2,.8,.2,1) 0.35s forwards;
+}
+
+.hand-highlight {
+    opacity: 0;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation:
+        highlightDraw 0.8s ease 0.95s forwards;
+}
+
+.blood-drop {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+        dropAppear 0.9s cubic-bezier(.2,.8,.2,1) 0.75s forwards,
+        dropFloat 3s ease-in-out 1.8s infinite;
+}
+
+.drop-highlight {
+    opacity: 0;
+    stroke-dasharray: 180;
+    stroke-dashoffset: 180;
+    animation:
+        highlightDrop 0.7s ease 1.25s forwards;
+}
+
+.heart {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+        heartAppear 0.7s ease 1.45s forwards,
+        mainHeartBeat 2.6s ease-in-out 2.5s infinite;
+}
+
+.tavya-word {
+    opacity: 0;
+    animation:
+        wordAppear 0.65s ease 1.75s forwards;
+}
+
+.letter-drop {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+        letterDropAppear 0.55s ease 2.05s forwards,
+        letterDropPulse 2.4s ease-in-out 2.8s infinite;
+}
+
+.network-text {
+    opacity: 0;
+    animation:
+        textAppear 0.65s ease 2.25s forwards;
+}
+
+.subtitle {
+    opacity: 0;
+    animation:
+        textAppear 0.65s ease 2.45s forwards;
+}
+
+.tagline {
+    opacity: 0;
+    animation:
+        taglineAppear 0.8s ease 2.75s forwards;
+}
+
+.middle-design {
+    opacity: 1;
+}
+
+.middle-line,
+.middle-connection,
+.middle-node {
+    opacity: 0;
+}
+
+.middle-line {
+    animation:
+        middleLineAppear 0.6s ease 3.15s forwards;
+}
+
+.middle-connection {
+    animation:
+        middleConnectionAppear 0.6s ease 3.25s forwards;
+}
+
+.middle-node {
+    animation:
+        middleNodeAppear 0.5s ease 3.3s forwards;
+}
+
+.middle-drop {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+        middleDropAppear 0.6s ease 3.45s forwards,
+        middleDropPulse 2.2s ease-in-out 4.3s infinite;
+}
+
+.middle-heart {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+        middleHeartAppear 0.7s ease 3.55s forwards,
+        middleHeartBeat 2.2s ease-in-out 4.3s infinite;
+}
+
+.footer-text {
+    opacity: 0;
+    animation:
+        textAppear 0.6s ease 3.8s forwards;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes arcDraw {
+    0% {
+        opacity: 0;
+        stroke-dashoffset: 1800;
+    }
+    100% {
+        opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes handAppearLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-45px) translateY(25px) scale(0.96);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+}
+
+@keyframes handAppearRight {
+    0% {
+        opacity: 0;
+        transform: translateX(45px) translateY(25px) scale(0.96);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+}
+
+@keyframes highlightDraw {
+    0% {
+        opacity: 0;
+        stroke-dashoffset: 300;
+    }
+    100% {
+        opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dropAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(-25px) scale(0.8);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(4px) scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes dropFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes highlightDrop {
+    0% {
+        opacity: 0;
+        stroke-dashoffset: 180;
+    }
+    100% {
+        opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes heartAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+    65% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes mainHeartBeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.07);
+    }
+    20% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.05);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wordAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes letterDropAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.65);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(2px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes letterDropPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+@keyframes textAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes taglineAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes middleLineAppear {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes middleConnectionAppear {
+    0% {
+        opacity: 0;
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+    }
+    100% {
+        opacity: 0.65;
+        stroke-dasharray: 60;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes middleNodeAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes middleDropAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.5);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(2px) scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes middleDropPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes middleHeartAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes middleHeartBeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.18);
+    }
+    20% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.12);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* =========================================================
+   SVG
+   ========================================================= */
+
+svg {
+    overflow: visible;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .logo-wrapper {
+        width: 98vw;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo-wrapper" title="Click to replay animation">
+
+<svg
+    class="tavya-logo"
+    viewBox="0 0 1254 1290"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="TAVYA Blood Network logo"
+    role="img"
+>
+
+<defs>
+
+    <!-- BLUE HAND -->
+    <linearGradient
+        id="blueHandGradient"
+        x1="0"
+        y1="0"
+        x2="1"
+        y2="1"
+    >
+        <stop offset="0%" stop-color="#1d6fba"/>
+        <stop offset="100%" stop-color="#0c3d78"/>
+    </linearGradient>
+
+    <!-- RED HAND -->
+    <linearGradient
+        id="redHandGradient"
+        x1="0"
+        y1="0"
+        x2="1"
+        y2="1"
+    >
+        <stop offset="0%" stop-color="#f2343d"/>
+        <stop offset="100%" stop-color="#bd0712"/>
+    </linearGradient>
+
+    <!-- BLOOD -->
+    <linearGradient
+        id="bloodGradient"
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="1"
+    >
+        <stop offset="0%" stop-color="#f22932"/>
+        <stop offset="100%" stop-color="#b80712"/>
+    </linearGradient>
+
+    <!-- DROP SHADOW -->
+    <filter
+        id="dropShadow"
+        x="-30%"
+        y="-30%"
+        width="160%"
+        height="170%"
+    >
+        <feDropShadow
+            dx="0"
+            dy="8"
+            stdDeviation="10"
+            flood-color="#8c0010"
+            flood-opacity="0.22"
+        />
+    </filter>
+
+</defs>
+
+
+<!-- =====================================================
+     OUTER RED ARC
+     ===================================================== -->
+
+<path
+    class="outer-arc"
+    d="
+        M250 455
+        A380 380 0 0 1 1004 455
+    "
+/>
+
+
+<!-- =====================================================
+     LEFT HELPING HAND
+     ===================================================== -->
+
+<path
+    class="left-hand"
+    fill="url(#blueHandGradient)"
+    d="
+        M306 344
+        L303 348
+        L309 398
+        L324 464
+        L343 514
+        L357 540
+        L372 561
+        L395 583
+        L421 601
+        L449 616
+        L528 650
+        L562 670
+        L589 693
+        L615 728
+        L615 656
+        L612 638
+        L603 610
+        L593 591
+        L579 572
+        L560 553
+        L541 539
+        L516 526
+        L460 506
+        L431 486
+        L398 451
+        L390 447
+        L379 447
+        L374 452
+        L374 462
+        L386 488
+        L410 521
+        L448 558
+        L446 559
+        L435 554
+        L414 540
+        L400 527
+        L385 508
+        L367 474
+        L363 461
+        L365 441
+        L342 370
+        L325 349
+        L315 344
+        Z
+    "
+/>
+
+
+<!-- =====================================================
+     RIGHT HELPING HAND
+     ===================================================== -->
+
+<path
+    class="right-hand"
+    fill="url(#redHandGradient)"
+    d="
+        M947 346
+        L940 345
+        L928 350
+        L913 367
+        L906 382
+        L887 444
+        L890 460
+        L884 479
+        L864 514
+        L837 543
+        L819 555
+        L804 561
+        L846 519
+        L864 494
+        L879 462
+        L879 455
+        L873 449
+        L863 449
+        L853 454
+        L820 489
+        L794 507
+        L736 528
+        L707 543
+        L687 558
+        L667 579
+        L650 606
+        L639 638
+        L636 658
+        L636 728
+        L656 700
+        L687 672
+        L727 650
+        L790 625
+        L823 609
+        L853 589
+        L879 563
+        L907 517
+        L929 460
+        L945 389
+        L949 360
+        L949 348
+        Z
+    "
+/>
+
+
+<!-- =====================================================
+     HAND HIGHLIGHTS
+     ===================================================== -->
+
+<path
+    class="hand-highlight"
+    d="
+        M348 389
+        C355 420 361 452 374 474
+        C391 502 412 521 444 542
+        C463 554 477 562 492 570
+    "
+/>
+
+<path
+    class="hand-highlight"
+    d="
+        M906 389
+        C899 420 893 452 880 474
+        C863 502 842 521 810 542
+        C791 554 777 562 762 570
+    "
+/>
+
+
+<!-- =====================================================
+     CENTRAL BLOOD DROP
+     ===================================================== -->
+
+<path
+    class="blood-drop"
+    fill="url(#bloodGradient)"
+    filter="url(#dropShadow)"
+    d="
+        M627 132
+        C627 132 487 315 487 410
+        C487 492 543 546 627 546
+        C711 546 767 492 767 410
+        C767 315 627 132 627 132
+        Z
+    "
+/>
+
+
+<!-- =====================================================
+     BLOOD DROP HIGHLIGHT
+     ===================================================== -->
+
+<path
+    class="drop-highlight"
+    d="
+        M560 265
+        C536 303 520 334 516 362
+    "
+/>
+
+
+<!-- =====================================================
+     WHITE HEART INSIDE MAIN DROP
+     ===================================================== -->
+
+<path
+    class="heart"
+    fill="#ffffff"
+    d="
+        M627 454
+        C608 437 552 402 552 357
+        C552 326 579 312 601 329
+        C612 337 620 347 627 357
+        C634 347 642 337 653 329
+        C675 312 702 326 702 357
+        C702 402 646 437 627 454
+        Z
+    "
+/>
+
+
+<!-- =====================================================
+     TAVYA WORDMARK
+     
+     T = normal
+     A = OPEN INVERTED V
+         NO HORIZONTAL CROSSBAR
+     V = normal
+     Y = normal
+     A = OPEN INVERTED V
+         NO HORIZONTAL CROSSBAR
+     ===================================================== -->
+
+
+<!-- T -->
+
+<path
+    class="tavya-word"
+    d="
+        M155 705
+        H330
+        V748
+        H270
+        V890
+        H220
+        V748
+        H155
+        Z
+    "
+/>
+
+
+<!-- FIRST A — OPEN ∧ -->
+
+<path
+    class="tavya-word"
+    d="
+        M345 890
+        L420 705
+        L495 890
+        H451
+        L420 812
+        L389 890
+        Z
+    "
+/>
+
+
+<!-- V -->
+
+<path
+    class="tavya-word"
+    d="
+        M505 705
+        H558
+        L627 838
+        L696 705
+        H749
+        L650 890
+        H604
+        Z
+    "
+/>
+
+
+<!-- Y -->
+
+<path
+    class="tavya-word"
+    d="
+        M750 705
+        H808
+        L850 770
+        L892 705
+        H950
+        L876 815
+        V890
+        H824
+        V815
+        Z
+    "
+/>
+
+
+<!-- SECOND A — OPEN ∧ -->
+
+<path
+    class="tavya-word"
+    d="
+        M935 890
+        L1005 705
+        L1075 890
+        H1032
+        L1005 812
+        L978 890
+        Z
+    "
+/>
+
+
+<!-- =====================================================
+     BLOOD DROPLETS UNDER THE TWO OPEN A'S
+     
+     MOVED ANOTHER ~4 mm DOWN
+     
+     Previous top: 818
+     New top:      833
+     ===================================================== -->
+
+
+<!-- FIRST A DROP -->
+
+<path
+    class="letter-drop"
+    fill="url(#bloodGradient)"
+    d="
+        M420 833
+        C420 833
+        402 857
+        402 871
+        C402 884
+        410 892
+        420 892
+        C430 892
+        438 884
+        438 871
+        C438 857
+        420 833
+        420 833
+        Z
+    "
+/>
+
+
+<!-- SECOND A DROP -->
+
+<path
+    class="letter-drop"
+    fill="url(#bloodGradient)"
+    d="
+        M1005 833
+        C1005 833
+        987 857
+        987 871
+        C987 884
+        995 892
+        1005 892
+        C1015 892
+        1023 884
+        1023 871
+        C1023 857
+        1005 833
+        1005 833
+        Z
+    "
+/>
+
+
+<!-- =====================================================
+     BLOOD NETWORK
+     ===================================================== -->
+
+<text
+    class="network-text"
+    x="627"
+    y="957"
+    text-anchor="middle"
+    font-family="Montserrat, sans-serif"
+    font-size="47"
+    font-weight="600"
+>
+    BLOOD NETWORK
+</text>
+
+
+<!-- =====================================================
+     SUBTITLE
+     ===================================================== -->
+
+<text
+    class="subtitle"
+    x="627"
+    y="1008"
+    text-anchor="middle"
+    font-family="Raleway, sans-serif"
+    font-size="25"
+    font-weight="500"
+>
+    Transfusion Access &amp; Voluntary Assistance
+</text>
+
+
+<!-- =====================================================
+     TAGLINE
+     ===================================================== -->
+
+<text
+    class="tagline"
+    x="627"
+    y="1075"
+    text-anchor="middle"
+    font-family="'Great Vibes', cursive"
+    font-size="48"
+>
+    Connecting Donors · Saving Lives
+</text>
+
+
+<!-- =====================================================
+     MIDDLE CONNECTING DESIGN
+     
+     Connecting Donors · Saving Lives
+     
+     Small network-style design below tagline.
+     ===================================================== -->
+
+<g class="middle-design">
+
+    <!-- LEFT LINE -->
+
+    <line
+        class="middle-line"
+        x1="485"
+        y1="1135"
+        x2="550"
+        y2="1135"
+    />
+
+
+    <!-- RIGHT LINE -->
+
+    <line
+        class="middle-line"
+        x1="704"
+        y1="1135"
+        x2="769"
+        y2="1135"
+    />
+
+
+    <!-- LEFT CONNECTION -->
+
+    <line
+        class="middle-connection"
+        x1="550"
+        y1="1135"
+        x2="600"
+        y2="1135"
+    />
+
+
+    <!-- RIGHT CONNECTION -->
+
+    <line
+        class="middle-connection"
+        x1="654"
+        y1="1135"
+        x2="704"
+        y2="1135"
+    />
+
+
+    <!-- LEFT NODE -->
+
+    <circle
+        class="middle-node"
+        cx="550"
+        cy="1135"
+        r="5"
+    />
+
+
+    <!-- RIGHT NODE -->
+
+    <circle
+        class="middle-node"
+        cx="704"
+        cy="1135"
+        r="5"
+    />
+
+
+    <!-- SMALL CENTRAL BLOOD DROP -->
+
+    <path
+        class="middle-drop"
+        d="
+            M627 1098
+            C620 1108 616 1116 616 1123
+            C616 1131 621 1136 627 1136
+            C633 1136 638 1131 638 1123
+            C638 1116 634 1108 627 1098
+            Z
+        "
+    />
+
+
+    <!-- SMALL HEART -->
+
+    <path
+        class="middle-heart"
+        d="
+            M627 1170
+            C621 1164 607 1155 607 1146
+            C607 1138 616 1135 622 1142
+            L627 1148
+            L632 1142
+            C638 1135 647 1138 647 1146
+            C647 1155 633 1164 627 1170
+            Z
+        "
+    />
+
+</g>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<text
+    class="footer-text"
+    x="627"
+    y="1210"
+    text-anchor="middle"
+    font-family="Montserrat, sans-serif"
+    font-size="17"
+    font-weight="500"
+>
+    A VOLUNTEER-RUN, NON-PROFIT INITIATIVE
+</text>
+
+
+</svg>
+</div>
+
+
+<script>
+
+/* =========================================================
+   DISABLE RIGHT CLICK
+   ========================================================= */
+
+document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+});
+
+
+/* =========================================================
+   DISABLE COMMON COPY / SAVE SHORTCUTS
+   ========================================================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        (event.ctrlKey || event.metaKey) &&
+        (
+            event.key.toLowerCase() === "c" ||
+            event.key.toLowerCase() === "u" ||
+            event.key.toLowerCase() === "s" ||
+            event.key.toLowerCase() === "a"
+        )
+    ) {
+        event.preventDefault();
+    }
+
+});
+
+
+/* =========================================================
+   REPLAY LOGO ANIMATION ON CLICK
+   ========================================================= */
+
+document
+.querySelector(".tavya-logo")
+.addEventListener("click", function() {
+
+    const animatedElements = document.querySelectorAll(
+
+        ".outer-arc, " +
+
+        ".left-hand, " +
+
+        ".right-hand, " +
+
+        ".hand-highlight, " +
+
+        ".blood-drop, " +
+
+        ".drop-highlight, " +
+
+        ".heart, " +
+
+        ".tavya-word, " +
+
+        ".letter-drop, " +
+
+        ".network-text, " +
+
+        ".subtitle, " +
+
+        ".tagline, " +
+
+        ".middle-design, " +
+
+        ".middle-line, " +
+
+        ".middle-connection, " +
+
+        ".middle-node, " +
+
+        ".middle-heart, " +
+
+        ".middle-drop, " +
+
+        ".footer-text"
+
+    );
+
+
+    animatedElements.forEach(function(element) {
+
+        element.style.animation = "none";
+
+        void element.offsetWidth;
+
+        element.style.animation = "";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
