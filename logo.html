@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAVYA Blood Network - Scalable Logo</title>
+<title>TAVYA Blood Network - Scalable Logo with Top Curved Text</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -24,7 +24,8 @@ body {
 
 /* 
   CONTROL CONTAINER SIZE HERE:
-  Modifying max-width scales the entire logo (strokes, gaps, text, distances) proportionally.
+  Modifying max-width or width scales the entire logo, 
+  including all strokes, distances, and font sizes proportionally.
 */
 #tavya-logo {
     width: 100%;
@@ -56,9 +57,9 @@ body {
 #tavya-logo .curved-top-text {
     fill: #E21B23 !important;
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: 700;
-    letter-spacing: 4.5px;
+    letter-spacing: 5px;
 }
 
 #tavya-logo .hand-highlight {
@@ -318,14 +319,14 @@ body {
                 <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#75000B" flood-opacity=".20"/>
             </filter>
 
-            <!-- Tighter text path hugging closely above the outer red arc -->
-            <path id="topTextArcPath" d="M 270 435 A 392 392 0 0 1 984 435" fill="none" />
+            <!-- Path template for the top curved text (positioned directly above the outer arc) -->
+            <path id="topTextArcPath" d="M 210 395 A 420 420 0 0 1 1044 395" fill="none" />
         </defs>
 
         <!-- OUTER RED ARC -->
         <path class="outer-arc" fill="none" stroke="#E21B23" d="M250 455 A380 380 0 0 1 1004 455"/>
 
-        <!-- TOP CURVED TEXT HUGGING THE CURVE -->
+        <!-- TOP CURVED TEXT ALONG THE ARC -->
         <g class="curved-text-group">
             <text class="curved-top-text" text-anchor="middle">
                 <textPath href="#topTextArcPath" startOffset="50%">
