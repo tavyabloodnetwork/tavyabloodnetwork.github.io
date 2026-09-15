@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAVYA Blood Network - Fully Scalable Logo</title>
+<title>TAVYA Blood Network - Scalable Logo</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -24,12 +24,11 @@ body {
 
 /* 
   CONTROL CONTAINER SIZE HERE:
-  Because of vector scaling, changing max-width or width 
-  will scale the entire logo (sizes, distances, strokes) proportionally.
+  Modifying max-width scales the entire logo (strokes, gaps, text, distances) proportionally.
 */
 #tavya-logo {
     width: 100%;
-    max-width: 500px; /* Change this to 50px or 1% if desired; everything scales together */
+    max-width: 520px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -46,12 +45,20 @@ body {
     overflow: visible;
 }
 
-/* Color Classes */
+/* Color Classes & Styles */
 #tavya-logo .outer-arc {
     fill: none !important;
     stroke: #E21B23 !important;
     stroke-width: 8;
     stroke-linecap: round;
+}
+
+#tavya-logo .curved-top-text {
+    fill: #E21B23 !important;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 4.5px;
 }
 
 #tavya-logo .hand-highlight {
@@ -97,6 +104,11 @@ body {
     stroke-dasharray: 1800;
     stroke-dashoffset: 1800;
     animation: tavyaArcDraw 1.25s ease 0.05s forwards;
+}
+
+#tavya-logo .curved-text-group {
+    opacity: 0;
+    animation: tavyaTextAppear 0.8s ease 0.3s forwards;
 }
 
 #tavya-logo .left-hand {
@@ -305,10 +317,22 @@ body {
             <filter id="tavyaLogoShadow" x="-30%" y="-30%" width="160%" height="170%">
                 <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#75000B" flood-opacity=".20"/>
             </filter>
+
+            <!-- Tighter text path hugging closely above the outer red arc -->
+            <path id="topTextArcPath" d="M 270 435 A 392 392 0 0 1 984 435" fill="none" />
         </defs>
 
         <!-- OUTER RED ARC -->
         <path class="outer-arc" fill="none" stroke="#E21B23" d="M250 455 A380 380 0 0 1 1004 455"/>
+
+        <!-- TOP CURVED TEXT HUGGING THE CURVE -->
+        <g class="curved-text-group">
+            <text class="curved-top-text" text-anchor="middle">
+                <textPath href="#topTextArcPath" startOffset="50%">
+                    DONATE &bull; SUPPORT &bull; SAVE LIVES
+                </textPath>
+            </text>
+        </g>
 
         <!-- LEFT BLUE HELPING HAND -->
         <path class="left-hand" fill="url(#tavyaLogoBlueGradient)" d="M306 344 L303 348 L309 398 L324 464 L343 514 L357 540 L372 561 L395 583 L421 601 L449 616 L528 650 L562 670 L589 693 L615 728 L615 656 L612 638 L603 610 L593 591 L579 572 L560 553 L541 539 L516 526 L460 506 L431 486 L398 451 L390 447 L379 447 L374 452 L374 462 L386 488 L410 521 L448 558 L446 559 L435 554 L414 540 L400 527 L385 508 L367 474 L363 461 L365 441 L342 370 L325 349 L315 344 Z"/>
@@ -366,7 +390,7 @@ body {
 document.querySelector("#tavya-logo").addEventListener("click", function () {
     const logo = document.querySelector(".tavya-logo");
     const elements = logo.querySelectorAll(
-        ".outer-arc, .left-hand, .right-hand, .hand-highlight, .blood-drop, .drop-highlight, .heart, .tavya-word, .letter-drop, .network-text, .subtitle, .tagline, .middle-line, .middle-connection, .middle-node, .middle-drop, .middle-heart, .footer-text"
+        ".outer-arc, .curved-text-group, .left-hand, .right-hand, .hand-highlight, .blood-drop, .drop-highlight, .heart, .tavya-word, .letter-drop, .network-text, .subtitle, .tagline, .middle-line, .middle-connection, .middle-node, .middle-drop, .middle-heart, .footer-text"
     );
     elements.forEach(function (element) {
         element.style.animation = "none";
