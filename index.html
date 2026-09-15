@@ -24,374 +24,377 @@
         TAVYA Blood Network | Connecting Donors. Saving Lives.
     </title>
 
+
+    <!-- =========================================================
+         MAIN WEBSITE CSS
+         ========================================================= -->
+
     <link rel="stylesheet"
           href="assets/css/style.css">
 
 
     <!-- =========================================================
-         TAVYA LOGO COMPONENT
+         TAVYA LOGO OVERRIDES
          ========================================================= -->
 
     <style>
 
-        /*
-         * The logo is supplied by root-level logo.html.
-         *
-         * It is intentionally NOT loaded using:
-         *   <img>
-         *   <iframe>
-         *
-         * Instead, its HTML/SVG is inserted directly into
-         * the page so that it visually becomes part of the site.
-         */
+        /* =====================================================
+           LOGO HOST
+           ===================================================== */
 
-        <style>
-        
-        /* =========================================================
-           TAVYA LOGO CONTAINER
-           ========================================================= */
-        
         .tavya-logo-container {
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
-        
+
             flex-shrink: 0;
-        
+
             overflow: hidden;
-        
+
             background: transparent;
-        
+
             border: none;
-        
+
             padding: 0;
+
             margin: 0;
+
+            position: relative;
+
         }
-        
-        
-        /* =========================================================
+
+
+        /*
+         * Do not let the normal website logo CSS interfere
+         * with the logo component.
+         */
+
+        .tavya-logo-container .logo,
+        .tavya-logo-container .logo-mark,
+        .tavya-logo-container .logo-text {
+
+            all: unset;
+
+        }
+
+
+        /* =====================================================
            HEADER
-           ========================================================= */
-        
+           ===================================================== */
+
         .site-header {
-            min-height: 100px;
+
+            min-height: 108px;
+
         }
-        
-        
-        /* Header logo is deliberately smaller */
-        
-        .header-logo-container {
-        
-            width: 115px;
-            height: 88px;
-        
+
+
+        .site-header .navbar {
+
+            min-height: 108px;
+
             display: flex;
-        
+
             align-items: center;
-            justify-content: center;
-        
-            overflow: hidden;
-        
+
         }
-        
-        
-        /* Keep the actual SVG smaller inside the header */
-        
+
+
+        /*
+         * Header logo area.
+         *
+         * The container is reasonably large so the header
+         * has breathing space, but the actual logo is smaller.
+         */
+
+        .header-logo-container {
+
+            width: 125px;
+
+            height: 96px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+        }
+
+
+        /*
+         * Actual logo rendered inside the header.
+         */
+
         .header-logo-container > * {
-        
-            width: 92px !important;
-            height: 92px !important;
-        
-            max-width: 92px;
-            max-height: 92px;
-        
+
+            width: 82px !important;
+
+            height: 82px !important;
+
+            max-width: 82px !important;
+
+            max-height: 82px !important;
+
+            min-width: 0 !important;
+
+            min-height: 0 !important;
+
             display: block;
-        
-            object-fit: contain;
-        
+
+            flex: 0 0 auto;
+
         }
-        
-        
-        /* =========================================================
+
+
+        /* =====================================================
            FOOTER
-           ========================================================= */
-        
+           ===================================================== */
+
         .site-footer {
-        
-            padding-top: 60px;
-            padding-bottom: 30px;
-        
-            min-height: 360px;
-        
+
+            padding-top: 65px;
+
+            padding-bottom: 35px;
+
+            min-height: 390px;
+
         }
-        
-        
-        /* Footer logo area */
-        
-        .footer-logo-container {
-        
-            width: 230px;
-            height: 230px;
-        
-            display: flex;
-        
-            align-items: center;
-            justify-content: center;
-        
-            overflow: hidden;
-        
-        }
-        
-        
-        /* Smaller logo inside larger footer area */
-        
-        .footer-logo-container > * {
-        
-            width: 190px !important;
-            height: 190px !important;
-        
-            max-width: 190px;
-            max-height: 190px;
-        
-            display: block;
-        
-            object-fit: contain;
-        
-        }
-        
-        
-        /* Footer brand spacing */
-        
+
+
+        /*
+         * Footer brand section.
+         */
+
         .footer-brand {
-        
+
             display: flex;
-        
+
             flex-direction: column;
-        
+
             align-items: flex-start;
-        
+
             justify-content: flex-start;
-        
-            min-height: 280px;
-        
-        }
-        
-        
-        .footer-brand > p {
-        
-            margin-top: 18px;
-        
-        }
-        
-        
-        /* =========================================================
-           LOGO ISOLATION
-           ========================================================= */
-        
-        .tavya-logo-container .logo,
-        .tavya-logo-container .logo-mark,
-        .tavya-logo-container .logo-text {
-        
-            all: unset;
-        
-        }
-        
-        
-        /* =========================================================
-           MOBILE
-           ========================================================= */
-        
-        @media (max-width: 1000px) {
-        
-            .site-header {
-                min-height: 90px;
-            }
-        
-        
-            .header-logo-container {
-        
-                width: 100px;
-                height: 80px;
-        
-            }
-        
-        
-            .header-logo-container > * {
-        
-                width: 78px !important;
-                height: 78px !important;
-        
-                max-width: 78px;
-                max-height: 78px;
-        
-            }
-        
-        
-            .site-footer {
-        
-                min-height: 420px;
-        
-                padding-top: 50px;
-        
-            }
-        
-        
-            .footer-logo-container {
-        
-                width: 210px;
-                height: 210px;
-        
-            }
-        
-        
-            .footer-logo-container > * {
-        
-                width: 175px !important;
-                height: 175px !important;
-        
-                max-width: 175px;
-                max-height: 175px;
-        
-            }
-        
-        
-            .footer-brand {
-        
-                min-height: 250px;
-        
-            }
-        
-        }
-        
-        
-        @media (max-width: 600px) {
-        
-            .site-header {
-        
-                min-height: 82px;
-        
-            }
-        
-        
-            .header-logo-container {
-        
-                width: 85px;
-                height: 72px;
-        
-            }
-        
-        
-            .header-logo-container > * {
-        
-                width: 65px !important;
-                height: 65px !important;
-        
-                max-width: 65px;
-                max-height: 65px;
-        
-            }
-        
-        
-            .site-footer {
-        
-                min-height: 450px;
-        
-            }
-        
-        
-            .footer-logo-container {
-        
-                width: 190px;
-                height: 190px;
-        
-            }
-        
-        
-            .footer-logo-container > * {
-        
-                width: 155px !important;
-                height: 155px !important;
-        
-                max-width: 155px;
-                max-height: 155px;
-        
-            }
-        
-        }
-        
-        </style>
 
-
-        .tavya-logo-container > * {
-
-            width: 100%;
-
-            height: 100%;
-
-            display: block;
+            min-height: 285px;
 
         }
 
 
         /*
-         * Header logo
-         */
-
-        .header-logo-container {
-
-            width: 180px;
-
-            height: 72px;
-
-        }
-
-
-        /*
-         * Footer logo
+         * Footer logo area.
          */
 
         .footer-logo-container {
 
-            width: 280px;
+            width: 220px;
 
-            height: 210px;
+            height: 220px;
+
+            display: flex;
+
+            align-items: flex-start;
 
             justify-content: flex-start;
 
-            align-items: flex-start;
+            overflow: hidden;
 
         }
 
 
         /*
-         * Do not allow the site's generic .logo CSS
-         * to interfere with the actual logo component.
+         * Actual logo in footer is smaller than
+         * the available brand area.
          */
 
-        .tavya-logo-container .logo,
-        .tavya-logo-container .logo-mark,
-        .tavya-logo-container .logo-text {
+        .footer-logo-container > * {
 
-            all: unset;
+            width: 175px !important;
+
+            height: 175px !important;
+
+            max-width: 175px !important;
+
+            max-height: 175px !important;
+
+            min-width: 0 !important;
+
+            min-height: 0 !important;
+
+            display: block;
+
+            flex: 0 0 auto;
 
         }
 
 
-        @media (max-width: 700px) {
+        .footer-brand > p {
 
-            .header-logo-container {
+            margin-top: 10px;
 
-                width: 150px;
+        }
 
-                height: 64px;
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .site-header {
+
+                min-height: 98px;
 
             }
 
+
+            .site-header .navbar {
+
+                min-height: 98px;
+
+            }
+
+
+            .header-logo-container {
+
+                width: 105px;
+
+                height: 88px;
+
+            }
+
+
+            .header-logo-container > * {
+
+                width: 74px !important;
+
+                height: 74px !important;
+
+                max-width: 74px !important;
+
+                max-height: 74px !important;
+
+            }
+
+
+            .site-footer {
+
+                min-height: 420px;
+
+                padding-top: 55px;
+
+            }
+
+
             .footer-logo-container {
 
-                width: 240px;
+                width: 205px;
 
-                height: 180px;
+                height: 205px;
+
+            }
+
+
+            .footer-logo-container > * {
+
+                width: 160px !important;
+
+                height: 160px !important;
+
+                max-width: 160px !important;
+
+                max-height: 160px !important;
+
+            }
+
+
+            .footer-brand {
+
+                min-height: 265px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .site-header {
+
+                min-height: 90px;
+
+            }
+
+
+            .site-header .navbar {
+
+                min-height: 90px;
+
+            }
+
+
+            .header-logo-container {
+
+                width: 88px;
+
+                height: 80px;
+
+            }
+
+
+            .header-logo-container > * {
+
+                width: 62px !important;
+
+                height: 62px !important;
+
+                max-width: 62px !important;
+
+                max-height: 62px !important;
+
+            }
+
+
+            .site-footer {
+
+                min-height: 450px;
+
+                padding-top: 50px;
+
+            }
+
+
+            .footer-logo-container {
+
+                width: 190px;
+
+                height: 190px;
+
+            }
+
+
+            .footer-logo-container > * {
+
+                width: 145px !important;
+
+                height: 145px !important;
+
+                max-width: 145px !important;
+
+                max-height: 145px !important;
+
+            }
+
+
+            .footer-brand {
+
+                min-height: 245px;
 
             }
 
@@ -422,15 +425,7 @@
 
             <a href="index.html"
                aria-label="TAVYA Blood Network Home"
-               style="
-                    display:flex;
-                    align-items:center;
-                    text-decoration:none;
-                    background:transparent;
-                    border:0;
-                    padding:0;
-                    margin:0;
-               ">
+               class="tavya-logo-link">
 
                 <div id="header-tavya-logo"
                      class="tavya-logo-container header-logo-container">
@@ -440,7 +435,7 @@
 
 
             <!-- =================================================
-                 NAVIGATION
+                 MAIN NAVIGATION
                  ================================================= -->
 
             <ul class="nav-links"
@@ -481,13 +476,19 @@
 
                 <a href="auth/login.html"
                    class="btn btn-outline">
+
                     Login
+
                 </a>
+
 
                 <a href="auth/signup.html"
                    class="btn btn-primary">
+
                     Create Account
+
                 </a>
+
 
                 <button
                     class="menu-toggle"
@@ -510,7 +511,7 @@
 
 
 <!-- =========================================================
-     MAIN CONTENT
+     MAIN
      ========================================================= -->
 
 <main>
@@ -529,6 +530,7 @@
 
 
             <div class="hero-content">
+
 
                 <div class="hero-badge">
 
@@ -582,6 +584,10 @@
             </div>
 
 
+            <!-- =================================================
+                 HERO CARD
+                 ================================================= -->
+
             <div class="hero-card">
 
                 <div class="hero-card-icon">
@@ -590,11 +596,13 @@
 
                 </div>
 
+
                 <h3>
 
                     One Account. Two Ways to Help.
 
                 </h3>
+
 
                 <p>
 
@@ -603,6 +611,7 @@
                     when you or someone you care for needs it.
 
                 </p>
+
 
                 <a href="auth/signup.html"
                    class="btn btn-primary">
@@ -629,6 +638,7 @@
 
     <div class="container">
 
+
         <div class="section-title">
 
             <h2>
@@ -649,6 +659,8 @@
         <div class="services-grid">
 
 
+            <!-- DONATE -->
+
             <article class="service-card"
                      id="donate">
 
@@ -656,9 +668,11 @@
                     🩸
                 </div>
 
+
                 <h3>
                     Donate Blood
                 </h3>
+
 
                 <p>
 
@@ -668,6 +682,7 @@
                     blood requests.
 
                 </p>
+
 
                 <a href="auth/signup.html"
                    class="service-link">
@@ -679,6 +694,8 @@
             </article>
 
 
+            <!-- REQUEST -->
+
             <article class="service-card"
                      id="request">
 
@@ -686,9 +703,11 @@
                     🏥
                 </div>
 
+
                 <h3>
                     Need Blood
                 </h3>
+
 
                 <p>
 
@@ -697,6 +716,7 @@
                     consenting donors to respond.
 
                 </p>
+
 
                 <a href="auth/signup.html"
                    class="service-link">
@@ -708,15 +728,19 @@
             </article>
 
 
+            <!-- NEARBY -->
+
             <article class="service-card">
 
                 <div class="service-icon">
                     📍
                 </div>
 
+
                 <h3>
                     Nearby Blood Centres
                 </h3>
+
 
                 <p>
 
@@ -725,6 +749,7 @@
                     facilities.
 
                 </p>
+
 
                 <a href="#nearby"
                    class="service-link">
@@ -736,15 +761,19 @@
             </article>
 
 
+            <!-- HISTORY -->
+
             <article class="service-card">
 
                 <div class="service-icon">
                     📋
                 </div>
 
+
                 <h3>
                     My TAVYA History
                 </h3>
+
 
                 <p>
 
@@ -753,6 +782,7 @@
                     blood received through the network.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="service-link">
@@ -764,15 +794,19 @@
             </article>
 
 
+            <!-- CERTIFICATES -->
+
             <article class="service-card">
 
                 <div class="service-icon">
                     🏆
                 </div>
 
+
                 <h3>
                     Digital Certificates
                 </h3>
+
 
                 <p>
 
@@ -781,6 +815,7 @@
                     made through TAVYA.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="service-link">
@@ -792,15 +827,19 @@
             </article>
 
 
+            <!-- SUPPORT -->
+
             <article class="service-card">
 
                 <div class="service-icon">
                     🤝
                 </div>
 
+
                 <h3>
                     Support TAVYA
                 </h3>
+
 
                 <p>
 
@@ -809,6 +848,7 @@
                     to coordinate this network.
 
                 </p>
+
 
                 <a href="#support"
                    class="service-link">
@@ -835,11 +875,13 @@
 
     <div class="container">
 
+
         <div class="section-title">
 
             <h2>
                 How TAVYA Works
             </h2>
+
 
             <p>
 
@@ -861,9 +903,11 @@
                     1
                 </div>
 
+
                 <h3>
                     Create One Account
                 </h3>
+
 
                 <p>
 
@@ -882,9 +926,11 @@
                     2
                 </div>
 
+
                 <h3>
                     Donate or Request
                 </h3>
+
 
                 <p>
 
@@ -903,9 +949,11 @@
                     3
                 </div>
 
+
                 <h3>
                     Match & Respond
                 </h3>
+
 
                 <p>
 
@@ -924,9 +972,11 @@
                     4
                 </div>
 
+
                 <h3>
                     Donate & Verify
                 </h3>
+
 
                 <p>
 
@@ -953,11 +1003,13 @@
 
     <div class="container">
 
+
         <div class="section-title">
 
             <h2>
                 Building a Connected Blood Network
             </h2>
+
 
             <p>
 
@@ -972,11 +1024,13 @@
 
         <div class="stats-grid">
 
+
             <div class="stat-card">
 
                 <div class="stat-number">
                     0
                 </div>
+
 
                 <div class="stat-label">
                     Verified TAVYA Donations
@@ -991,6 +1045,7 @@
                     0 mL
                 </div>
 
+
                 <div class="stat-label">
                     Verified Blood Volume
                 </div>
@@ -1004,6 +1059,7 @@
                     0
                 </div>
 
+
                 <div class="stat-label">
                     Blood Requests Assisted
                 </div>
@@ -1016,6 +1072,7 @@
                 <div class="stat-number">
                     0
                 </div>
+
 
                 <div class="stat-label">
                     Verified Blood Receipts
@@ -1031,7 +1088,7 @@
 
 
 <!-- =========================================================
-     NEARBY
+     NEARBY BLOOD CENTRES
      ========================================================= -->
 
 <section id="nearby"
@@ -1039,11 +1096,13 @@
 
     <div class="container">
 
+
         <div class="section-title">
 
             <h2>
                 Find Nearby Blood Centres
             </h2>
+
 
             <p>
 
@@ -1058,6 +1117,7 @@
 
         <div class="card text-center">
 
+
             <div class="service-icon"
                  style="margin:0 auto 20px;">
 
@@ -1065,9 +1125,11 @@
 
             </div>
 
+
             <h3>
                 Nearby Blood Centre Discovery
             </h3>
+
 
             <p class="mb-2">
 
@@ -1076,6 +1138,7 @@
                 blood components.
 
             </p>
+
 
             <a href="auth/login.html"
                class="btn btn-primary">
@@ -1100,11 +1163,13 @@
 
     <div class="container">
 
+
         <div class="section-title">
 
             <h2>
                 About TAVYA
             </h2>
+
 
             <p>
                 Transfusion Access & Voluntary Assistance
@@ -1115,9 +1180,11 @@
 
         <div class="card">
 
+
             <h3 class="mb-1">
                 Our Purpose
             </h3>
+
 
             <p>
 
@@ -1141,6 +1208,7 @@
                 Consent & Privacy
             </h3>
 
+
             <p>
 
                 Donor participation is voluntary.
@@ -1161,6 +1229,7 @@
             <h3 class="mb-1">
                 Medical Responsibility
             </h3>
+
 
             <p>
 
@@ -1189,11 +1258,13 @@
 
     <div class="container">
 
+
         <div class="section-title">
 
             <h2>
                 Your TAVYA Account
             </h2>
+
 
             <p>
 
@@ -1209,15 +1280,19 @@
         <div class="services-grid">
 
 
+            <!-- LOGIN -->
+
             <div class="service-card">
 
                 <div class="service-icon">
                     🔐
                 </div>
 
+
                 <h3>
                     Login
                 </h3>
+
 
                 <p>
 
@@ -1225,6 +1300,7 @@
                     donor profile, requests and history.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="btn btn-outline">
@@ -1236,15 +1312,19 @@
             </div>
 
 
+            <!-- CREATE ACCOUNT -->
+
             <div class="service-card">
 
                 <div class="service-icon">
                     👤
                 </div>
 
+
                 <h3>
                     Create Account
                 </h3>
+
 
                 <p>
 
@@ -1252,6 +1332,7 @@
                     your permanent TAVYA ID.
 
                 </p>
+
 
                 <a href="auth/signup.html"
                    class="btn btn-primary">
@@ -1263,15 +1344,19 @@
             </div>
 
 
+            <!-- TAVYA ID -->
+
             <div class="service-card">
 
                 <div class="service-icon">
                     🆔
                 </div>
 
+
                 <h3>
                     TAVYA ID
                 </h3>
+
 
                 <p>
 
@@ -1280,6 +1365,7 @@
                     across the platform.
 
                 </p>
+
 
                 <a href="auth/login.html"
                    class="btn btn-dark">
@@ -1306,11 +1392,14 @@
 
     <div class="container">
 
+
         <div class="cta-box">
+
 
             <h2>
                 Help Build TAVYA
             </h2>
+
 
             <p>
 
@@ -1322,9 +1411,11 @@
 
             </p>
 
-            <button class="btn btn-large"
-                    type="button"
-                    onclick="showComingSoon('TAVYA Support')">
+
+            <button
+                class="btn btn-large"
+                type="button"
+                onclick="showComingSoon('TAVYA Support')">
 
                 Support TAVYA
 
@@ -1348,6 +1439,7 @@
 
     <div class="container">
 
+
         <div class="footer-grid">
 
 
@@ -1358,9 +1450,9 @@
             <div class="footer-brand">
 
 
-                <!-- IMPORTANT:
-                     This is NOT an <img>.
-                     logo.html is inserted here as HTML/SVG.
+                <!--
+                    Animated logo from root-level logo.html.
+                    NOT logo.png.
                 -->
 
                 <div id="footer-tavya-logo"
@@ -1388,6 +1480,7 @@
                     Platform
                 </h4>
 
+
                 <ul>
 
                     <li>
@@ -1396,17 +1489,20 @@
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#request">
                             Need Blood
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#nearby">
                             Nearby Blood Centres
                         </a>
                     </li>
+
 
                     <li>
                         <a href="#account">
@@ -1429,6 +1525,7 @@
                     TAVYA
                 </h4>
 
+
                 <ul>
 
                     <li>
@@ -1437,11 +1534,13 @@
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#support">
                             Support TAVYA
                         </a>
                     </li>
+
 
                     <li>
                         <a href="#account">
@@ -1464,6 +1563,7 @@
                     Information
                 </h4>
 
+
                 <ul>
 
                     <li>
@@ -1472,11 +1572,13 @@
                         </a>
                     </li>
 
+
                     <li>
                         <a href="#terms">
                             Terms
                         </a>
                     </li>
+
 
                     <li>
                         <a href="#contact">
@@ -1491,6 +1593,10 @@
         </div>
 
 
+        <!-- =====================================================
+             FOOTER BOTTOM
+             ===================================================== -->
+
         <div class="footer-bottom">
 
             <span>
@@ -1499,6 +1605,7 @@
                 All rights reserved.
 
             </span>
+
 
             <span>
 
@@ -1514,7 +1621,7 @@
 
 
 <!-- =========================================================
-     LOGO LOADER
+     TAVYA LOGO LOADER
      ========================================================= -->
 
 <script>
@@ -1525,15 +1632,28 @@
 
 
     /*
-     * Load the root-level logo.html.
+     * =========================================================
+     * LOAD LOGO.HTML
+     * =========================================================
      *
-     * The logo is placed inside a Shadow DOM so that
-     * assets/css/style.css cannot override the SVG/logo
-     * styles.
+     * logo.html is located at:
+     *
+     * /
+     * ├── index.html
+     * ├── logo.html
+     * ├── auth/
+     * └── assets/
+     *
+     *
+     * The logo is loaded as HTML/SVG rather than as an image.
+     *
+     * A Shadow DOM is used to isolate the logo from the
+     * website's global CSS.
      */
 
 
     async function loadTavyaLogo(targetId) {
+
 
         const host =
             document.getElementById(targetId);
@@ -1548,11 +1668,14 @@
 
         try {
 
+
             const response =
-                await fetch("logo.html",
-                            {
-                                cache: "no-cache"
-                            });
+                await fetch(
+                    "logo.html",
+                    {
+                        cache: "no-cache"
+                    }
+                );
 
 
             if (!response.ok) {
@@ -1569,7 +1692,9 @@
 
 
             /*
-             * Create isolated Shadow DOM.
+             * -------------------------------------------------
+             * CREATE SHADOW DOM
+             * -------------------------------------------------
              */
 
             const shadow =
@@ -1579,14 +1704,16 @@
 
 
             /*
-             * Parse logo.html.
+             * -------------------------------------------------
+             * PARSE LOGO HTML
+             * -------------------------------------------------
              */
 
             const parser =
                 new DOMParser();
 
 
-            const documentObject =
+            const logoDocument =
                 parser.parseFromString(
                     html,
                     "text/html"
@@ -1594,11 +1721,100 @@
 
 
             /*
-             * Copy all <style> elements from
-             * logo.html.
+             * -------------------------------------------------
+             * INTERNAL LOGO STYLES
+             * -------------------------------------------------
              */
 
-            documentObject
+            const logoStyles =
+                document.createElement(
+                    "style"
+                );
+
+
+            logoStyles.textContent = `
+
+                :host {
+
+                    display: flex !important;
+
+                    align-items: center !important;
+
+                    justify-content: center !important;
+
+                    width: 100% !important;
+
+                    height: 100% !important;
+
+                    overflow: hidden !important;
+
+                    background: transparent !important;
+
+                }
+
+
+                html,
+                body {
+
+                    width: 100% !important;
+
+                    height: 100% !important;
+
+                    margin: 0 !important;
+
+                    padding: 0 !important;
+
+                    background: transparent !important;
+
+                    overflow: hidden !important;
+
+                }
+
+
+                body {
+
+                    display: flex !important;
+
+                    align-items: center !important;
+
+                    justify-content: center !important;
+
+                }
+
+
+                svg {
+
+                    display: block !important;
+
+                    width: 100% !important;
+
+                    height: 100% !important;
+
+                    max-width: 100% !important;
+
+                    max-height: 100% !important;
+
+                    margin: 0 !important;
+
+                    padding: 0 !important;
+
+                }
+
+            `;
+
+
+            shadow.appendChild(
+                logoStyles
+            );
+
+
+            /*
+             * -------------------------------------------------
+             * COPY <STYLE> ELEMENTS
+             * -------------------------------------------------
+             */
+
+            logoDocument
                 .querySelectorAll("style")
                 .forEach(function (style) {
 
@@ -1610,71 +1826,170 @@
 
 
             /*
-             * Copy body content.
-             *
-             * This supports both:
-             *
-             * 1. logo.html containing only SVG/HTML
-             *
-             * 2. logo.html being a complete HTML document
+             * -------------------------------------------------
+             * COPY BODY CONTENT
+             * -------------------------------------------------
              */
 
-            const body =
-                documentObject.body;
+            if (logoDocument.body) {
 
 
-            if (body) {
+                Array.from(
+                    logoDocument.body.childNodes
+                ).forEach(function (node) {
 
-                Array.from(body.childNodes)
-                    .forEach(function (node) {
 
-                        shadow.appendChild(
-                            node.cloneNode(true)
-                        );
+                    /*
+                     * Do not copy script elements here.
+                     * They are handled separately below.
+                     */
 
-                    });
+                    if (
+                        node.nodeType === 1 &&
+                        node.tagName.toLowerCase() === "script"
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    shadow.appendChild(
+                        node.cloneNode(true)
+                    );
+
+                });
 
             }
 
 
             /*
-             * Copy external stylesheet links if
-             * logo.html happens to contain them.
+             * -------------------------------------------------
+             * COPY EXTERNAL STYLESHEETS
+             * -------------------------------------------------
              */
 
-            documentObject
+            logoDocument
                 .querySelectorAll(
                     'link[rel="stylesheet"]'
                 )
                 .forEach(function (link) {
+
 
                     const newLink =
                         document.createElement(
                             "link"
                         );
 
+
                     newLink.rel =
                         "stylesheet";
 
-                    newLink.href =
-                        link.href;
 
-                    shadow.prepend(newLink);
+                    newLink.href =
+                        new URL(
+                            link.getAttribute("href"),
+                            window.location.href
+                        ).href;
+
+
+                    shadow.prepend(
+                        newLink
+                    );
 
                 });
 
 
             /*
-             * Re-create scripts contained in
-             * logo.html.
-             *
-             * This allows JavaScript-based logo
-             * animation to start.
+             * -------------------------------------------------
+             * FIND SVG
+             * -------------------------------------------------
              */
 
-            documentObject
+            const svg =
+                shadow.querySelector(
+                    "svg"
+                );
+
+
+            if (svg) {
+
+
+                /*
+                 * Remove fixed dimensions.
+                 */
+
+                svg.removeAttribute(
+                    "width"
+                );
+
+
+                svg.removeAttribute(
+                    "height"
+                );
+
+
+                /*
+                 * Make the SVG responsive.
+                 */
+
+                svg.style.width =
+                    "100%";
+
+
+                svg.style.height =
+                    "100%";
+
+
+                svg.style.maxWidth =
+                    "100%";
+
+
+                svg.style.maxHeight =
+                    "100%";
+
+
+                svg.style.display =
+                    "block";
+
+
+                svg.style.margin =
+                    "0";
+
+
+                svg.style.padding =
+                    "0";
+
+
+                svg.style.overflow =
+                    "visible";
+
+
+                /*
+                 * Preserve the SVG aspect ratio.
+                 */
+
+                svg.setAttribute(
+                    "preserveAspectRatio",
+                    "xMidYMid meet"
+                );
+
+            }
+
+
+            /*
+             * -------------------------------------------------
+             * RECREATE LOGO SCRIPTS
+             * -------------------------------------------------
+             *
+             * This allows JavaScript-based animation
+             * inside logo.html to run.
+             */
+
+            logoDocument
                 .querySelectorAll("script")
                 .forEach(function (oldScript) {
+
 
                     const newScript =
                         document.createElement(
@@ -1682,12 +1997,21 @@
                         );
 
 
-                    if (oldScript.src) {
+                    if (
+                        oldScript.src
+                    ) {
+
 
                         newScript.src =
-                            oldScript.src;
+                            new URL(
+                                oldScript.getAttribute("src"),
+                                window.location.href
+                            ).href;
 
-                    } else {
+                    }
+
+                    else {
+
 
                         newScript.textContent =
                             oldScript.textContent;
@@ -1703,58 +2027,37 @@
 
 
             /*
-             * Make SVG responsive.
+             * -------------------------------------------------
+             * RESTART SVG ANIMATIONS
+             * -------------------------------------------------
              */
 
-            const svg =
-                shadow.querySelector("svg");
-
-
-            if (svg) {
-
-                svg.removeAttribute("width");
-
-                svg.removeAttribute("height");
-
-                svg.style.width =
-                    "100%";
-
-                svg.style.height =
-                    "100%";
-
-                svg.style.display =
-                    "block";
-
-                svg.style.overflow =
-                    "visible";
-
-            }
-
-
-            /*
-             * Force SVG/logo animation replay
-             * when it is inserted.
-             */
-
-            if (svg) {
-
-                svg.classList.remove(
-                    "animate"
+            const animatedElements =
+                shadow.querySelectorAll(
+                    ".animate, [data-animate]"
                 );
 
 
-                void svg.offsetWidth;
+            animatedElements.forEach(
+                function (element) {
 
+                    element.style.animation =
+                        "none";
 
-                svg.classList.add(
-                    "animate"
-                );
+                    void element.offsetWidth;
 
-            }
+                    element.style.animation =
+                        "";
+
+                }
+            );
+
 
         }
 
+
         catch (error) {
+
 
             console.error(
                 "TAVYA logo loading error:",
@@ -1763,10 +2066,9 @@
 
 
             /*
-             * Do NOT show a white square.
+             * Important:
              *
-             * If logo.html cannot be loaded,
-             * simply keep the area transparent.
+             * Do not display a white rectangle.
              */
 
             host.innerHTML = "";
@@ -1777,12 +2079,15 @@
 
 
     /*
-     * Load header and footer logo.
+     * =========================================================
+     * LOAD BOTH LOGOS
+     * =========================================================
      */
 
     document.addEventListener(
         "DOMContentLoaded",
         function () {
+
 
             loadTavyaLogo(
                 "header-tavya-logo"
@@ -1792,6 +2097,7 @@
             loadTavyaLogo(
                 "footer-tavya-logo"
             );
+
 
         }
     );
@@ -1826,79 +2132,84 @@ document.addEventListener(
 
 
         if (
-            menuToggle &&
-            navLinks
+            !menuToggle ||
+            !navLinks
         ) {
 
+            return;
 
-            menuToggle.addEventListener(
-                "click",
-                function () {
+        }
 
 
-                    const isOpen =
-                        navLinks.classList.toggle(
+        /*
+         * Open / close menu.
+         */
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+
+                const isOpen =
+                    navLinks.classList.toggle(
+                        "mobile-open"
+                    );
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation menu"
+                        : "Open navigation menu"
+                );
+
+            }
+        );
+
+
+        /*
+         * Close menu after selecting a link.
+         */
+
+        navLinks
+            .querySelectorAll("a")
+            .forEach(function (link) {
+
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+
+                        navLinks.classList.remove(
                             "mobile-open"
                         );
 
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        isOpen
-                    );
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
 
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        isOpen
-                            ? "Close navigation menu"
-                            : "Open navigation menu"
-                    );
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation menu"
+                        );
 
-                }
-            );
+                    }
+                );
 
-
-            /*
-             * Close mobile menu when
-             * a navigation link is selected.
-             */
-
-            navLinks
-                .querySelectorAll("a")
-                .forEach(function (link) {
+            });
 
 
-                    link.addEventListener(
-                        "click",
-                        function () {
-
-
-                            navLinks.classList.remove(
-                                "mobile-open"
-                            );
-
-
-                            menuToggle.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-
-
-                            menuToggle.setAttribute(
-                                "aria-label",
-                                "Open navigation menu"
-                            );
-
-                        }
-                    );
-
-                });
-
-        }
-
-    }
-);
+});
 
 </script>
 
