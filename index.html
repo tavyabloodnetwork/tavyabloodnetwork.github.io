@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -28,167 +29,120 @@
 
 
     <!-- =========================================================
-         TAVYA LOGO INTEGRATION
-         logo.html is kept at the ROOT of the repository.
-         It is loaded directly into the page — NOT inside iframe.
+         TAVYA LOGO COMPONENT
          ========================================================= -->
 
     <style>
 
-        /* ---------------------------------------------------------
-           Logo containers
-           --------------------------------------------------------- */
+        /*
+         * The logo is supplied by root-level logo.html.
+         *
+         * It is intentionally NOT loaded using:
+         *   <img>
+         *   <iframe>
+         *
+         * Instead, its HTML/SVG is inserted directly into
+         * the page so that it visually becomes part of the site.
+         */
 
-        .tavya-logo-loader {
+        .tavya-logo-container {
+
             display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
 
-        .tavya-logo-loader.logo-header {
-            width: 150px;
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            width: 180px;
+
             height: 76px;
-            flex-shrink: 0;
-        }
 
-        .tavya-logo-loader.logo-footer {
-            width: 210px;
-            height: 150px;
-            justify-content: flex-start;
-        }
+            overflow: visible;
 
-
-        /* ---------------------------------------------------------
-           Loaded logo document
-           --------------------------------------------------------- */
-
-        .tavya-logo-loader .embedded-tavya-logo {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .tavya-logo-loader .embedded-tavya-logo img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            user-select: none;
-            -webkit-user-drag: none;
-        }
-
-
-        /* ---------------------------------------------------------
-           Header logo
-           --------------------------------------------------------- */
-
-        .header-logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-
-        .header-logo-link .tavya-logo-loader {
-            pointer-events: none;
-        }
-
-
-        /* ---------------------------------------------------------
-           Footer logo
-           --------------------------------------------------------- */
-
-        .footer-logo-link {
-            display: block;
-            text-decoration: none;
-        }
-
-        .footer-logo-link .tavya-logo-loader {
-            pointer-events: none;
-        }
-
-
-        /* ---------------------------------------------------------
-           While logo.html is being inserted:
-           NO white placeholder box.
-           --------------------------------------------------------- */
-
-        .tavya-logo-loader.loading {
             background: transparent;
+
+            border: none;
+
+            padding: 0;
+
+            margin: 0;
+
         }
 
-        .tavya-logo-loader.loading::before {
-            content: "";
-            display: none;
+
+        .tavya-logo-container > * {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
         }
 
 
-        /* ---------------------------------------------------------
-           Header responsive sizing
-           --------------------------------------------------------- */
+        /*
+         * Header logo
+         */
 
-        @media (max-width: 1000px) {
+        .header-logo-container {
 
-            .tavya-logo-loader.logo-header {
-                width: 130px;
-                height: 68px;
-            }
+            width: 180px;
+
+            height: 72px;
+
+        }
+
+
+        /*
+         * Footer logo
+         */
+
+        .footer-logo-container {
+
+            width: 280px;
+
+            height: 210px;
+
+            justify-content: flex-start;
+
+            align-items: flex-start;
+
+        }
+
+
+        /*
+         * Do not allow the site's generic .logo CSS
+         * to interfere with the actual logo component.
+         */
+
+        .tavya-logo-container .logo,
+        .tavya-logo-container .logo-mark,
+        .tavya-logo-container .logo-text {
+
+            all: unset;
 
         }
 
 
         @media (max-width: 700px) {
 
-            .tavya-logo-loader.logo-header {
-                width: 118px;
-                height: 62px;
+            .header-logo-container {
+
+                width: 150px;
+
+                height: 64px;
+
             }
 
-            .tavya-logo-loader.logo-footer {
-                width: 190px;
-                height: 140px;
-            }
+            .footer-logo-container {
 
-        }
+                width: 240px;
 
+                height: 180px;
 
-        /* ---------------------------------------------------------
-           Footer on dark background
-           --------------------------------------------------------- */
-
-        .footer-logo-wrapper {
-            width: 210px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /*
-         * logo.html contains a white-background image.
-         * The footer itself is dark, so we keep the logo inside
-         * a clean white logo panel rather than showing a random
-         * large white square.
-         */
-
-        .footer-logo-wrapper .tavya-logo-loader {
-            background: #ffffff;
-            border-radius: 8px;
-        }
-
-
-        /* ---------------------------------------------------------
-           Accessibility
-           --------------------------------------------------------- */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .tavya-logo-loader *,
-            .tavya-logo-loader {
-                animation: none !important;
-                transition: none !important;
             }
 
         }
@@ -213,25 +167,30 @@
 
 
             <!-- =================================================
-                 TAVYA LOGO
-                 Loaded from ROOT/logo.html
+                 TAVYA ANIMATED LOGO
                  ================================================= -->
 
             <a href="index.html"
-               class="header-logo-link"
-               aria-label="TAVYA Blood Network Home">
+               aria-label="TAVYA Blood Network Home"
+               style="
+                    display:flex;
+                    align-items:center;
+                    text-decoration:none;
+                    background:transparent;
+                    border:0;
+                    padding:0;
+                    margin:0;
+               ">
 
-                <div
-                    id="header-logo"
-                    class="tavya-logo-loader logo-header loading"
-                    aria-hidden="true">
+                <div id="header-tavya-logo"
+                     class="tavya-logo-container header-logo-container">
                 </div>
 
             </a>
 
 
             <!-- =================================================
-                 MAIN NAVIGATION
+                 NAVIGATION
                  ================================================= -->
 
             <ul class="nav-links"
@@ -270,12 +229,12 @@
 
             <div class="nav-actions">
 
-                <a href="#account"
+                <a href="auth/login.html"
                    class="btn btn-outline">
                     Login
                 </a>
 
-                <a href="#account"
+                <a href="auth/signup.html"
                    class="btn btn-primary">
                     Create Account
                 </a>
@@ -300,7 +259,6 @@
 </header>
 
 
-
 <!-- =========================================================
      MAIN CONTENT
      ========================================================= -->
@@ -309,7 +267,7 @@
 
 
 <!-- =========================================================
-     HERO SECTION
+     HERO
      ========================================================= -->
 
 <section id="home"
@@ -320,14 +278,12 @@
         <div class="hero-grid">
 
 
-            <!-- =================================================
-                 HERO TEXT
-                 ================================================= -->
-
             <div class="hero-content">
 
                 <div class="hero-badge">
+
                     🩸 Volunteer-Run Blood Network
+
                 </div>
 
 
@@ -376,19 +332,18 @@
             </div>
 
 
-
-            <!-- =================================================
-                 HERO CARD
-                 ================================================= -->
-
             <div class="hero-card">
 
                 <div class="hero-card-icon">
+
                     🩸
+
                 </div>
 
                 <h3>
+
                     One Account. Two Ways to Help.
+
                 </h3>
 
                 <p>
@@ -399,7 +354,7 @@
 
                 </p>
 
-                <a href="#account"
+                <a href="auth/signup.html"
                    class="btn btn-primary">
 
                     Create Your TAVYA Account
@@ -415,7 +370,6 @@
 </section>
 
 
-
 <!-- =========================================================
      SERVICES
      ========================================================= -->
@@ -424,7 +378,6 @@
          class="section">
 
     <div class="container">
-
 
         <div class="section-title">
 
@@ -443,11 +396,8 @@
         </div>
 
 
-
         <div class="services-grid">
 
-
-            <!-- Donate Blood -->
 
             <article class="service-card"
                      id="donate">
@@ -469,7 +419,7 @@
 
                 </p>
 
-                <a href="#account"
+                <a href="auth/signup.html"
                    class="service-link">
 
                     Become a Donor →
@@ -478,9 +428,6 @@
 
             </article>
 
-
-
-            <!-- Need Blood -->
 
             <article class="service-card"
                      id="request">
@@ -501,7 +448,7 @@
 
                 </p>
 
-                <a href="#account"
+                <a href="auth/signup.html"
                    class="service-link">
 
                     Request Blood →
@@ -510,9 +457,6 @@
 
             </article>
 
-
-
-            <!-- Nearby Blood Centres -->
 
             <article class="service-card">
 
@@ -542,9 +486,6 @@
             </article>
 
 
-
-            <!-- History -->
-
             <article class="service-card">
 
                 <div class="service-icon">
@@ -563,7 +504,7 @@
 
                 </p>
 
-                <a href="#account"
+                <a href="auth/login.html"
                    class="service-link">
 
                     View My History →
@@ -572,9 +513,6 @@
 
             </article>
 
-
-
-            <!-- Certificates -->
 
             <article class="service-card">
 
@@ -594,7 +532,7 @@
 
                 </p>
 
-                <a href="#account"
+                <a href="auth/login.html"
                    class="service-link">
 
                     My Certificates →
@@ -603,9 +541,6 @@
 
             </article>
 
-
-
-            <!-- Support -->
 
             <article class="service-card">
 
@@ -641,7 +576,6 @@
 </section>
 
 
-
 <!-- =========================================================
      HOW IT WORKS
      ========================================================= -->
@@ -668,7 +602,6 @@
         </div>
 
 
-
         <div class="steps-grid">
 
 
@@ -693,7 +626,6 @@
             </div>
 
 
-
             <div class="step">
 
                 <div class="step-number">
@@ -715,7 +647,6 @@
             </div>
 
 
-
             <div class="step">
 
                 <div class="step-number">
@@ -735,7 +666,6 @@
                 </p>
 
             </div>
-
 
 
             <div class="step">
@@ -765,7 +695,6 @@
 </section>
 
 
-
 <!-- =========================================================
      IMPACT
      ========================================================= -->
@@ -791,7 +720,6 @@
         </div>
 
 
-
         <div class="stats-grid">
 
             <div class="stat-card">
@@ -807,7 +735,6 @@
             </div>
 
 
-
             <div class="stat-card">
 
                 <div class="stat-number">
@@ -821,7 +748,6 @@
             </div>
 
 
-
             <div class="stat-card">
 
                 <div class="stat-number">
@@ -833,7 +759,6 @@
                 </div>
 
             </div>
-
 
 
             <div class="stat-card">
@@ -855,9 +780,8 @@
 </section>
 
 
-
 <!-- =========================================================
-     NEARBY BLOOD CENTRES
+     NEARBY
      ========================================================= -->
 
 <section id="nearby"
@@ -885,7 +809,7 @@
         <div class="card text-center">
 
             <div class="service-icon"
-                 style="margin: 0 auto 20px;">
+                 style="margin:0 auto 20px;">
 
                 📍
 
@@ -903,7 +827,7 @@
 
             </p>
 
-            <a href="#account"
+            <a href="auth/login.html"
                class="btn btn-primary">
 
                 Explore Nearby Centres
@@ -915,7 +839,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -938,7 +861,6 @@
             </p>
 
         </div>
-
 
 
         <div class="card">
@@ -1008,7 +930,6 @@
 </section>
 
 
-
 <!-- =========================================================
      ACCOUNT
      ========================================================= -->
@@ -1035,11 +956,8 @@
         </div>
 
 
-
         <div class="services-grid">
 
-
-            <!-- LOGIN -->
 
             <div class="service-card">
 
@@ -1058,19 +976,15 @@
 
                 </p>
 
-                <button class="btn btn-outline"
-                        type="button"
-                        onclick="showComingSoon('Login')">
+                <a href="auth/login.html"
+                   class="btn btn-outline">
 
                     Login
 
-                </button>
+                </a>
 
             </div>
 
-
-
-            <!-- CREATE ACCOUNT -->
 
             <div class="service-card">
 
@@ -1089,19 +1003,15 @@
 
                 </p>
 
-                <button class="btn btn-primary"
-                        type="button"
-                        onclick="showComingSoon('Account Registration')">
+                <a href="auth/signup.html"
+                   class="btn btn-primary">
 
                     Create Account
 
-                </button>
+                </a>
 
             </div>
 
-
-
-            <!-- TAVYA ID -->
 
             <div class="service-card">
 
@@ -1121,13 +1031,12 @@
 
                 </p>
 
-                <button class="btn btn-dark"
-                        type="button"
-                        onclick="showComingSoon('TAVYA ID')">
+                <a href="auth/login.html"
+                   class="btn btn-dark">
 
-                    Learn More
+                    Login to View TAVYA ID
 
-                </button>
+                </a>
 
             </div>
 
@@ -1136,7 +1045,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1182,7 +1090,6 @@
 </main>
 
 
-
 <!-- =========================================================
      FOOTER
      ========================================================= -->
@@ -1200,30 +1107,25 @@
 
             <div class="footer-brand">
 
-                <div class="footer-logo-wrapper">
 
-                    <a href="index.html"
-                       class="footer-logo-link"
-                       aria-label="TAVYA Blood Network Home">
+                <!-- IMPORTANT:
+                     This is NOT an <img>.
+                     logo.html is inserted here as HTML/SVG.
+                -->
 
-                        <div
-                            id="footer-logo"
-                            class="tavya-logo-loader logo-footer loading"
-                            aria-hidden="true">
-                        </div>
-
-                    </a>
-
+                <div id="footer-tavya-logo"
+                     class="tavya-logo-container footer-logo-container">
                 </div>
 
 
                 <p>
+
                     Connecting Donors.
                     Saving Lives.
+
                 </p>
 
             </div>
-
 
 
             <!-- =================================================
@@ -1267,7 +1169,6 @@
             </div>
 
 
-
             <!-- =================================================
                  TAVYA
                  ================================================= -->
@@ -1301,7 +1202,6 @@
                 </ul>
 
             </div>
-
 
 
             <!-- =================================================
@@ -1341,16 +1241,19 @@
         </div>
 
 
-
         <div class="footer-bottom">
 
             <span>
+
                 © 2026 TAVYA Blood Network.
                 All rights reserved.
+
             </span>
 
             <span>
+
                 Volunteer-Run, Non-Profit Initiative
+
             </span>
 
         </div>
@@ -1360,247 +1263,311 @@
 </footer>
 
 
-
 <!-- =========================================================
-     JAVASCRIPT
+     LOGO LOADER
      ========================================================= -->
 
 <script>
 
+(function () {
 
-/* =========================================================
-   LOAD logo.html DIRECTLY INTO THE PAGE
-   =========================================================
-
-   IMPORTANT:
-
-   logo.html is at:
-
-       /
-       ├── index.html
-       ├── logo.html
-       ├── auth/
-       └── assets/
-
-   Therefore:
-
-       fetch("logo.html")
-
-   is correct.
-
-   We DO NOT use:
-
-       <iframe src="logo.html">
-
-   because that creates the separate document/frame effect.
-
-   Instead we extract the actual logo element from logo.html
-   and insert it directly into index.html.
-   ========================================================= */
+    "use strict";
 
 
-async function loadTavyaLogo(targetId) {
-
-    const target =
-        document.getElementById(targetId);
-
-    if (!target) {
-        return;
-    }
-
-
-    try {
-
-        const response =
-            await fetch("logo.html", {
-                cache: "no-store"
-            });
+    /*
+     * Load the root-level logo.html.
+     *
+     * The logo is placed inside a Shadow DOM so that
+     * assets/css/style.css cannot override the SVG/logo
+     * styles.
+     */
 
 
-        if (!response.ok) {
-            throw new Error(
-                "Unable to load logo.html"
-            );
+    async function loadTavyaLogo(targetId) {
+
+        const host =
+            document.getElementById(targetId);
+
+
+        if (!host) {
+
+            return;
+
         }
 
 
-        const html =
-            await response.text();
+        try {
+
+            const response =
+                await fetch("logo.html",
+                            {
+                                cache: "no-cache"
+                            });
 
 
-        /*
-         * Parse logo.html as a separate HTML document.
-         */
+            if (!response.ok) {
 
-        const parser =
-            new DOMParser();
+                throw new Error(
+                    "Unable to load logo.html"
+                );
 
-        const logoDocument =
-            parser.parseFromString(
-                html,
-                "text/html"
-            );
+            }
 
 
-        /*
-         * Find the original logo image.
-         */
-
-        const logoImage =
-            logoDocument.querySelector(
-                "img"
-            );
+            const html =
+                await response.text();
 
 
-        if (!logoImage) {
-            throw new Error(
-                "Logo image not found in logo.html"
-            );
+            /*
+             * Create isolated Shadow DOM.
+             */
+
+            const shadow =
+                host.attachShadow({
+                    mode: "open"
+                });
+
+
+            /*
+             * Parse logo.html.
+             */
+
+            const parser =
+                new DOMParser();
+
+
+            const documentObject =
+                parser.parseFromString(
+                    html,
+                    "text/html"
+                );
+
+
+            /*
+             * Copy all <style> elements from
+             * logo.html.
+             */
+
+            documentObject
+                .querySelectorAll("style")
+                .forEach(function (style) {
+
+                    shadow.appendChild(
+                        style.cloneNode(true)
+                    );
+
+                });
+
+
+            /*
+             * Copy body content.
+             *
+             * This supports both:
+             *
+             * 1. logo.html containing only SVG/HTML
+             *
+             * 2. logo.html being a complete HTML document
+             */
+
+            const body =
+                documentObject.body;
+
+
+            if (body) {
+
+                Array.from(body.childNodes)
+                    .forEach(function (node) {
+
+                        shadow.appendChild(
+                            node.cloneNode(true)
+                        );
+
+                    });
+
+            }
+
+
+            /*
+             * Copy external stylesheet links if
+             * logo.html happens to contain them.
+             */
+
+            documentObject
+                .querySelectorAll(
+                    'link[rel="stylesheet"]'
+                )
+                .forEach(function (link) {
+
+                    const newLink =
+                        document.createElement(
+                            "link"
+                        );
+
+                    newLink.rel =
+                        "stylesheet";
+
+                    newLink.href =
+                        link.href;
+
+                    shadow.prepend(newLink);
+
+                });
+
+
+            /*
+             * Re-create scripts contained in
+             * logo.html.
+             *
+             * This allows JavaScript-based logo
+             * animation to start.
+             */
+
+            documentObject
+                .querySelectorAll("script")
+                .forEach(function (oldScript) {
+
+                    const newScript =
+                        document.createElement(
+                            "script"
+                        );
+
+
+                    if (oldScript.src) {
+
+                        newScript.src =
+                            oldScript.src;
+
+                    } else {
+
+                        newScript.textContent =
+                            oldScript.textContent;
+
+                    }
+
+
+                    shadow.appendChild(
+                        newScript
+                    );
+
+                });
+
+
+            /*
+             * Make SVG responsive.
+             */
+
+            const svg =
+                shadow.querySelector("svg");
+
+
+            if (svg) {
+
+                svg.removeAttribute("width");
+
+                svg.removeAttribute("height");
+
+                svg.style.width =
+                    "100%";
+
+                svg.style.height =
+                    "100%";
+
+                svg.style.display =
+                    "block";
+
+                svg.style.overflow =
+                    "visible";
+
+            }
+
+
+            /*
+             * Force SVG/logo animation replay
+             * when it is inserted.
+             */
+
+            if (svg) {
+
+                svg.classList.remove(
+                    "animate"
+                );
+
+
+                void svg.offsetWidth;
+
+
+                svg.classList.add(
+                    "animate"
+                );
+
+            }
+
         }
 
+        catch (error) {
 
-        /*
-         * Clone the image.
-         */
-
-        const clonedLogo =
-            logoImage.cloneNode(true);
-
-
-        /*
-         * Remove attributes that could cause
-         * unwanted behaviour.
-         */
-
-        clonedLogo.removeAttribute(
-            "onclick"
-        );
+            console.error(
+                "TAVYA logo loading error:",
+                error
+            );
 
 
-        clonedLogo.removeAttribute(
-            "loading"
-        );
+            /*
+             * Do NOT show a white square.
+             *
+             * If logo.html cannot be loaded,
+             * simply keep the area transparent.
+             */
 
+            host.innerHTML = "";
 
-        /*
-         * Add our own class.
-         */
-
-        clonedLogo.classList.add(
-            "embedded-tavya-logo-image"
-        );
-
-
-        /*
-         * Create wrapper.
-         */
-
-        const wrapper =
-            document.createElement("div");
-
-        wrapper.className =
-            "embedded-tavya-logo";
-
-
-        wrapper.appendChild(
-            clonedLogo
-        );
-
-
-        /*
-         * Insert directly into the page.
-         */
-
-        target.innerHTML = "";
-
-        target.appendChild(
-            wrapper
-        );
-
-
-        /*
-         * Remove loading state.
-         */
-
-        target.classList.remove(
-            "loading"
-        );
+        }
 
     }
 
 
-    catch (error) {
+    /*
+     * Load header and footer logo.
+     */
 
-        console.error(
-            "TAVYA logo error:",
-            error
-        );
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
 
-
-        /*
-         * If logo.html fails, do NOT create
-         * a large white square.
-
-         * Instead use a small text fallback.
-         */
-
-        target.innerHTML = `
-            <div
-                style="
-                    font-weight:800;
-                    color:#b91c1c;
-                    font-size:20px;
-                    line-height:1;
-                "
-            >
-                TAVYA
-            </div>
-        `;
+            loadTavyaLogo(
+                "header-tavya-logo"
+            );
 
 
-        target.classList.remove(
-            "loading"
-        );
+            loadTavyaLogo(
+                "footer-tavya-logo"
+            );
 
-    }
-
-}
-
+        }
+    );
 
 
-/* =========================================================
-   LOAD BOTH LOGOS
-   ========================================================= */
+})();
+
+</script>
+
+
+<!-- =========================================================
+     MOBILE NAVIGATION
+     ========================================================= -->
+
+<script>
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        loadTavyaLogo(
-            "header-logo"
-        );
-
-        loadTavyaLogo(
-            "footer-logo"
-        );
-
-    }
-);
-
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
 
         const menuToggle =
             document.querySelector(
                 ".menu-toggle"
             );
+
 
         const navLinks =
             document.querySelector(
@@ -1613,9 +1580,11 @@ document.addEventListener(
             navLinks
         ) {
 
+
             menuToggle.addEventListener(
                 "click",
                 function () {
+
 
                     const isOpen =
                         navLinks.classList.toggle(
@@ -1628,45 +1597,67 @@ document.addEventListener(
                         isOpen
                     );
 
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        isOpen
+                            ? "Close navigation menu"
+                            : "Open navigation menu"
+                    );
+
                 }
             );
 
 
+            /*
+             * Close mobile menu when
+             * a navigation link is selected.
+             */
+
             navLinks
                 .querySelectorAll("a")
-                .forEach(
-                    function (link) {
-
-                        link.addEventListener(
-                            "click",
-                            function () {
-
-                                navLinks.classList.remove(
-                                    "mobile-open"
-                                );
+                .forEach(function (link) {
 
 
-                                menuToggle.setAttribute(
-                                    "aria-expanded",
-                                    "false"
-                                );
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-                            }
-                        );
 
-                    }
-                );
+                            navLinks.classList.remove(
+                                "mobile-open"
+                            );
+
+
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                            menuToggle.setAttribute(
+                                "aria-label",
+                                "Open navigation menu"
+                            );
+
+                        }
+                    );
+
+                });
 
         }
 
     }
 );
 
+</script>
 
 
-/* =========================================================
-   TEMPORARY COMING SOON
-   ========================================================= */
+<!-- =========================================================
+     TEMPORARY SUPPORT MESSAGE
+     ========================================================= -->
+
+<script>
 
 function showComingSoon(feature) {
 
@@ -1676,7 +1667,6 @@ function showComingSoon(feature) {
     );
 
 }
-
 
 </script>
 
